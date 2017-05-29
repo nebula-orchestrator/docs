@@ -1,0 +1,10 @@
+site_name: Nebula
+theme: readthedocs
+pages:
+    - Home: index.md
+    - Installing: install.md
+    - Using: use.md
+    - Configuration settings: config.md
+    - API: api.md
+    - What to monitor: monitoring.md
+    - Wishlist: wishlist.md

@@ -1,6 +1,7 @@
 ### what to monitor?
 
 it's best to monitor the following components:
+
 * Mongo - following mongo best practices
 * RabbitMQ = following RabbitMQ best practices
 * docker service - on all hosts

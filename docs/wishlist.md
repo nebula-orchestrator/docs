@@ -1,3 +1,5 @@
+the following is a wishlist of things that could be added\changed in nebula, this is a temporery list until a proper github workflow gets rolling:
+
 1. add multiple back-ends rather then just mongodb (etcd, mysql\maria, etc), also note in docs that maria is the recommended method (Maria multi-master write & all synced read slaves is perfect for Nebula flow)
 2. add volume\storage plugin usage for containers
 3. add network plugin usage for containers
@@ -21,7 +23,6 @@
 21. multiple auth methods (AD/LDAP, OAuth, etc...)
 22. https://opencollective.com/ sponsorship & backers ecosystem?
 23. a real website rather then just the git repo
-24. move all the docs to mkdocs with readthedocs theme and store in it's own repo and on readthedocs.io
-25. redo the wishlist to task list in the github builtin task board
-26. finish rolling restart module
-27. add mount folders\files support
+24. redo the wishlist to task list in the github builtin task board
+25. finish rolling restart module
+26. add mount folders\files support
