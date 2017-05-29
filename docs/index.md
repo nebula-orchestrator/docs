@@ -37,10 +37,9 @@ as each worker server is in charge only of it's own containers all pulls from ra
 
 # Repo folder structure
 
-* api-manager - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
-* docs - misc docs (schematics, wishlist\todo's, and API doc)
-* scripts - some helper scripts such as a jenkins script to deploy new versions upon build
-* worker-manager - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
+* [api-manager](https://github.com/nebula-orchestrator/worker-manager) - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
+* [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
+* [worker-manager](https://github.com/nebula-orchestrator/api-manager) - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
 
 # example architecture
 
