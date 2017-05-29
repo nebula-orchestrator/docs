@@ -8,4 +8,5 @@ pages:
     - API: api.md
     - What to monitor: monitoring.md
     - Wishlist: wishlist.md
+    - Contributing: contribute.md
 repo_url: https://github.com/nebula-orchestrator/docs
