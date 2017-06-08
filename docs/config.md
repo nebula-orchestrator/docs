@@ -1,6 +1,6 @@
-## configuring apps
+## Configuring apps
 
-the following table shows the config variables used to set individual apps inside nebula (via the API):
+The following table shows the config variables used to set individual apps inside nebula (via the API):
 
 | field              | type        | example value                                 | description                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |--------------------|-------------|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -12,9 +12,9 @@ the following table shows the config variables used to set individual apps insid
 | network_mode            | string        | "bridge"                               | the network mode of the containers, should be either bridge, host, none, "container:<name/id>"                                                                                                                                                                                                                                                                                                                                                                   |
 
 
-## configuring Nebula
+## Configuring Nebula
 
-the following table shows the config variables used to set nebula:
+The following table shows the config variables used to set nebula:
 
 | conf.json variable name     | envvar variable name        | used in                     | example value                                                                                                        | type   | description                                                                                                                                                                                                                          | required |
 |-----------------------------|-----------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -36,7 +36,7 @@ the following table shows the config variables used to set nebula:
 
 envvars take priority over variables set in the conf.json file in case both are set, it's suggested to always wrap envvars values in Quotation marks but it's only required if the envvar uses special characters (for example "mongodb://mongo_user:mongo_pass@mongo_host:27017/?ssl=true&replicaSet=mongo_replica_set&authSource=mongo_auth_schema")
 
-the following table shows the path of each config file inside the docker containers:
+The following table shows the path of each config file inside the docker containers:
 
 | container      | config path inside container | example Dockerfile COPY command overwrite |
 |----------------|------------------------------|-------------------------------------------|
