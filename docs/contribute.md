@@ -27,6 +27,7 @@ prior to making any pull requests
 * spreading the word
 
 ### Summary
+
 * Your awesome for helping, thanks.
 
 P.S.
