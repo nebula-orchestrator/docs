@@ -31,4 +31,4 @@ prior to making any pull requests
 * Your awesome for helping, thanks.
 
 P.S.
-Don't forget to add yourself to to CONTRIBUTORS file.
+Don't forget to add yourself to to CONTRIBUTORS.md file.
