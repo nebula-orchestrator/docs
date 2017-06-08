@@ -2,17 +2,18 @@
 
 # Notices
 
-1. This is an opensource project, see attached license for more details.
-2. The project is still rather young but that said it's already in use in a production environment at [vidazoo](https://www.vidazoo.com/) (Nebula was originally developed as an internal tool for vidazoo) for about a year in a multi cloud, multi region, high traffic (10 million+ requests/minute) environment with great success.
-3. Help is very much welcomed.
-4. tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
-5. tested Docker versions: 11.x up to 17.03.1-ce.
+ 1. This is an opensource project, see attached license for more details.
+ 2. The project is still rather young but that said it's already in use in a production environment at [vidazoo](https://www.vidazoo.com/) (Nebula was originally developed as an internal tool for vidazoo) for about a year in a multi cloud, multi region, high traffic (10 million+ requests/minute) environment with great success.
+ 3. Help is very much welcomed.
+ 4. tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
+ 5. tested Docker versions: 11.x up to 17.03.1-ce.
 
 # Description
 
 this repo is designed to store all code for our custom built massive scale container management system, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD for docker which allows deploying to thousands of servers simultaneously using a single API call.
 
 allows to:
+
 1. change ports
 2. change envvars
 3. stop\start\restart\rolling restart containers
