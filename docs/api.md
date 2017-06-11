@@ -29,8 +29,8 @@ Cache-Control: no-cache
 Postman-Token: 1c4b215b-7bb4-8045-4896-9c4d3ac3c2de
  
 {
-    "starting_ports": [80],
-    "containers_per_cpu": 5,
+    "starting_ports": [{"81": "80"}, 443],
+    "containers_per": {"cpu": 5},
     "env_vars": {"test": "test123"},
     "docker_image" : "registry.vidazoo.com:5000/nginx",
     "running": true,
@@ -43,7 +43,7 @@ success
 ```
 202
 {
-  "containers_per_cpu": 5,
+  "containers_per": {"cpu": 5},
   "docker_image": "registry.vidazoo.com:5000/nginx",
   "env_vars": {
     "test": "test123"
@@ -137,7 +137,7 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
 ```
 200
 {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
@@ -172,7 +172,7 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
 ```
 202
 {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
@@ -208,7 +208,7 @@ Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
 ```
 202
  {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
@@ -244,7 +244,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 202
 {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
@@ -282,7 +282,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 202
 {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
@@ -315,7 +315,7 @@ Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
  
 {
     "starting_ports": [80, 443, 5555],
-    "containers_per_cpu": 8,
+    "containers_per": {"cpu": 5},
     "env_vars": {"test": "blabla123", "test3t2t32": "tesg4ehgee"},
     "docker_image" : "registry.vidazoo.com:5000/httpd",
     "running": true,
@@ -328,7 +328,7 @@ success:
 ```
 202
  {
-  "containers_per_cpu": 8,
+  "containers_per": {"cpu": 5},
   "app_name": "test",
   "env_vars": {
     "test": "blabla123",
