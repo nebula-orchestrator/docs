@@ -20,10 +20,10 @@ prior to making any pull requests
 ## What you can help with
 
 * Documentation - everyone hates them but without them would you be able to figure out how to use Nebula?
-* Bug fixes - need I say more?
+* Bug fixes / feature requests - anything off github issues lists
 * Submitting tickets - even if you don't have the time\knowledge to fix a bug just opening a github issue about it will greatly help
 * Suggesting improvements
-* Doing anything off the [wishlist](http://nebula.readthedocs.io/en/latest/wishlist/)
+* For larger tasks - doing anything off the [wishlist](http://nebula.readthedocs.io/en/latest/wishlist/)
 * Spreading the word
 
 ### Summary
