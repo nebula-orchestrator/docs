@@ -56,7 +56,7 @@ success
 }
 ```
 
-missing paramters
+missing parameters
 ```
 400
 {
