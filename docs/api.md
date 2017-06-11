@@ -49,6 +49,7 @@ success
     "test": "test123"
   },
   "running": true,
+  "network_mode": "bridge",
   "starting_ports": [
     80
   ]
@@ -144,6 +145,7 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "network_mode": "bridge",
   "starting_ports": [
     80,
     443,
@@ -179,6 +181,7 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
     "test3t2t32": "tesg4ehgee"
   },
   "running": false,
+  "network_mode": "bridge",
   "command": "stop",
   "starting_ports": [
     80,
@@ -215,6 +218,7 @@ Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "network_mode": "bridge",
   "command": "start",
   "starting_ports": [
     80,
@@ -252,6 +256,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
   },
   "running": true,
   "command": "restart",
+  "network_mode": "bridge",
   "starting_ports": [
     80,
     443,
@@ -289,6 +294,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "network_mode": "bridge",
   "command": "roll",
   "starting_ports": [
     80,
@@ -336,6 +342,7 @@ success:
   },
   "running": true,
   "command": "update",
+  "network_mode": "bridge",
   "starting_ports": [
     80,
     443,
