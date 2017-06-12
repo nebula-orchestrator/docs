@@ -3,4 +3,3 @@ The following is a wishlist of things that could be added\changed in nebula,for 
 1. A CLI
 2. A web interface
 3. A real website rather then just the git repo
-4. Python SDK

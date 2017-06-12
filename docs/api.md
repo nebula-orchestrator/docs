@@ -1,5 +1,5 @@
 # get api status
-a simple webpage that can be used to monitor the API is working
+a simple webpage that can be used to monitor the API is working, if your using python there is an API located at [github](https://github.com/nebula-orchestrator/nebula-python-sdk)
 ### request
 ```
 GET /api/status HTTP/1.1
