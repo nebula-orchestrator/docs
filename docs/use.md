@@ -1,4 +1,4 @@
-After you have Nebula installed using it is rather strightforward, you make an API request to the api-manager every time you want to change one of the apps (deploying new version, update envvar, etc...), aside from that nebula will keep everything running with the latest version & if you want to scale out you simply add more servers of the component you want to add more.
+After you have Nebula installed using it is rather straightforward, you make an API request to the api-manager every time you want to change one of the apps (deploying new version, update envvar, etc...), aside from that nebula will keep everything running with the latest version & if you want to scale out you simply add more servers of the component you want to add more.
 
 # Configuring Nebula
 
