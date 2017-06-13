@@ -54,7 +54,7 @@ This will use the host network so all you need is a LB that binds to port 80 and
 3. Create worker nodes with the APP_NAME="site,lb" envvar tag for said servers to know they need to load both the "lb" & the "site" apps
 4. Create a sever LB layer, in AWS using ELB is great for that but any standard LB will do.
 
-Your done, each request will now be directed to one of your "site" containers & should your site takeoff you can scale said architecture to handle billions of requests easily by adding more servers with the tag, or if you want to change your site a singel API call will update all of your containers to a new version.
+Your done, each request will now be directed to one of your "site" containers & should your site takeoff you can scale said architecture to handle billions of requests easily by adding more servers with the tag, or if you want to change your site a single API call will update all of your containers to a new version.
 
 # Backup & restore
 
