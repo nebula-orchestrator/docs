@@ -1,3 +1,5 @@
+# Nebula comparision to other orchestration platforms
+
 A common question is why need another orchestrator when there are many other popular options? 
 
 The answer for that is that while the popular container orchestrators are great they have a few limitations which Nebula avoids:
