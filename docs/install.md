@@ -27,6 +27,7 @@ The basic steps to getting Nebula to work is:
              roles: [ "readWrite" ]
            }
         )
+        
 3. Create RabbitMQ, preferably a cluster with HA queues between them or even federated nodes for a large enough cluster
 4. Create a vhost on Rabbit & a user with read&write&configure permissions for it.
 5. Create your copy of the api-manger docker image, a base image is available at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/api/) with the "api-manager" tag (example: `docker pull nebulaorchestrator/nebula:api-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
