@@ -17,13 +17,25 @@ Optionally you will also want to add the following:
 The basic steps to getting Nebula to work is:
 
 1. Create mongo, preferably a cluster & even a sharded cluster for large enough cluster
-2. Create RabbitMQ, preferably a cluster with HA queues between them or even federated nodes for a large enough cluster
-3. Create your copy of the api-manger docker image, a base image is available at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/api/) with the "api-manager" tag (example: `docker pull nebulaorchestrator/nebula:api-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
-4. Create api servers and have them run the api-manager container, make sure to open the api-manager ports on everything along the way & it's recommended having the restart=always flag set, preferably 2 at least load balanced between them for example:
+2. Create a database for Nebula on Mongo & a user with read&write permissions for the api-manger & worker-manager and optionally a read only user for use by the worker-manager for it for example:
+`
+use nebula
+db.createUser(
+   {
+     user: "nebula",
+     pwd: "password",
+     roles: [ "readWrite" ]
+   }
+)
+`
+3. Create RabbitMQ, preferably a cluster with HA queues between them or even federated nodes for a large enough cluster
+4. Create a vhost on Rabbit & a user with read&write&configure permissions for it.
+5. Create your copy of the api-manger docker image, a base image is available at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/api/) with the "api-manager" tag (example: `docker pull nebulaorchestrator/nebula:api-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
+6. Create api servers and have them run the api-manager container, make sure to open the api-manager ports on everything along the way & it's recommended having the restart=always flag set, preferably 2 at least load balanced between them for example:
  `/usr/bin/docker run -d -p 80:80 --restart=always --name nebula-api-manager <your_api_manager_container>`
-5. Create your copy of the worker-manger docker image, a base image is available at docker hub at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/worker/) with the "worker-manager" tag (example: `docker pull nebulaorchestrator/nebula:worker-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
-6. Create the worker servers and have them run the worker-manager container, make sure to bind the docker socket & having the restart=always flag set is mandatory as nebula worker-manager relies on containers restarts to reconnect to rabbit in case of long durations of it being unable to connect to rabbit in order to ensure latest app config is set correctly, the container needs to run with an APP_NAME envvvar:
+7. Create your copy of the worker-manger docker image, a base image is available at docker hub at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/worker/) with the "worker-manager" tag (example: `docker pull nebulaorchestrator/nebula:worker-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
+8. Create the worker servers and have them run the worker-manager container, make sure to bind the docker socket & having the restart=always flag set is mandatory as nebula worker-manager relies on containers restarts to reconnect to rabbit in case of long durations of it being unable to connect to rabbit in order to ensure latest app config is set correctly, the container needs to run with an APP_NAME envvvar:
  `/usr/bin/docker run -d --restart=always -e APP_NAME="example-app,example-app-load-balancer,example-app-logg-aggregator" --name nebula-worker-manager -v /var/run/docker.sock:/var/run/docker.sock <your_worker_manager_container>`
-7. Create the haproxy\lb on each worker server, the recommended method is to have it containerized and managed from inside nebula as another nebula app (possibly not needed for services not accepting outside requests or for small scale where just the outside LB will do), attached is an [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg).
-8. Create either an external LB\ELB to route traffic between the worker servers or route53\DNS LB between the servers.
-9. Create the apps using the nebula API using the same APP_NAME as those you passed to the worker-manager
+9. Create the haproxy\lb on each worker server, the recommended method is to have it containerized and managed from inside nebula as another nebula app (possibly not needed for services not accepting outside requests or for small scale where just the outside LB will do), attached is an [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg).
+10. Create either an external LB\ELB to route traffic between the worker servers or route53\DNS LB between the servers.
+11. Create the apps using the nebula API using the same APP_NAME as those you passed to the worker-manager
