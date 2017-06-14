@@ -7,7 +7,7 @@ pages:
     - Configuration settings: config.md
     - API: api.md
     - SDK:
-        - 'Python': 'python-sdk.md'
+        - 'Python': 'sdk/python-sdk.md'
     - What to monitor: monitoring.md
     - Roadmap: roadmap.md
     - Nebula vs. Others: compare2orchestrators.md
