@@ -18,16 +18,16 @@ The basic steps to getting Nebula to work is:
 
 1. Create mongo, preferably a cluster & even a sharded cluster for large enough cluster
 2. Create a database for Nebula on Mongo & a user with read&write permissions for the api-manger & worker-manager and optionally a read only user for use by the worker-manager for it for example:
-`````
-use nebula
-db.createUser(
-   {
-     user: "nebula",
-     pwd: "password",
-     roles: [ "readWrite" ]
-   }
-)
-`````
+    `````
+    use nebula
+    db.createUser(
+       {
+         user: "nebula",
+         pwd: "password",
+         roles: [ "readWrite" ]
+       }
+    )
+    `````
 3. Create RabbitMQ, preferably a cluster with HA queues between them or even federated nodes for a large enough cluster
 4. Create a vhost on Rabbit & a user with read&write&configure permissions for it.
 5. Create your copy of the api-manger docker image, a base image is available at [docker-hub](https://hub.docker.com/r/nebulaorchestrator/api/) with the "api-manager" tag (example: `docker pull nebulaorchestrator/nebula:api-manager`), either use it as a baseline FROM to create your own image or mount your own config file to replace the default one
