@@ -10,7 +10,7 @@ services:
    rabbit:
      image: rabbitmq:3.6.10
      ports:
-       - "5674:5674"
+       - "5672:5672"
      restart: unless-stopped
 
    api:
@@ -23,7 +23,7 @@ services:
      restart: unless-stopped
      environment:
        RABBIT_HOST: rabbit
-       RABBIT_PORT: 5674
+       RABBIT_PORT: 5672
        RABBIT_USER: nebula
        RABBIT_PASSWORD: nebula
        RABBIT_VHOST: nebula
@@ -44,7 +44,7 @@ services:
      restart: unless-stopped
      environment:
        RABBIT_HOST: rabbit
-       RABBIT_PORT: 5674
+       RABBIT_PORT: 5672
        RABBIT_USER: nebula
        RABBIT_PASSWORD: nebula
        RABBIT_VHOST: nebula
