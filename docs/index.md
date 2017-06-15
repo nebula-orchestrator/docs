@@ -33,6 +33,12 @@ As each worker server is in charge only of it's own containers all pulls from ra
 * [api-manager](https://github.com/nebula-orchestrator/worker-manager) - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
 * [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
 * [worker-manager](https://github.com/nebula-orchestrator/api-manager) - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
+* [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
+
+# docker hub repos
+
+* [api-manager](https://hub.docker.com/r/nebulaorchestrator/api/) - prebuilt docker image of the api-manager
+* [worker-manager](https://hub.docker.com/r/nebulaorchestrator/worker/) - prebuilt docker image of the worker-manager
 
 # Notices
 
