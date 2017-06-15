@@ -55,4 +55,4 @@ services:
        REGISTRY_AUTH_PASSWORD:
        REGISTRY_HOST:
        MAX_RESTART_WAIT_IN_SECONDS: 0
-       APP_NAME: nginx
+       APP_NAME: test
