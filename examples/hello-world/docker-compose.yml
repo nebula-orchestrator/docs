@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+   mongo:
+     image: mongo
+     ports:
+       - "27017:27017"
+     restart: unless-stopped
+
+   rabbit:
+     image: rabbitmq
+     ports:
+       - "5674:5674"
+     restart: unless-stopped
+
+   api:
+     depends_on:
+       - rabbit
+       - mongo
+     image: nebulaorchestrator/api
+     ports:
+       - "80:80"
+     restart: unless-stopped
+     environment:
+       RABBIT_HOST: rabbit
+       RABBIT_PORT: 5674
+       RABBIT_USER: nebula
+       RABBIT_PASSWORD: nebula
+       RABBIT_VHOST: nebula
+       RABBIT_HEARTBEAT: 3600
+       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula"
+       SCHEMA_NAME: nebula
+       BASIC_AUTH_PASSWORD: nebula
+       BASIC_AUTH_USER: nebula
+
+   worker:
+     depends_on:
+       - api
+       - rabbit
+       - mongo
+     image: nebulaorchestrator/worker
+     volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+     restart: unless-stopped
+     environment:
+       RABBIT_HOST: rabbit
+       RABBIT_PORT: 5674
+       RABBIT_USER: nebula
+       RABBIT_PASSWORD: nebula
+       RABBIT_VHOST: nebula
+       RABBIT_HEARTBEAT: 3600
+       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula"
+       SCHEMA_NAME: nebula
+       REGISTRY_AUTH_USER:
+       REGISTRY_AUTH_PASSWORD:
+       REGISTRY_HOST:
+       MAX_RESTART_WAIT_IN_SECONDS: 0
+       APP_NAME: nginx
