@@ -2,13 +2,13 @@ version: '3'
 
 services:
    mongo:
-     image: mongo
+     image: mongo:3.4.4
      ports:
        - "27017:27017"
      restart: unless-stopped
 
    rabbit:
-     image: rabbitmq
+     image: rabbitmq:3.6.10
      ports:
        - "5674:5674"
      restart: unless-stopped
