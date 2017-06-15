@@ -8,7 +8,7 @@ can help
 * Fork the latest branch of the component you want to contribute to
 * Make sure you have a [GitHub account](https://github.com/signup/free)
 * Use virtualenv to install all requirements from the requirements.txt file
-* Fix the issue you \ add a feature
+* Fix an issue \ add a feature
 * Create a pull request
 
 
