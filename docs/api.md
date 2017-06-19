@@ -335,8 +335,8 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 }
 ```
 
-# update app
-update a Nebula app config, currently all the permaters needs to be overwritten at once  (POST only), UPDATE support is on the todo list
+# update all of app params (POST)
+update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead.
 
  **request**
 
@@ -377,6 +377,60 @@ success:
     80,
     443,
     5555
+  ],
+  "_id": {
+    "$oid": "57ebd2ed28447e1e09e72d6a"
+  },
+  "docker_image": "registry.vidazoo.com:5000/httpd"
+}
+```
+
+missing parameters:
+```
+400
+{
+ "missing_parameters": "True"
+}
+```
+
+# update some app params (PUT)
+update a Nebula app config, 
+
+ **request**
+
+```
+PUT /api/apps/test/update HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
+ 
+{
+    "starting_ports": [80, 443, 6666],
+    "containers_per": {"server": 2}
+}
+```
+
+ **response example**
+
+success:
+```
+202
+ {
+  "containers_per": {"server": 2},
+  "app_name": "test",
+  "env_vars": {
+    "test": "blabla123",
+    "test3t2t32": "tesg4ehgee"
+  },
+  "running": true,
+  "command": "update",
+  "network_mode": "bridge",
+  "starting_ports": [
+    80,
+    443,
+    6666
   ],
   "_id": {
     "$oid": "57ebd2ed28447e1e09e72d6a"
