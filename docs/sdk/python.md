@@ -4,11 +4,17 @@ An SDK for managing [nebula](http://nebula.readthedocs.io/en/latest/) via python
 Translates all of Nebula [API](http://nebula.readthedocs.io/en/latest/api/) calls to something more pythonic.
 
 Source code is available at [github](https://github.com/nebula-orchestrator/nebula-python-sdk)
+
 # How To Use
-```python
+
+First install NebulaPythonSDK:
+```bash
 # install from PyPi
 pip install NebulaPythonSDK
+```
 
+Now you can use it in your python conde:
+```python
 # Load API wrapper from library
 from NebulaPythonSDK import Nebula
 
