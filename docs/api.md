@@ -393,7 +393,7 @@ missing parameters:
 }
 ```
 
-# update some app params (PUT)
+# update some app params (PUT / PATCH)
 update a Nebula app config, 
 
  **request**
