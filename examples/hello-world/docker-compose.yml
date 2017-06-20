@@ -2,18 +2,27 @@ version: '3'
 
 services:
    mongo:
+     container_name: mongo
+     hostname: mongo
      image: mongo:3.4.4
      ports:
        - "27017:27017"
      restart: unless-stopped
 
    rabbit:
+     container_name: rabbit
+     hostname: rabbit
      image: rabbitmq:3.6.10
      ports:
        - "5672:5672"
+       - "5671:5671"
+       - "4369:4369"
+       - "25672:25672"
      restart: unless-stopped
 
    api:
+     container_name: api-manager
+     hostname: api
      depends_on:
        - rabbit
        - mongo
@@ -34,6 +43,7 @@ services:
        BASIC_AUTH_USER: nebula
 
    worker:
+     container_name: worker-manager
      depends_on:
        - api
        - rabbit
@@ -42,6 +52,7 @@ services:
      volumes:
        - /var/run/docker.sock:/var/run/docker.sock
      restart: unless-stopped
+     hostname: worker
      environment:
        RABBIT_HOST: rabbit
        RABBIT_PORT: 5672
