@@ -2,7 +2,7 @@
 
 ```bash
 docker exec -it mongo mongo
-use admin
+use nebula
 db.createUser(
    {
      user: "nebula",
@@ -10,7 +10,6 @@ db.createUser(
      roles: [ "readWrite" ]
    }
 )
-use nebula
 
 ```
 
