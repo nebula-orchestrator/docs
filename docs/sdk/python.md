@@ -13,7 +13,7 @@ First install NebulaPythonSDK:
 pip install NebulaPythonSDK
 ```
 
-Now you can use it in your python conde:
+Now you can use it in your python code:
 ```python
 # Load API wrapper from library
 from NebulaPythonSDK import Nebula

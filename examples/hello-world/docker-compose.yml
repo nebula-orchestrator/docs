@@ -37,7 +37,7 @@ services:
        RABBIT_PASSWORD: nebula
        RABBIT_VHOST: nebula
        RABBIT_HEARTBEAT: 3600
-       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula"
+       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula
        SCHEMA_NAME: nebula
        BASIC_AUTH_PASSWORD: nebula
        BASIC_AUTH_USER: nebula
@@ -60,7 +60,7 @@ services:
        RABBIT_PASSWORD: nebula
        RABBIT_VHOST: nebula
        RABBIT_HEARTBEAT: 3600
-       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula"
+       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula
        SCHEMA_NAME: nebula
        REGISTRY_AUTH_USER:
        REGISTRY_AUTH_PASSWORD:
