@@ -2,6 +2,7 @@ site_name: Nebula
 theme: readthedocs
 pages:
     - Home: index.md
+    - Getting Started: getting-started.md
     - Installing: install.md
     - Using: use.md
     - Configuration settings: config.md

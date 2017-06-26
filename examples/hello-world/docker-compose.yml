@@ -64,6 +64,6 @@ services:
        SCHEMA_NAME: nebula
        REGISTRY_AUTH_USER:
        REGISTRY_AUTH_PASSWORD:
-       REGISTRY_HOST:
+       REGISTRY_HOST: https://index.docker.io/v1/
        MAX_RESTART_WAIT_IN_SECONDS: 0
-       APP_NAME: test
+       APP_NAME: example
