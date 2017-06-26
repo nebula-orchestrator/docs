@@ -6,7 +6,7 @@ Note that some linux systems have epmd installed which the following rabbitmq co
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
 2. Nebula is geared towards using a private registry but will also work with docker hub, it does require a user so edit the docker-compose.yml by entering your docker hub user & password into "REGISTRY_AUTH_USER" & "REGISTRY_AUTH_PASSWORD", if your using a private registry change the "REGISTRY_HOST" variable as well to point to your private registry.
 from the directory where you saved docker-compose.yml at (same name is important) run `docker-compose up -d`, don't worry if you see the worker-manager & api-manager restarting, it's because the mongo & rabbit containers aren't configured yet so they fail to connect to it
-3. Create the database use & schema using the following commands:
+3. Create the database user & schema using the following commands:
 
         docker exec -it mongo mongo
         use nebula
