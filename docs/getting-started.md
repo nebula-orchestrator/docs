@@ -46,4 +46,4 @@ from the directory where you saved docker-compose.yml at (same name is important
           "network_mode": "host"
         }'
         
-9. Either wait for the changes to catch (usually few seconds at most) or the worker-manager container, you now have your first nebula worker
+9. Either wait for the changes to catch (usually few seconds at most) or restart the worker-manager container, you now have your first nebula worker
