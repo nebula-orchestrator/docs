@@ -2,7 +2,7 @@
 
 # Description
 
-This repo is designed to store all code for our custom built massive scale container management system, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD for docker which allows deploying to thousands of servers simultaneously using a single API call.
+Nebula is a massive scale container management system, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD (or even as puppet for docker hosts) for docker which allows deploying to thousands of servers simultaneously using a single API call.
 
 Allows to:
 
