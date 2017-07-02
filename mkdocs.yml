@@ -12,8 +12,9 @@ pages:
       - CLI: cli.md
       - API: api.md
       - Python-SDK: 'sdk/python.md'
-    - What to monitor: monitoring.md
-    - Roadmap: roadmap.md
-    - Nebula vs. Others: compare2orchestrators.md
-    - Contributing: contribute.md
+    - Misc:
+      - What to monitor: monitoring.md
+      - Roadmap: roadmap.md
+      - Nebula vs. Others: compare2orchestrators.md
+      - Contributing: contribute.md
 repo_url: https://github.com/nebula-orchestrator/docs
