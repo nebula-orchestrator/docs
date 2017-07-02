@@ -2,12 +2,16 @@ site_name: Nebula
 theme: readthedocs
 pages:
     - Home: index.md
-    - Getting Started: getting-started.md
-    - Installing: install.md
-    - Using: use.md
-    - Configuration settings: config.md
-    - API: api.md
-    - Python-SDK: 'sdk/python.md'
+    - Setting up:
+      - Getting Started: getting-started.md
+      - Installing: install.md
+    - Configuring:
+      - Using: use.md
+      - Configuration settings: config.md
+    - Controling:
+      - CLI: cmd.md
+      - API: api.md
+      - Python-SDK: 'sdk/python.md'
     - What to monitor: monitoring.md
     - Roadmap: roadmap.md
     - Nebula vs. Others: compare2orchestrators.md
