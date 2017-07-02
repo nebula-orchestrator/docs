@@ -24,7 +24,7 @@ Attached below is a table comparision between Nebula and the popular options
 | Full REST API | yes | yes | yes | partial - by default no outside endpoint is available  |
 | Self healing | yes | yes | yes | yes |
 | Simple worker scaling up & down | yes | yes | yes | partial - scaling down cleanly requires an api call rather then just shutting down the server like the rest |
-| CLI | WIP | yes | yes | yes |
+| CLI | yes | yes | yes | yes |
 | GUI | WIP | yes | yes | no |
 | Load Balancing | yes- supports bringing your own HAProxy\Nginx\etc in a 2 step process (the first between instances & the 2nd between containers on that instance) | yes - HTTP only for outside connections - marathon-lb, supports bringing your own otherwise | yes | yes - auto routes inside the cluster but you still need to LB between cluster nodes from the outside  |
 | Simple masters scaling up & down | yes - master is fully stateless | no | no | partial - simple as long as quorum remains in the process |
