@@ -9,7 +9,7 @@ pages:
       - Using: use.md
       - Configuration settings: config.md
     - Controling:
-      - CLI: cmd.md
+      - CLI: cli.md
       - API: api.md
       - Python-SDK: 'sdk/python.md'
     - What to monitor: monitoring.md

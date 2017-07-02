@@ -1,5 +1,5 @@
 # Install 
-the first step in using the nebulactl CLI tool is to install it, you do that by running the following command: 
+the first step in using the nebulactl CLI tool is to install it, you do that by running the following command on a 64bit Linux OS: 
 
 ```bash
 sudo wget https://github.com/nebula-orchestrator/nebula-cmd/raw/master/dist/nebulactl -O  /usr/local/bin/nebulactl && sudo chmod +x /usr/local/bin/nebulactl
