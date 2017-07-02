@@ -15,6 +15,7 @@ Allows to:
 7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma seperated list you start the worker-manager container with, allowing you to mix and match for diffrent worker clusters while still managing all of them from the same api-manager containers.
 
 There are 2 custom created services:
+
 1. api manager - a REST API endpoint to control nebula, fully stateless (all data stored in DB only).
 2. worker manager - a container which listens to rabbit and manages the worker server it runs on, one has to run on each worker, fully stateless.
 
