@@ -1,4 +1,4 @@
-# install 
+# Install 
 the first step in using the nebulactl CLI tool is to install it, you do that by running the following command: 
 
 ```bash
@@ -7,7 +7,7 @@ sudo wget https://github.com/nebula-orchestrator/nebula-cmd/raw/master/dist/nebu
 
 this install a single bin file in the /usr/local/bin path which makes it accessible from any path in the shell.
 
-# login
+# Login
 after installing "nebulactl" you have to configure it by pointing it to your cluster, you do it by running the following command
 
 ```bash
@@ -22,7 +22,7 @@ nebulactl login
 
 either of this 2 methods creates a file in ~/.nebula.json with the login details, nebulactl checks this file every time it runs a command against the nebula API, also note that the file is per user so if you have multiple users you will have to either copy this file or run the `nebulactl login` command for each of them
 
-# use
+# Use
 the --help argument will give you the needed parameters for each command, most commands will also prompt interactively if a required parameter is missing to ease first time users.
 
 ```bash

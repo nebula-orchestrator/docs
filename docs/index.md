@@ -49,7 +49,7 @@ As each worker server is in charge only of it's own containers all pulls from ra
  4. Tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
  5. Tested Docker versions: 11.x up to 17.03.1-ce.
 
-# example architecture
+# Example architecture
 
 Attached are 2 example for you to draw inspiration from when designing yours:
 

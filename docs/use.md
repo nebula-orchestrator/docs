@@ -4,7 +4,7 @@ After you have Nebula installed using it is rather straightforward, you make an 
 
 Configuring can be done either via envvars or via replacing the attached conf.json to one with your own variables, more info about possible config variables can be found at the [config page](http://nebula.readthedocs.io/en/latest/config/)
 
-# creating & configuring apps
+# Creating & configuring apps
 
 Let's say you want to create an app named "site" which hosts your website, to do that on your nebula cluster you will do the following:
 

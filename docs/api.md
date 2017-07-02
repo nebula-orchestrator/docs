@@ -1,4 +1,4 @@
-# get api status
+# Get api status
 a simple webpage that can be used to monitor the API is working
 
  **request**
@@ -20,7 +20,7 @@ success
 { "api_avilable": "True" }
 ```
 
-# create app
+# Create app
 create a new app inside the Nebula cluster
 
  **request**
@@ -79,7 +79,7 @@ app already exists
 
 ```
 
-# delete app
+# Delete app
 delete an app from the nebula cluster, be careful as the only way to restore a deleted app is manually creating it with the same veriables
 
  **request**
@@ -109,7 +109,7 @@ when trying to delete a non existing app:
 }
 ```
 
-# list apps
+# List apps
 list all apps managed in the current Nebula cluster
 
  **request**
@@ -134,7 +134,7 @@ Postman-Token: 9ed33e7a-ade5-8512-2faf-e8697d855af8
 }
 ```
 
-# get app config
+# Get app config
 get a specific Nebula app config 
 
  **request**
@@ -173,7 +173,7 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
 }
 ```
 
-# stop app
+# Stop app
 stop a running Nebula app
 
  **request**
@@ -213,7 +213,7 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
 } 
 ```
 
-# start app
+# Start app
 start a Nebula app
 
  **request**
@@ -253,7 +253,7 @@ Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
 }
 ```
 
-# restart app
+# Restart app
 note that restarting an app also force pulling the latest version of the docker container so can be used as a form of deployment method assuming that the you overwritten the container tag in your docker registry with a newer version
 
  **request**
@@ -293,7 +293,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 }
 ```
 
-# rolling restart app
+# Rolling restart app
 not fully implemented yet - do not use!!!
 
 note that restarting an app also force pulling the latest version of the docker container so can be used as a form of deployment method assuming that the you overwritten the container tag in your docker registry with a newer version
@@ -335,7 +335,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 }
 ```
 
-# update all of app params (POST)
+# Update all of app params (POST)
 update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead.
 
  **request**
@@ -393,7 +393,7 @@ missing parameters:
 }
 ```
 
-# update some app params (PUT / PATCH)
+# Update some app params (PUT / PATCH)
 update a Nebula app config, 
 
  **request**
