@@ -1,6 +1,6 @@
 # Hello World tutorial
 
-The easiest way to get started is usually with a hands on approch, the following tutorial will use docker-compose to set a local Nebula cluster on your machine, it of course requires docker & docker-compose installed so if you don't have them install them first.
+The easiest way to get started is usually with a hands on approach, the following tutorial will use docker-compose to set a local Nebula cluster on your machine, it of course requires docker & docker-compose installed so if you don't have them install them first.
 Note that some linux systems have epmd installed which the following rabbitmq container requires so if your having problems with rabbit refusing to run try killing the host epmd and\or host rabbitmq-server for the duration of this tutorial
 
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
