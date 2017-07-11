@@ -11,7 +11,8 @@ pages:
     - Controling:
       - CLI: cli.md
       - API: api.md
-      - Python-SDK: 'sdk/python.md'
+      - SDK:
+        - Python: 'sdk/python.md'
     - Misc:
       - What to monitor: monitoring.md
       - Roadmap: roadmap.md
