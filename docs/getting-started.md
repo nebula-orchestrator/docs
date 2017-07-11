@@ -46,4 +46,4 @@ from the directory where you saved docker-compose.yml at (same name is important
           "network_mode": "host"
         }'
         
-9. Either wait for the changes to catch (usually few seconds at most) or restart the worker-manager container, you now have your first nebula worker
+9. Either wait for the changes to catch (usually few seconds at most) or restart the worker-manager container, you now have your first nebula worker, because the network is internal in this tutorial you can only run more on the same machine (which kinda defeats the purpose) but after you deploy Nebula by following the [install](install.md) guide you can run as many workers as you need by having multiple servers running the same worker-manager container with the same envvars\config file.
