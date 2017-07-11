@@ -2,7 +2,7 @@ After you have Nebula installed using it is rather straightforward, you make an 
 
 # Configuring Nebula
 
-Configuring can be done either via envvars or via replacing the attached conf.json to one with your own variables, more info about possible config variables can be found at the [config page](http://nebula.readthedocs.io/en/latest/config/)
+Configuring can be done either via envvars or via replacing the attached conf.json to one with your own variables, more info about possible config variables & the config file location can be found at the [config page](http://nebula.readthedocs.io/en/latest/config/)
 
 # Creating & configuring apps
 
