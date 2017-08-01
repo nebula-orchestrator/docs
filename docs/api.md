@@ -17,7 +17,7 @@ Postman-Token: c3c35e8d-e242-b7ac-4b76-d7879be2398a
 success
 ```
 200
-{ "api_avilable": "True" }
+{ "api_available": "True" }
 ```
 
 # Create app
