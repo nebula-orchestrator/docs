@@ -50,7 +50,7 @@ Cache-Control: no-cache
 }
 ```
 
-This will use the host network so all you need is a LB that binds to port 80 and load balances the traffic between ports 81 to 81+<number_of_site_containers>,an example HAPRoxy config which handle the following can be found at  [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg) 
+This will use the host network so all you need is a LB that binds to port 80 and load balances the traffic between ports 81 to 81+number_of_site_containers,an example HAPRoxy config which handle the following can be found at  [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg) 
 
 
 3. Create worker nodes with the APP_NAME="site,lb" envvar tag for said servers to know they need to load both the "lb" & the "site" apps

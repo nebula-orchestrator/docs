@@ -10,7 +10,7 @@ Nebula is composed of the following components:
 Optionally you will also want to add the following:
 
 * A server layer load balancer - ELB works well for this, it job is to direct traffic between all worker nodes
-* A container layer load balancer - the recommended method is to create a nebula app with HAProxy\Nginx that will bind to the host network (not bridge) and will load balance requests to all containers on 127.0.0.1:<containers_port>
+* A container layer load balancer - the recommended method is to create a nebula app with HAProxy\Nginx that will bind to the host network (not bridge) and will load balance requests to all containers on 127.0.0.1:containers_port
 
 # How to install
 
