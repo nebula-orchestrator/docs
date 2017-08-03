@@ -23,6 +23,7 @@ Cache-Control: no-cache
   "env_vars": {"test": "test123"},
   "docker_image" : "<your-site-container-image>",
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "bridge"
 }
 ```
@@ -44,6 +45,7 @@ Cache-Control: no-cache
   "env_vars": {"test": "test123"},
   "docker_image" : "<your-lb-container-image>",
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "host"
 }
 ```

@@ -43,6 +43,7 @@ from the directory where you saved docker-compose.yml at (same name is important
           "env_vars": {},
           "docker_image" : "nginx",
           "running": true,
+          "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
           "network_mode": "host"
         }'
         

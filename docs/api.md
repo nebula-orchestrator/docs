@@ -38,6 +38,7 @@ Postman-Token: 1c4b215b-7bb4-8045-4896-9c4d3ac3c2de
     "containers_per": {"cpu": 5},
     "env_vars": {"test": "test123"},
     "docker_image" : "registry.vidazoo.com:5000/nginx",
+    "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
     "running": true,
     "network_mode": "bridge"
 }
@@ -55,6 +56,7 @@ success
     "test": "test123"
   },
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "bridge",
   "starting_ports": [
     80
@@ -160,6 +162,7 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "bridge",
   "starting_ports": [
     80,
@@ -201,6 +204,7 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
   "running": false,
   "network_mode": "bridge",
   "command": "stop",
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "starting_ports": [
     80,
     443,
@@ -239,6 +243,7 @@ Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "bridge",
   "command": "start",
   "starting_ports": [
@@ -281,6 +286,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
   "running": true,
   "command": "restart",
   "network_mode": "bridge",
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "starting_ports": [
     80,
     443,
@@ -321,6 +327,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "network_mode": "bridge",
   "command": "roll",
   "starting_ports": [
@@ -352,6 +359,7 @@ Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
     "starting_ports": [80, 443, 5555],
     "containers_per": {"cpu": 5},
     "env_vars": {"test": "blabla123", "test3t2t32": "tesg4ehgee"},
+    "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
     "docker_image" : "registry.vidazoo.com:5000/httpd",
     "running": true,
     "network_mode": "bridge"
@@ -425,6 +433,7 @@ success:
     "test3t2t32": "tesg4ehgee"
   },
   "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
   "command": "update",
   "network_mode": "bridge",
   "starting_ports": [
