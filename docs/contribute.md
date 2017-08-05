@@ -5,7 +5,14 @@ can help
 
 ## Getting Started
 
-* Fork the latest branch of the component you want to contribute to
+* Fork the latest branch of the component you want to contribute to:
+
+    * [api-manager](https://github.com/nebula-orchestrator/worker-manager) - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
+    * [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
+    * [worker-manager](https://github.com/nebula-orchestrator/api-manager) - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
+    * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
+    * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
+
 * Make sure you have a [GitHub account](https://github.com/signup/free)
 * Use virtualenv to install all requirements from the requirements.txt file
 * Fix an issue \ add a feature
