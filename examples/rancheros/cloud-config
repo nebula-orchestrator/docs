@@ -1,0 +1,77 @@
+#cloud-config
+ssh_authorized_keys:
+  - ssh-rsa <your_rsa_public_key> <you>@rancher
+runcmd:
+- sudo hostname nebula-<app_name>-`openssl rand -hex 4`.nebula.<your_domain>.com                                                                                                                                                                                                                   
+rancher:
+  sysctl:
+    net.ipv4.conf.default.rp_filter: 1
+    net.ipv4.ip_forward: 0
+    net.ipv4.conf.default.accept_source_route: 0
+    kernel.sysrq: 0
+    kernel.core_uses_pid: 1
+    net.ipv4.tcp_syncookies: 1
+    kernel.msgmnb: 65536
+    kernel.msgmax: 65536
+    kernel.shmmax: 68719476736
+    kernel.shmall: 4294967296
+    fs.file-max: 10000000
+    fs.nr_open: 10000000
+    net.ipv4.ip_local_port_range: 10000 65535
+    net.ipv4.tcp_max_syn_backlog: 300000
+    net.core.somaxconn: 10000
+    net.core.rmem_max: 16777216
+    net.ipv4.tcp_tw_reuse: 1
+    net.core.wmem_max: 16777216
+    net.ipv4.tcp_fin_timeout: 60
+  registry_auths:
+    https://index.docker.io/v1/:
+      username: <docker_hub_username\email>
+      password: <docker_hub_password>
+    <private_registry_url>:<private_registry_port>:
+      username: <private_registry_basic_auth_user>
+      password: <private_registry_basic_auth_pass>
+write_files:
+  - path: /home/rancher/.docker/config.json
+    permissions: "0755"
+    owner: rancher
+    content: |
+      {
+        "auths": {
+          "https://index.docker.io/v1/": {
+                  "auth": "<docker_hub_password>",
+                  "email": "<docker_hub_username\email>"
+          },
+          " <private_registry_url>:<private_registry_port>": {
+                  "auth": "<private_registry_basic_auth_user_pass_combo>"
+          }
+        }
+      }
+       
+  - path: /root/.docker/config.json
+    permissions: "0755"
+    owner: rancher
+    content: |
+      {
+        "auths": {
+          "https://index.docker.io/v1/": {
+                  "auth": "<docker_hub_password>",
+                  "email": "<docker_hub_username\email>"
+          },
+          " <private_registry_url>:<private_registry_port>": {
+                  "auth": "<private_registry_basic_auth_user_pass_combo>"
+          }
+        }
+      }
+       
+  - path: /etc/rc.local
+    permissions: "0755"
+    owner: root
+    content: |
+      #!/bin/bash
+      wait-for-docker
+      docker run -d --restart=always -e APP_NAME=<comma_separated_app_names_in_nebula> --name nebula-worker-manager -v /var/run/docker.sock:/var/run/docker.sock <your_copy_of_nebula_worker_manager>
+      sudo dd if=/dev/zero of=/swapfile bs=1k count=2000000
+      sudo chmod 600 /swapfile
+      sudo mkswap /swapfile
+      sudo swapon /swapfile
