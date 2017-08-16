@@ -51,7 +51,7 @@ As each worker server is in charge only of it's own containers all pulls from ra
  2. The project is still rather young but that been said it's already in use in a production environment at [vidazoo](https://www.vidazoo.com/) (Nebula was originally developed as an internal tool for vidazoo) for about a year in a multi cloud, multi region, high traffic (10 million+ requests/minute) environment with great success.
  3. Help is very much welcomed.
  4. Tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
- 5. Tested Docker versions: 11.x up to 17.03.1-ce, note support for older Docker versions are not gurrentted due to the rapid pace of API changes and new features with new versions.
+ 5. Tested Docker versions: 11.x up to 17.03.1-ce, note support for older Docker versions are not guaranteed due to the rapid pace of API changes and new features with new versions.
 
 # Example architecture
 
