@@ -24,7 +24,9 @@ Cache-Control: no-cache
   "docker_image" : "<your-site-container-image>",
   "running": true,
   "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "network_mode": "bridge"
+  "network_mode": "bridge",
+  "privileged": false,
+  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
 }
 ```
 
@@ -46,7 +48,9 @@ Cache-Control: no-cache
   "docker_image" : "<your-lb-container-image>",
   "running": true,
   "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "network_mode": "host"
+  "network_mode": "host",
+  "privileged": false,
+  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
 }
 ```
 

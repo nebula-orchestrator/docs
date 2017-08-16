@@ -38,6 +38,8 @@ app_conf = {
     "docker_ulimits": [],
     "network_mode": "bridge",
     "running": True,
+    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
+    "privileged": False,
     "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
     "containers_per": {
         "cpu": 6
