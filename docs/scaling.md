@@ -1,0 +1,10 @@
+# Scaling considerations
+
+Nebula was designed so that each component can scale out, below are some things to consider when designing your architecture.
+
+* There are no special configuration needed to scale out\up the api-manager or the worker-manager, you simply add more as needed.
+* The api-manager is fully stateless, the recommended way to running it is inside a docker container on more then 1 server (for redundancy) with either a floating IP between them or behind a load balancer, requests to the API are only made when a change is pushed (by admin\user or CI\CD tool) & as such the required size & number of api-managers is depended on your frequency (or more accurately concurrency) of changes to nebula apps, keep in mind that a single api-manager can handle hundreds of changes per minute.
+* There is only a need for 1 worker-manager per worker node as each worker-manager can handle an unlimited amount of apps on that host, each app is managed in a different thread, there is no hard limit on the amount of worker nodes you can manage with nebula provided you make sure to scale the other Nebula components to handle the required load.
+* Unless using for small scale it's recommended to increase the # of open files allowed on your RabbitMQ servers, both federdation & clustering are valid options for scaling out your RabbitMQ, I currently have a cluster of 3 RabbitMQ nodes that can handle 10k+ worker-nodes without a problem (the cluster didn't even reached close to it's limits while restarting all the Nebula apps it manages simultaneously & can likely handle a considerably higher worker nodes count but I've ran out of worker nodes to test on)
+* MongoDB should be clustered for large scales, prefering to read from secondaries(slaves) will greatly increase performance ,sharding is recommended but it's a lot less of an issue as each app config is rather small on it's own.
+* Don't forget to consider how your going to scale out your routing layer, a load-balancer can get saturated just like a web-app

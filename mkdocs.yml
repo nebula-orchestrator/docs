@@ -8,6 +8,7 @@ pages:
     - Configuring:
       - Using: use.md
       - Configuration settings: config.md
+      - Scaling: scaling.md
     - Controling:
       - CLI: cli.md
       - API: api.md
