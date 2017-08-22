@@ -11,3 +11,5 @@ It's best to monitor the following components:
 * (Optional) routing layers - changes depending on your design
 * App containers - check that the app containers are running on your worker nodes
 * End2End network connections - if your app accepts HTTP\TCP\UDP requests best to check e2e connectivity as well
+
+Another helpful tip is that it's possible to know the status of a deployment to the worker nodes by checking their RabbitMQ queue, as each worker only ACK a message after it completed deploying it a queue will only be empty of messages if the worker have processed all changes & is matching the required configuration for that app.
