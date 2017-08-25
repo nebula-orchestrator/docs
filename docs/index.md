@@ -55,7 +55,10 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 # Example architecture
 
-Attached are 2 example for you to draw inspiration from when designing yours:
+Attached are 3 example for you to draw inspiration from when designing yours:
+
+![example nebula architecture](cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
+
 
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
 
