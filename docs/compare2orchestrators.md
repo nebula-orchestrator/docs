@@ -14,6 +14,7 @@ Attached below is a table comparision between Nebula and the popular options
 
 |  | Nebula | Mesos+Marathon\DC/OS | Kubernetes | Swarm |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| Optimal use case  | Distributed systems orchestration &\or IoT deployments orchestration | DataCenter orchestration | DataCenter orchestration | DataCenter orchestration |
 | Stateless masters | yes | yes | yes | no - data stored in local master raft consensus  |
 | worker nodes Scale limit | tens of thousands  | tens of thousands | 1000-5000 depending on version | unknown |
 | containers Scale limit | millions | millions | 120000 | unknown |
