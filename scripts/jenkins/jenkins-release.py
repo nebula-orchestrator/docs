@@ -1,8 +1,11 @@
 #!/usr/bin/python2.7
+#
+# requires requests module installed on your jenkins server
+#
 # the following script allows jenkins to restart a nebula app thus loading a new version of it for deployment to use
 # just have the script on the jenkins server\worker as well as ensuring it has requests python module installed after
-# changing the 'authorization' to you  basic auth key & have
-# your build have an "execute shall" run the following command:
+# changing the 'authorization' to you  basic auth key & have your build have an "execute shall" run the following
+# command:
 # ./jenkins-release.py <nebula_app_name>
 import requests, sys
 
