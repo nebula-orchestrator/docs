@@ -28,7 +28,7 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 1. Apps with resource and\or traffic requirements so massive other orchestrators can't handle (thousands of servers and\or tens or even hundreds of millions of requests)
 2. Managing apps that spans multiple regions and\or clouds from a single source with a single API call
-3. IOT\client deployments - a rather inventive use case which can allow you to deploy a new version to all of your clients (even if they range in the thousands) appliances with a single API call in minutes
+3. IOT\POS\client deployments - a rather inventive use case which can allow you to deploy a new version to all of your clients (even if they range in the thousands) appliances with a single API call in minutes
 4. SAAS providers - if you have a cluster per client (as you provide them with managed "private" instances) or such Nebula allows you to push new versions all your clients managed instances at once
 5. A form of docker configuration management, similar to docker-compose only it also pushes changes in configurations to all managed servers.
 
