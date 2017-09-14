@@ -9,13 +9,16 @@
 # ./jenkins-release.py <nebula_app_name>
 import requests, sys
 
+# change this to your Nebula user:pass auth64 basic auth token
+BASIC_AUTH_TOKEN = "<your_basic_auth_base64_user_pass>"
+
 app = sys.argv[1]
 
 url = "http://<your_api_ip_or_fqdn>/api/apps/" + app + "/restart"
 
 payload = ""
 headers = {
-    'authorization': "Basic <your_basic_auth_base64_user_pass>",
+    'authorization': "Basic " + BASIC_AUTH_TOKEN,
     'content-type': "application/json",
     'cache-control': "no-cache"
     }
