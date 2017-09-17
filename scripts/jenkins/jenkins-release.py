@@ -11,6 +11,7 @@ import requests, sys
 
 # change this to your Nebula user:pass auth64 basic auth token
 BASIC_AUTH_TOKEN = "<your_basic_auth_base64_user_pass>"
+# change this to your nebula api FQDN
 NEBULA_API_HOST = "<your_api_ip_or_fqdn>"
 
 app = sys.argv[1]
