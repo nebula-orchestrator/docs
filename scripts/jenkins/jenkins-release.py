@@ -11,10 +11,11 @@ import requests, sys
 
 # change this to your Nebula user:pass auth64 basic auth token
 BASIC_AUTH_TOKEN = "<your_basic_auth_base64_user_pass>"
+NEBULA_API_HOST = "<your_api_ip_or_fqdn>"
 
 app = sys.argv[1]
 
-url = "http://<your_api_ip_or_fqdn>/api/apps/" + app + "/restart"
+url = "http://" + NEBULA_API_HOST + "/api/apps/" + app + "/restart"
 
 payload = ""
 headers = {
