@@ -29,7 +29,7 @@ from the directory where you saved docker-compose.yml at (same name is important
         
 
 6. Exit the container (ctrl-d)
-7. Either wait for the changes to catch (usually few seconds at most) or the api-manager container
+7. Either wait for the changes to catch (they are examined at the container boot only so if the DB's schemas are not yet created the container restarts) or restart the api-manager & worker-manager containers
 8. You now have a running Nebula cluster, lets use Curl to create an nginx app to fill the "example" APP_NAME app that the worker-manager has set to manage:
 
         curl -X POST \
