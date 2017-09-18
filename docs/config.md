@@ -45,4 +45,4 @@ The following table shows the path of each config file inside the docker contain
 | container      | config path inside container | example Dockerfile COPY command overwrite |
 |----------------|------------------------------|-------------------------------------------|
 | api-manager    | /www/conf.json               | COPY conf.json /www/conf.json             |
-| worker-manager | /worker-manager/conf.json    | COPY conf.json /worker-manager/conf.json  |
+| worker-manager | /worker-manager/conf.json    | worker - COPY conf.json /worker-manager/conf.json, api - COPY conf.json /www/conf.json |
