@@ -44,7 +44,7 @@ from the directory where you saved docker-compose.yml at (same name is important
           "docker_image" : "nginx",
           "running": true,
           "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-          "network_mode": "bridge",
+          "networks": ["nebula"],
           "privileged": false,
           "devices": []
         }'

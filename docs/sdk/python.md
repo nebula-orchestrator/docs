@@ -36,7 +36,7 @@ app_conf = {
         "test3t2t32": "tesg4ehgee"
     },
     "docker_ulimits": [],
-    "network_mode": "bridge",
+    "networks": ["nebula"],
     "running": True,
     "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
     "privileged": False,

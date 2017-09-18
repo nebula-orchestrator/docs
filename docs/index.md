@@ -13,9 +13,10 @@ Allows to:
 5. Change # of containers running per core
 6. Change image used
 7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma separated list you start the worker-manager container with, allowing you to mix and match for diffrent worker clusters while still managing all of them from the same api-manager containers.
-8. mount volumes
-9. set containers with privileged permissions
-10. mount devices 
+8. Mount volumes
+9. Set containers with privileged permissions
+10. Mount devices 
+11. Control containers network affiliation
 
 There are 2 custom created services:
 
