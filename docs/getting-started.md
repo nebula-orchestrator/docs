@@ -38,7 +38,7 @@ from the directory where you saved docker-compose.yml at (same name is important
           -H 'cache-control: no-cache' \
           -H 'content-type: application/json' \
           -d '{
-          "starting_ports": [81],
+          "starting_ports": [{"81":"80"}],
           "containers_per": {"server": 1},
           "env_vars": {},
           "docker_image" : "nginx",
