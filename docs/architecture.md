@@ -25,6 +25,7 @@ It's worth mentioning the follow:
 * Disconnects of longer then 5 minutes will result in the Nebula worker-manager container killing itself in order for it to be restarted via Docker engine `--restart=always` flag, Nebula will then procedd to treat the IoT device as a new device and will follow the steps described above to get it in sync with the rest of the cluster.
 * MongoDB is only used by the IoT devices in a read only mode and is only used once in their boot process.
 * The control API is never accessed by the IoT devices.
+* Each part of the system can scale out - MongoDB can be sharded and replicated, RabbitMQ can be both be clustered and federated, the api layer is stateless so can be increased as needed and there is no limit for the amount of workers as long as you make sure to scale out the other components to handle it.
 
 ## Large scale app deployment
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
