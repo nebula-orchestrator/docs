@@ -15,9 +15,10 @@ Now if an admin wishes to deploy a new version or change any setting (envvar, mo
 
 1. Push a new container version with a new tag to the configured Docker registry.
 2. Update the control api (api-manager) by using the CLI\SDK\API with the latest app config that uses the new version tag as it's docker_image value, from here on Nebula will take care of the rest.
-    a. Nebula api-manager will update the MongoDB backend with the new config.
-    b. Nebula api-manager will also send a message to all currently active IoT devices which include said app in the APP_NAME config via their RabbitMQ queues (which in turns happens via an RabbitMQ fanout exchange)
-    c. All the relevant IoT devices process their queues simultaneously (unless you configured max_restart_wait_in_seconds with a value different from 0) and replace their containers with the new version.
+
+    1. Nebula api-manager will update the MongoDB backend with the new config.
+    2. Nebula api-manager will also send a message to all currently active IoT devices which include said app in the APP_NAME config via their RabbitMQ queues (which in turns happens via an RabbitMQ fanout exchange)
+    3. All the relevant IoT devices process their queues simultaneously (unless you configured max_restart_wait_in_seconds with a value different from 0) and replace their containers with the new version.
 
 It's worth mentioning the follow:
 
