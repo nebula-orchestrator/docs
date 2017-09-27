@@ -27,7 +27,7 @@ It's worth mentioning the follow:
 * The control API is never accessed by the IoT devices.
 * Each part of the system can scale out - MongoDB can be sharded and replicated, RabbitMQ can be both be clustered and federated, the api layer is stateless so can be increased as needed and there is no limit for the amount of workers as long as you make sure to scale out the other components to handle it.
 
-## Large scale app deployment
+## Large scale webapp deployment
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
 
 The following design uses nebula to manage thousands of webservers for a very large scale webapp, while the entire flow described in the IoT deployment above is also correct for this design it expends on it in the following ways:
