@@ -36,4 +36,4 @@ The following design uses nebula to manage thousands of webservers for a very la
 * Rather then being distributed all apps are in the same VPC\DC
 * In front of all of those thousands of workers there is an LB layer which distributes requests among all of the servers, depending on your preference it can be an ELB\HAProxy\Nginx, DNS level LB, floating IP or any other LB method.
 * Each server consists of an internal LB (which is in itself an Nebula app) which routes the requests arriving to that server between the webapp containers runnning on it
-* Each server has multiple webapp containers to better utilize all of it resources which are all the same Nebula app (for example the `containers_per` config has the value of `{"cpu": 2}` which will each server will have 2 webapp containers per CPU core)
+* Each server has multiple webapp containers to better utilize all of it resources which are all the same Nebula app (for example the `containers_per` config has the value of `{"cpu": 2}` which will then ensure each server will have 2 webapp containers per CPU core)
