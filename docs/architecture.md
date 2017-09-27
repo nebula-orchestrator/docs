@@ -26,6 +26,7 @@ It's worth mentioning the follow:
 * MongoDB is only used by the IoT devices in a read only mode and is only used once in their boot process.
 * The control API is never accessed by the IoT devices.
 * Each part of the system can scale out - MongoDB can be sharded and replicated, RabbitMQ can be both be clustered and federated, the api layer is stateless so can be increased as needed and there is no limit for the amount of workers as long as you make sure to scale out the other components to handle it.
+* Nebula ensures consistency among all workers as long as the backend MongoDB & RabbitMQ are consistent, if for some reason you get a split brain in either or any other form or consistency Nebula cannot guarantee consistency so make sure to follow best practice in both to avoid those risks from happening.  
 
 ## Large scale webapp deployment
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
