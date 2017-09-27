@@ -21,7 +21,7 @@ Now if an admin wishes to deploy a new version or change any setting (envvar, mo
 
 It's worth mentioning the follow:
 
-* Both MongoDB & RabbitMQ needs to be accessible from both the Control API & from all of the IoT devices - it will work perfectly even through the Internet and will tolerate disconnects with no issues, the Nebula workers will simply start processing whatever messages got sent to it's RabbitMQ queue in that time.
+* Both MongoDB & RabbitMQ needs to be accessible from both the Control API & from all of the IoT devices - it will work perfectly even through the Internet and will tolerate disconnects with no issues, the Nebula workers will simply start processing whatever messages got sent to it's RabbitMQ queue in that time after connectivity is restored until everything is resynced.
 * Disconnects of longer then 5 minutes will result in the Nebula worker-manager container killing itself in order for it to be restarted via Docker engine `--restart=always` flag, Nebula will then procedd to treat the IoT device as a new device and will follow the steps described above to get it in sync with the rest of the cluster.
 * MongoDB is only used by the IoT devices in a read only mode and is only used once in their boot process.
 * The control API is never accessed by the IoT devices.
