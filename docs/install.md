@@ -7,7 +7,7 @@ Nebula is composed of the following components:
 * api-manager - this is the endpoint that manages Nebula, it updates the DB with any changes & publishes said changes to all relevant worker nodes by RabbitMQ.
 * worker-manager - this is the container that manages worker nodes, it receives a list of tags (via the APP_NAME envvar tag in csv format) & makes sures to keep all said apps in sync with the required configuration. 
 
-Optionally you will also want to add the following:
+Optionally you will also want to add the following if your use case is a massive scale web facing cluster in the same VPC\DC, not usually needed for distributed system:
 
 * A server layer load balancer - ELB works well for this, it job is to direct traffic between all worker nodes
 * A container layer load balancer - the recommended method is to create a nebula app with HAProxy\Nginx that will bind to the host network (not bridge) and will load balance requests to all containers on 127.0.0.1:containers_port
