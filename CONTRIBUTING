@@ -5,11 +5,11 @@ can help
 
 ## Getting Started
 
-* Fork the latest branch of the component you want to contribute to
-* Make sure you have a [GitHub account](https://github.com/signup/free)
-* Use virtualenv to install all requirements from the requirements.txt file
-* Fix the issue you \ add a feature
-* Create a pull request
+* Fork the latest branch of the component you want to contribute to.
+* Make sure you have a [GitHub account](https://github.com/signup/free).
+* Use virtualenv to install all requirements from the requirements.txt file.
+* Fix the issue you \ add a feature.
+* Create a pull request.
 
 ## Design philosophy
 Nebula is designed with the following philosophy in mind, any feature\pull requests will be judged against the following:
