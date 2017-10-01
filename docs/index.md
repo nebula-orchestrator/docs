@@ -64,5 +64,4 @@ Attached are 3 example for you to draw inspiration from when designing yours, a 
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
 
 
-
 ![example nebula architecture](nebula.png "example nebula architecture")
