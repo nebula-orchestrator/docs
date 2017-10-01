@@ -7,7 +7,7 @@ The answer for that is that while the popular container orchestrators are great 
  1. Scale - even though this issue keep improving with all orchestrators Nebula approach allows for far greater scalability (alongside Mesos)
  2. Multi region clusters - orchestrators tend to be latency sensitive, Nebula unique architecture makes it ideal to managing distributed apps (like CDN or IOT), while still maintaining agility
  3. Managing clients appliances\IoT devices - this option is not covered by any of the current orchestrators as it's outside their use case scope
- 4. Config management - while puppet\chef\ansible are great for config management and orchestrators are great for scaling containers Nebula can also be thought of as a docker config management system
+ 4. Config management - while Puppet\Chef\Ansible are great for config management and orchestrators are great for scaling containers Nebula can also be thought of as a docker config management system
  
 Attached below is a table comparision between Nebula and the popular options
 
