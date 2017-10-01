@@ -2,7 +2,7 @@
 
 It's best to monitor the following components:
 
-* Mongo - following mongo best practices
+* MongoDB - following MongoDB best practices
 * RabbitMQ - following RabbitMQ best practices
 * Docker service - on all hosts
 * Docker api-manager container - check that the api-manager container is running
