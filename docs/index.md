@@ -2,7 +2,7 @@
 
 # Description
 
-Nebula is a massive scale container management system, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD (or even as puppet for docker hosts) for docker which allows deploying to thousands of servers simultaneously using a single API call.
+Nebula is a massive scale container (Docker) management system, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD (or even as puppet for docker hosts) for docker which allows deploying to thousands of servers simultaneously using a single API call.
 
 Allows to:
 
@@ -52,7 +52,7 @@ As each worker server is in charge only of it's own containers all pulls from ra
  2. The project is still rather young but that been said it's already in use in a production environment at [vidazoo](https://www.vidazoo.com/) (Nebula was originally developed as an internal tool for vidazoo before being open sourced) for about a year in a multi cloud, multi region, high traffic (10 million+ requests/minute) environment with great success.
  3. Help is very much welcomed.
  4. Tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
- 5. Tested Docker versions: 11.x up to latest docker version, any docker version that has support for user networks & higher should work with Nebula.
+ 5. Tested Docker versions: 11.x up to latest Docker version, any Docker version that has support for user networks & higher should work with Nebula.
 
 # Example architecture
 
