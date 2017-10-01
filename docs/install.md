@@ -16,8 +16,8 @@ Optionally you will also want to add the following if your use case is a massive
 
 The basic steps to getting Nebula to work is:
 
-1. Create mongo, preferably a cluster & even a sharded cluster for large enough cluster
-2. Create a database for Nebula on Mongo & a user with read&write permissions for the api-manger & worker-manager and optionally a read only user for use by the worker-manager for example:
+1. Create MongoDB, preferably a cluster & even a sharded cluster for large enough cluster
+2. Create a database for Nebula on MongoDB & a user with read&write permissions for the api-manger & worker-manager and optionally a read only user for use by the worker-manager for example:
 
         use nebula
         db.createUser(
