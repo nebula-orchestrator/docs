@@ -23,16 +23,16 @@ Nebula is designed with the following philosophy in mind, any feature\pull reque
 ### Documentation
 
 Nebula docs are hosted at [readthedocs](http://nebula.readthedocs.io/en/latest/) using [MkDocs](http://www.mkdocs.org/) for their creation, reading them is highly recommended
-prior to making any pull requests
+prior to making any pull requests.
 
 ## What you can help with
 
 * Documentation - everyone hates them but without them would you be able to figure out how to use Nebula?
-* Bug fixes / feature requests - anything off github issues lists
-* Submitting tickets - even if you don't have the time\knowledge to fix a bug just opening a github issue about it will greatly help
-* Suggesting improvements
-* For larger tasks - doing anything off the [wishlist](http://nebula.readthedocs.io/en/latest/wishlist/)
-* Spreading the word
+* Bug fixes / feature requests - anything off github issues lists.
+* Submitting tickets - even if you don't have the time\knowledge to fix a bug just opening a github issue about it will greatly help.
+* Suggesting improvements.
+* For larger tasks - doing anything off the [wishlist](http://nebula.readthedocs.io/en/latest/wishlist/).
+* Spreading the word.
 
 ### Summary
 
