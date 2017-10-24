@@ -312,8 +312,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 
 # Rolling restart app
-Stops a container and then starts it up again, rolls for each container of the app running on the server 1 at a time.
-Note that rolling restarting an app also force pulling the latest version of the docker container so can be used as a form of deployment method assuming that the you overwritten the container tag in your docker registry with a newer version
+Stops a container and then starts it up again, rolls for each container of the app running on the server 1 at a time with a 5 seconds between each container roll, note that rolling restarting an app also force pulling the latest version of the docker container so can be used as a form of deployment method assuming that the you overwritten the container tag in your docker registry with a newer version
 
  **request**
 
