@@ -40,6 +40,8 @@ The following table shows the config variables used to set nebula:
 
 envvars take priority over variables set in the conf.json file in case both are set, it's suggested to always wrap envvars values in Quotation marks but it's only required if the envvar uses special characters (for example "mongodb://mongo_user:mongo_pass@mongo_host:27017/?ssl=true&replicaSet=mongo_replica_set&authSource=mongo_auth_schema"), some variables have defaults that will be used if they are not set as envvars and in the conf.json file.
 
+An example config file is located at "example_conf.json" at the root folder of either the worker-manager and the api-manager github repo root folder (and inside the containers of them by extension).
+
 The following table shows the path of each config file inside the docker containers:
 
 | container      | config path inside container | example Dockerfile COPY command overwrite |
