@@ -2,9 +2,9 @@
 
 # Description
 
-Nebula is a massive scale container (Docker) management system that allows managing highly distributed systems (IoT/POS/edge computing/etc) in a workflow that's similar to other Docker orchestrator, this is achieved by following the linux method of doing one thing only, each component is designed to be able to scale out for as far as needed, only downside over standard container orchestrator is that this loads the same "pod" of containers on each server that is managed with the same APP_NAME list rather then dynamically mix and match different apps, so it can also be viewed\used like a great CI\CD (or even as puppet for docker hosts) for docker which allows deploying to thousands of servers simultaneously using a single API call.
+Nebula is a massive scale container (Docker) management system that allows managing highly distributed systems (IoT/POS/edge computing/etc) in a workflow that's similar to other Docker orchestrators, this is achieved by following the linux method of doing one thing and one thing only, each component is designed to be able to scale out for as far as needed. 
 
-Allows to:
+Among other things Nebula allows to:
 
 1. Change ports
 2. Change envvars
@@ -27,11 +27,11 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 # Example use cases
 
-1. Apps with resource and\or traffic requirements so massive other orchestrators can't handle (thousands of servers and\or tens or even hundreds of millions of requests)
+1. Apps with resource and\or traffic requirements so massive other orchestrators can't handle (thousands of servers and\or tens or even hundreds of millions of requests per minute)
 2. Managing apps that spans multiple regions and\or clouds from a single source with a single API call
 3. IOT\POS\client deployments - a rather inventive use case which can allow you to deploy a new version to all of your clients (even if they range in the thousands) appliances with a single API call in minutes
 4. SAAS providers - if you have a cluster per client (as you provide them with managed "private" instances) or such Nebula allows you to push new versions all your clients managed instances at once
-5. A form of docker configuration management, similar to docker-compose only it also pushes changes in configurations to all managed servers.
+5. A form of docker configuration management, think of it as a cross between Docker-Compose to Puppet\Chef only it also pushes changes in configurations to all managed servers.
 
 # Repo folder structure
 
