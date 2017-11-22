@@ -20,4 +20,5 @@ pages:
       - Roadmap: roadmap.md
       - Nebula vs. Others: compare2orchestrators.md
       - Contributing: contribute.md
+      - Where to get help: help.md
 repo_url: https://github.com/nebula-orchestrator/docs
