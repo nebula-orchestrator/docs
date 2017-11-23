@@ -2,7 +2,9 @@
 
 # Description
 
-Nebula is a massive scale container (Docker) management system that allows managing highly distributed systems (IoT/POS/edge computing/etc) in a workflow that's similar to other Docker orchestrators, this is achieved by following the linux method of doing one thing and one thing only, each component is designed to be able to scale out for as far as needed. 
+Nebula is a open source project created for Docker orchestration and designed to manage massive clusters at scale, it achieves this by scaling each project component out as far as required.
+The project’s aim is to act as Docker orchestrator for IoT devices as well as for distributed services such as CDN or edge computing. 
+Nebula is capable of simultaneously updating tens of thousands of IoT devices worldwide with a single API call in an effort to help devs and ops treat IoT devices just like distributed Dockerized apps.
 
 Among other things Nebula allows to:
 
