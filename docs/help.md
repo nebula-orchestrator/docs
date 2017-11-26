@@ -16,5 +16,6 @@ GitHub issue ticket system is a great tool for FOSS projects, if your problem ca
 
 ## Google MailGroup
 
-There is a Google MailGroup at [nebula-orchestrator@googlegroups.com](mailto:nebula-orchestrator@googlegroups.com) if you have questions that are more generic & not about a specific component.
+There is a Google MailGroup you can email at [nebula-orchestrator@googlegroups.com](mailto:nebula-orchestrator@googlegroups.com) if you have questions that are more generic & not about a specific component, the mailgroup forums\history is available [here](https://groups.google.com/d/forum/nebula-orchestrator).
+
  
