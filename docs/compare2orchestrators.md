@@ -9,7 +9,7 @@ The answer for that is that while the popular container orchestrators are great 
  3. Managing clients appliances\IoT devices - this option is not covered by any of the current orchestrators as it's outside their use case scope
  4. Config management - while Puppet\Chef\Ansible are great for config management and orchestrators are great for scaling containers Nebula can also be thought of as a docker config management system
  
-Attached below is a table comparision between Nebula and the popular options
+Attached below is a table comparision between Nebula and the popular options, info in it is correct to the time of writing.
 
 
 |  | Nebula | Mesos+Marathon\DC/OS | Kubernetes | Swarm |
