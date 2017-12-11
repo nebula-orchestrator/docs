@@ -1,5 +1,7 @@
 ***Welcome to Nebula Documentation***
 
+![Nebula-logo](logos/nebula-logo.png "Nebula-logo")
+
 # Description
 
 [Nebula](https://nebula-orchestrator.github.io) is a open source project created for Docker orchestration and designed to manage massive clusters at scale, it achieves this by scaling each project component out as far as required.
