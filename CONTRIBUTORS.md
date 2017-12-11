@@ -12,3 +12,7 @@ Nebula contributors
   * Design
   * Support
   * First users\victims
+  
+* **[Freepik from www.flaticon.com](https://www.flaticon.com/authors/freepik)**  
+
+  * Logo
