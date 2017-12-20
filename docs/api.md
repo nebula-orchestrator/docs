@@ -86,7 +86,7 @@ app already exists
 ```
 
 # Delete app
-delete an app from the nebula cluster, be careful as the only way to restore a deleted app is manually creating it with the same veriables
+delete an app from the nebula cluster, be careful as the only way to restore a deleted app is manually creating it with the same variables
 
  **request**
 

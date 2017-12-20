@@ -1,6 +1,6 @@
 # Common Nebula architecture designs
 
-While there are too many possible ways to design Nebula architecture to list them all the following 2 designs will help cover common use cases as well as serve as a stepping stone to help explain the diffrent components of Nebula:
+While there are too many possible ways to design Nebula architecture to list them all the following 2 designs will help cover common use cases as well as serve as a stepping stone to help explain the different components of Nebula:
 
 ## IoT deployment
 ![example nebula architecture](cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
