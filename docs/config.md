@@ -49,3 +49,5 @@ The following table shows the path of each config file inside the docker contain
 |----------------|------------------------------|-------------------------------------------|
 | api-manager    | /www/conf.json               | COPY conf.json /www/conf.json             |
 | worker-manager | /worker-manager/conf.json    | COPY conf.json /worker-manager/conf.json  |
+
+As the api-manager uses gunicorn as the main application web-server inside the container there is a config.py at the container root folder, consult [gunicron guide](http://docs.gunicorn.org/en/stable/configure.html) if you wish to change it's parameters.
