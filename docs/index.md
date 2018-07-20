@@ -54,7 +54,7 @@ As each worker server is in charge only of it's own containers all pulls from ra
 # Notices
 
  1. This is an open source project, see attached license for more details.
- 2. The project is still rather young but that been said it's already in use in a production environment at [vidazoo](https://www.vidazoo.com/) (Nebula was originally developed as an internal tool for vidazoo before being open sourced) for over a year in a multi cloud, multi region, high traffic (10 million+ requests/minute) environment with great success.
+ 2. While still being a young project Nebula is already seeing production use at multiple companies across a variety of industries.
  3. Help is very much welcomed.
  4. Tested OS: CoreOS, RancherOS, Ubuntu server 14.04 & 16.04, CentOS 6 & 7, Amazon linux, expected to work with any Docker compatible Linux distro.
  5. Tested Docker versions: each Nebula version is tested on the latest Docker version at the time of it's release but any Docker version that has support for user networks should work with Nebula.
