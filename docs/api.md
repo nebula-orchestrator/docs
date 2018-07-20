@@ -72,7 +72,7 @@ missing parameters
 ```
 400
 {
- "missing_parameters": "True"
+ "missing_parameters": ["running", "volumes"]
 }
 ```
 
@@ -413,7 +413,7 @@ missing parameters:
 ```
 400
 {
- "missing_parameters": "True"
+ "missing_parameters": ["running", "volumes"]
 }
 ```
 
