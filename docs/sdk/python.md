@@ -19,16 +19,16 @@ Now you can use it in your python code:
 from NebulaPythonSDK import Nebula
 
 # Create API object.
-# port defaults to 80 and protocol defaults to http if not set
-connection = Nebula(username="your_nebula_user", password="your_nebula_pass", host="nebula.example.com", port=80, protocol="http")
+# port defaults to 80, protocol defaults to "http" & request_timeout defaults to 60 if any of them is not set.
+connection = Nebula(username="your_nebula_user", password="your_nebula_pass", host="nebula.example.com", port=80, protocol="http", request_timeout=60)
 
-# list apps
+# List apps
 app_list = connection.list_apps()
 
-# list app info
+# List app info
 app_config = connection.list_app_info("app_name")
 
-# create app
+# Create app
 app_conf = {
     "containers_per_cpu": 8,
     "env_vars": {
@@ -38,8 +38,6 @@ app_conf = {
     "docker_ulimits": [],
     "networks": ["nebula"],
     "running": True,
-    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
-    "privileged": False,
     "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
     "containers_per": {
         "cpu": 6
@@ -49,7 +47,9 @@ app_conf = {
             "81": 80
         }
     ],
-    "docker_image": "httpd"
+    "docker_image": "httpd",
+    "privileged": False,
+    "devices": []
 }
 connection.create_app("app_name", app_conf)
 
