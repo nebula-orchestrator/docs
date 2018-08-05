@@ -2,9 +2,9 @@
 
 Nebula is composed of the following components:
 
-* MongoDB - the database layer, each app managed by Nebula is it's own document stored in mongo, when a new worker node first connects to the nebula cluster it requests the apps it is configured to manage (via the APP_NAME envvar tag) directly from mongo then disconnects from mongo, this is the only time the worker nodes connect to mongo, unlike the api-manager which stays connected to mongo 24/7.
-* RabbitMQ - the messaging queue layer, each worker node managed by Nebula creates it's own queue per app it manages, each app also has it's own fanout exchange, every change made to any Nebula app is transferred to all relevant worker nodes via Rabbit immediately. 
-* api-manager - this is the endpoint that manages Nebula, it updates the DB with any changes & publishes said changes to all relevant worker nodes by RabbitMQ.
+* MongoDB - the database layer, each app managed by Nebula is it's own document stored in mongo, the api-manager stays connected to mongo 24/7 & is the only component that needs to access the backend DB.
+* RabbitMQ - the messaging queue layer, each worker node managed by Nebula creates it's own queue per app it manages, each app also has it's own fanout exchange, every change made to any Nebula app is transferred to all relevant worker nodes via Rabbit immediately, initial worker sync is done via RabbitMQ direct_reply_to RPC request to the api-managers queue named "rabbit_api_rpc_queue".
+* api-manager - this is the endpoint that manages Nebula, it updates the DB with any changes & publishes said changes to all relevant worker nodes by RabbitMQ as well as serving the workers their intial app configuration via RabbitMQ direct_reply_to.
 * worker-manager - this is the container that manages worker nodes, it receives a list of tags (via the APP_NAME envvar tag in csv format) & makes sures to keep all said apps in sync with the required configuration. 
 
 Optionally you will also want to add the following if your use case is a massive scale web facing cluster in the same VPC\DC, not usually needed for a distributed system deployment:
@@ -17,7 +17,7 @@ Optionally you will also want to add the following if your use case is a massive
 The basic steps to getting Nebula to work is:
 
 1. Create MongoDB, preferably a cluster & even a sharded cluster for large enough cluster
-2. Create a database for Nebula on MongoDB & a user with read&write permissions for the api-manger & worker-manager and optionally a read only user for use by the worker-manager for example:
+2. Create a database for Nebula on MongoDB & a user with read&write permissions for the api-manger, for example:
 
         use nebula
         db.createUser(
