@@ -4,7 +4,7 @@ pages:
     - Home: index.md
     - Architecture: architecture.md
     - Setting up:
-      - Getting Started: getting-started.md
+      - Docker-compose localhost tutorial: getting-started.md
       - Installing: install.md
     - Configuring:
       - Using: use.md
