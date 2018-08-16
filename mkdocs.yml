@@ -2,7 +2,9 @@ site_name: Nebula
 theme: readthedocs
 pages:
     - Home: index.md
-    - Architecture: architecture.md
+    - Design:
+      - Architecture: architecture.md
+      - Internals: internals.md
     - Setting up:
       - Docker-compose localhost tutorial: getting-started.md
       - Installing: install.md
