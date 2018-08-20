@@ -21,7 +21,7 @@ Nebula gracefully handle service crashes without losing any data do to it's reli
 
 ## Backend DB selection
 
-Currently the only implemented Backend DB is MongoDB, the reason for it being the first implemented DB being the ease at which JSON can be changed & while still providing the ability to scale out as needed.
+Currently the only implemented Backend DB is MongoDB, the reason for it being the first implemented DB being the ease at which JSON can be changed while still providing the ability to scale out as needed.
 Future improvements will likely include the ability to use MariaDB & ETCD as other types of Backend DB.
 
 ## Scaling up vs Scaling out
