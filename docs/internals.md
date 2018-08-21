@@ -4,11 +4,11 @@ This is an advanced explanation on the logic behind using Nebula and how it ensu
 
 ## Motivation
 
-Nebula is Designed to allow orchestration & deployments of Containers to distributed systems (IoT deployments being a good example of a distrubuted system but CDN, POS, etc... also counts), this comes with several limitations which prevents the use of standard orchestration solutions:
+Nebula is Designed to allow orchestration & deployments of Containers to distributed systems (IoT deployments being a good example of a distrubuted system but also CDN, POS, etc...), this comes with several limitations which prevents the use of standard orchestration solutions:
 
  * Each app\service has to be bound to the specific hardware.
- * Network can't be counted on (latency, disconnects)
- * Scaling should be (virtually) unlimited
+ * Network can't be counted on (latency, disconnects).
+ * Scaling should be (virtually) unlimited.
  
 ## Persistence
 
