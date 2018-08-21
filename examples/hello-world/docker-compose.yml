@@ -4,7 +4,7 @@ services:
    mongo:
      container_name: mongo
      hostname: mongo
-     image: mongo:3.4.4
+     image: mongo:4.0.1
      ports:
        - "27017:27017"
      restart: unless-stopped
@@ -15,7 +15,7 @@ services:
    rabbit:
      container_name: rabbit
      hostname: rabbit
-     image: rabbitmq:3.6.10
+     image: rabbitmq:3.7.7
      ports:
        - "5672:5672"
        - "5671:5671"
