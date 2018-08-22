@@ -19,7 +19,6 @@ pages:
         - Python: 'sdk/python.md'
     - Misc:
       - What to monitor: monitoring.md
-      - Roadmap: roadmap.md
       - Nebula vs. Others: compare2orchestrators.md
       - Contributing: contribute.md
       - Where to get help: help.md
