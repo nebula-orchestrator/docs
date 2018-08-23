@@ -4,9 +4,7 @@ While there are too many possible ways to design Nebula architecture to list the
 
 ## IoT deployment
 
-Let's take the following IoT deployment example:
-
-![example nebula architecture](cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
+![example nebula architecture](../pictures/cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
 
 In the above deployment example Nebula manages a distributed set of identical IoT devices, each devices configured with the same set of containers (identical APP_NAME=app1,app2... in all of them), every time a new devices is turned on it follows this steps:
 
@@ -33,9 +31,7 @@ It's worth mentioning the follow:
 
 ## Large scale webapp deployment
 
-It's not all IoT as it's possible to using Nebula to manage other large scale deployments as well:
-
-![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
+![example nebula architecture](../pictures/cloudcraft%20-%20nebula.png "example nebula architecture")
 
 The following design uses nebula to manage thousands of webservers for a very large scale webapp, while the entire flow described in the IoT deployment above is also correct for this design it expends on it in the following ways:
 

@@ -1,6 +1,6 @@
 ***Welcome to Nebula Documentation***
 
-![Nebula-logo](logos/nebula-logo.png "Nebula-logo")
+![Nebula-logo](pictures/logos/nebula-logo.png "Nebula-logo")
 
 # Description
 
@@ -63,10 +63,10 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 Attached are 3 example for you to draw inspiration from when designing yours, a more detailed explanation of it can be found at the [architecture](architecture.md) page:
 
-![example nebula architecture](cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
+![example nebula architecture](pictures/cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
 
 
-![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
+![example nebula architecture](pictures/cloudcraft%20-%20nebula.png "example nebula architecture")
 
 
-![example nebula architecture](nebula.png "example nebula architecture")
+![example nebula architecture](pictures/nebula.png "example nebula architecture")
