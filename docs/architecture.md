@@ -3,6 +3,7 @@
 While there are too many possible ways to design Nebula architecture to list them all the following 2 designs will help cover common use cases as well as serve as a stepping stone to help explain the different components of Nebula:
 
 ## IoT deployment
+
 ![example nebula architecture](cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
 
 In the above deployment example Nebula manages a distributed set of identical IoT devices, each devices configured with the same set of containers (identical APP_NAME=app1,app2... in all of them), every time a new devices is turned on it follows this steps:
@@ -29,6 +30,7 @@ It's worth mentioning the follow:
 * Nebula ensures consistency among all workers as long as the backend MongoDB & RabbitMQ are consistent, if for some reason you get a split brain in either or any other form or consistency issues Nebula cannot guarantee consistency so make sure to follow best practice in both to avoid those risks from happening.  
 
 ## Large scale webapp deployment
+
 ![example nebula architecture](cloudcraft%20-%20nebula.png "example nebula architecture")
 
 The following design uses nebula to manage thousands of webservers for a very large scale webapp, while the entire flow described in the IoT deployment above is also correct for this design it expends on it in the following ways:
