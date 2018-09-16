@@ -418,7 +418,7 @@ missing parameters:
 ```
 
 # Update some app params (PUT / PATCH)
-update a Nebula app config, 
+update a Nebula app config, accepts any combination of the app configuration params.
 
  **request**
 
