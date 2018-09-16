@@ -40,7 +40,6 @@ prior to making any pull requests
 * Bug fixes / feature requests - anything off github issues lists
 * Submitting tickets - even if you don't have the time\knowledge to fix a bug just opening a github issue about it will greatly help
 * Suggesting improvements
-* For really large tasks (if you have a lot of time) - doing anything off the [roadmap](http://nebula.readthedocs.io/en/latest/roadmap/)
 * Spreading the word
 
 ### Summary
