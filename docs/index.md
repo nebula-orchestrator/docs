@@ -10,17 +10,18 @@ Nebula is capable of simultaneously updating tens of thousands of IoT devices wo
 
 Among other things Nebula allows to:
 
-1. Change ports
-2. Change envvars
-3. Stop\start\restart\rolling restart containers
-4. Force pull updated containers
-5. Change # of containers running per core/instance
-6. Change image used
+1. Change ports.
+2. Change envvars.
+3. Stop\start\restart\rolling restart containers.
+4. Force pull updated containers.
+5. Change # of containers running per core/instance.
+6. Change image used.
 7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma separated list you start the worker-manager container with, allowing you to mix and match for different worker clusters while still managing all of them from the same api-manager containers.
-8. Mount volumes
-9. Set containers with privileged permissions
-10. Mount devices 
-11. Control containers network affiliation
+8. Mount volumes.
+9. Set containers with privileged permissions.
+10. Mount devices .
+11. Control containers network affiliation.
+12. Auto intergrate with Dockerfile healthchecks to restart unhealthy containers.
 
 There are 2 custom created services:
 

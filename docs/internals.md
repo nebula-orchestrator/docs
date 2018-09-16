@@ -64,3 +64,4 @@ Each worker follows the same basic steps:
     3. Open another connection to rabbit and use a direct_reply_to to the API managers queue to get the current app configuration.
     4. Remove & clean the RabbitMQ intial sync connection.
     4. Start processing messages from the worker RabbitMQ queue.
+    5. Loop over all containers which are managed by Nebula on the worker and if the dockerfile healthcheck returns "unhealthy" restart the container.
