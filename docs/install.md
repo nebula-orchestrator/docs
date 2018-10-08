@@ -40,3 +40,12 @@ The basic steps to getting Nebula to work is:
 9. If used for a web based service & not an IoT deployment create the haproxy\lb on each worker server, the recommended method is to have it containerized and managed from inside nebula as another nebula app (possibly not needed for services not accepting outside requests or for small scale where just the outside LB will do), attached is an [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg).
 10. If used for a web based service & not an IoT deployment create either an external LB\ELB to route traffic between the worker servers or route53\DNS LB between the servers.
 11. Create the apps using the nebula API using the same APP_NAME as those you passed to the worker-manager
+
+# ARM version
+
+Both the API & the workers have an ARM64v8 version auto deployed to Docker Hub tagged as follows:
+
+ * latest ARM version is tagged arm64v8
+ * each numbered version ARM build larger then 1.4.0 has a tag with the version number that is suffixed with "-arm64v8"
+ 
+Other ARM versions are not currently auto built.
