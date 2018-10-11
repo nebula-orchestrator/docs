@@ -70,3 +70,6 @@ Restoring in case of a complete disaster is simply a matter of recreating all th
 # Health checks
 
 Nebula utilizes Dockerfile builtin [healthcheck](https://docs.docker.com/engine/reference/builder/#healthcheck) capabilities, you configure them inside your Dockerfile and Nebula has an out of band process which looks every few seconds for any containers marked as unhealthy as a result of the healthcheck, any container found to be unhealthy is then restarted.
+ 
+!!! note 
+    The restart of a container at an unhealthy status is equivalent to running a "docker restart" with the docker CLI on it.

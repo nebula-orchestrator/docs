@@ -24,3 +24,5 @@ pages:
       - Where to get help: help.md
       - Release notes: release-notes.md
 repo_url: https://github.com/nebula-orchestrator/docs
+markdown_extensions:
+  - admonition
