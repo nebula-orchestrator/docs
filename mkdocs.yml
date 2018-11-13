@@ -18,7 +18,7 @@ pages:
       - SDK:
         - Python: 'sdk/python.md'
     - Misc:
-      - What to monitor: monitoring.md
+      - Monitoring & Securing: best-practice.md
       - Nebula vs. Others: compare2orchestrators.md
       - Contributing: contribute.md
       - Where to get help: help.md
