@@ -23,3 +23,4 @@ In production environments it's important to keep the following in mind in order
 * MongoDB also supports SSL, which is stored on a remote location should be considered to be used.
 * The API layer is also used for administration connections and as such it can be used in a private VPC\DC even if the workers are remote, only the RabbitMQ must be accessible to all workers.
 * Using the latest version of Nebula is always recommended, vunrlabilites in packages are always discovered & patched on a routine manner.
+* The API logs by default write each request to the API including the IP which originated the request.
