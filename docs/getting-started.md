@@ -1,6 +1,6 @@
 # Hello World tutorial
 
-The easiest way to get started is usually with a hands on approach, the following tutorial will use [docker-compose](https://docs.docker.com/compose/) to set a local Nebula cluster on your machine, it of course requires docker & docker-compose installed so if you don't have them install them first.
+The easiest way to get started is usually with a hands on approach, the following tutorial will use [docker-compose](https://docs.docker.com/compose/) to set a local Nebula cluster on your machine that includes MongoDB, RabbitMQ the API & the worker (which normally you will want be diffrent devices but for testing this is sufficient), it of course requires docker & docker-compose installed so if you don't have them install them first.
 
 !!! note 
     Some linux distros have epmd installed (Ubuntu included) which the following rabbitmq container requires so if your having problems with rabbit refusing to run try killing the host epmd and\or host rabbitmq-server for the duration of this tutorial
