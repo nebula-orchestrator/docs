@@ -1,0 +1,49 @@
+version: '3'
+
+services:
+   mongo:
+     container_name: mongo
+     hostname: mongo
+     image: mongo:4.0.1
+     ports:
+       - "27017:27017"
+     restart: unless-stopped
+     environment:
+       MONGO_INITDB_ROOT_USERNAME: nebula
+       MONGO_INITDB_ROOT_PASSWORD: nebula
+
+   rabbit:
+     container_name: rabbit
+     hostname: rabbit
+     image: rabbitmq:3.7.7
+     ports:
+       - "5672:5672"
+       - "5671:5671"
+       - "4369:4369"
+       - "25672:25672"
+     restart: unless-stopped
+     environment:
+       RABBITMQ_DEFAULT_USER: nebula
+       RABBITMQ_DEFAULT_PASS: nebula
+
+   api:
+     container_name: api-manager
+     hostname: api
+     depends_on:
+       - rabbit
+       - mongo
+     image: nebulaorchestrator/api
+     ports:
+       - "80:80"
+     restart: unless-stopped
+     environment:
+       RABBIT_HOST: rabbit
+       RABBIT_PORT: 5672
+       RABBIT_USER: nebula
+       RABBIT_PASSWORD: nebula
+       RABBIT_VHOST: /
+       RABBIT_HEARTBEAT: 3600
+       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
+       SCHEMA_NAME: nebula
+       BASIC_AUTH_PASSWORD: nebula
+       BASIC_AUTH_USER: nebula
