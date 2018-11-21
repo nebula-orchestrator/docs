@@ -2,15 +2,15 @@
 
 The easiest way to get started is usually with a hands on approach, the following tutorial will use [docker-compose](https://docs.docker.com/compose/) to set a local Nebula cluster on your machine that includes MongoDB, RabbitMQ the API & the worker (which normally you will want be diffrent devices but for testing this is sufficient), it of course requires docker & docker-compose installed so if you don't have them install them first.
 
-!!! note 
-    Some linux distros have epmd installed (Ubuntu included) which the following rabbitmq container requires so if your having problems with rabbit refusing to run try killing the host epmd and\or host rabbitmq-server for the duration of this tutorial
-
 !!! tip
     You can run the following and skip to step 4 if you don't want to change the docker-compose to add a private Docker registry access:
     
 ```bash
 curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d
 ```
+
+!!! note 
+    Some linux distros have epmd installed (Ubuntu included) which the following rabbitmq container requires so if your having problems with rabbit refusing to run try killing the host epmd and\or host rabbitmq-server for the duration of this tutorial
 
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
 2. Nebula is geared towards using a private registry but will also work with docker hub, to use your own user\pass (by default no auth is used) edit the docker-compose.yml by entering your docker hub user & password into "REGISTRY_AUTH_USER" & "REGISTRY_AUTH_PASSWORD" under the "worker" container, if your using a private registry change the "REGISTRY_HOST" variable as well to point to your private registry, if you are planning on only using public images you can keep the settings as is and use no Docker registry auth.
