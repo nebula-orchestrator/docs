@@ -8,7 +8,7 @@ The easiest way to get started is usually with a hands on approach, the followin
 !!! tip
     You can run the following and skip to step 4 if you don't want to change the docker-compose to add a private Docker registry access:
     
-    ```sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml | sudo docker-compose up -d```
+    ```sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d```
 
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
 2. Nebula is geared towards using a private registry but will also work with docker hub, to use your own user\pass (by default no auth is used) edit the docker-compose.yml by entering your docker hub user & password into "REGISTRY_AUTH_USER" & "REGISTRY_AUTH_PASSWORD" under the "worker" container, if your using a private registry change the "REGISTRY_HOST" variable as well to point to your private registry, if you are planning on only using public images you can keep the settings as is and use no Docker registry auth.
