@@ -8,8 +8,8 @@ The easiest way to get started is usually with a hands on approach, the followin
 !!! tip
     You can run the following and skip to step 4 if you don't want to change the docker-compose to add a private Docker registry access:
     
-```
-sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d
+```bash
+curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d
 ```
 
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
@@ -35,3 +35,11 @@ sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/
         }'
         
 5. Either wait for the changes to catch (usually few seconds at most) or restart the worker-manager container, you now have your first nebula worker (try logging into 127.0.0.1:81 in your browser to see), because the network is internal in this tutorial you can only run more on the same machine (which kinda defeats the purpose) but after you deploy Nebula by following the [install](install.md) guide you can run as many workers as you need by having multiple servers running the same worker-manager container with the same envvars\config file.
+
+## One command run
+
+Running the following command will run the "Hello World" tutorial described above in an automated fashion, this makes it easier to play around with the API, it's still recommended to learn the tutorial above at least once to better understand the system install process and architecture:
+
+```bash
+curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/start_example_nebula_cluster.sh" -o start_example_nebula_cluster.sh && sudo sh start_example_nebula_cluster.sh
+```
