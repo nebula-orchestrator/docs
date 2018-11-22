@@ -24,5 +24,6 @@ curl -X POST \
           "devices": []
         }'
 
-# want more devices to join? just run the following on them
-# sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --env RABBIT_HOST=<previous_step_FQDN_or_IP> --env RABBIT_VHOST=/ --env RABBIT_USER=nebula --env RABBIT_PASSWORD=nebula --env APP_NAME=example --name nebula-worker nebulaorchestrator/worker
+# give instructions on how to other other devices
+echo "want more remote devices to join? just run the following on them:"
+echo "sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock --env RABBIT_HOST=<server_exterior_fqdn> --env RABBIT_VHOST=/ --env RABBIT_USER=nebula --env RABBIT_PASSWORD=nebula --env APP_NAME=example --name nebula-worker nebulaorchestrator/worker"
