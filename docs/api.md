@@ -354,6 +354,49 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 }
 ```
 
+# Prune unused images
+Prune unused images on all devices running an app that matches the app_name passed to the request path
+
+ **request**
+
+```
+POST /api/apps/app_name/prune HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
+```
+
+ **response example**
+
+```
+202
+{
+  "containers_per": {"cpu": 5},
+  "app_name": "app_name",
+  "env_vars": {
+    "test": "blabla123",
+    "test3t2t32": "tesg4ehgee"
+  },
+  "running": true,
+  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
+  "networks": ["nebula]
+  "command": "prune",
+  "starting_ports": [
+    80,
+    443,
+    5555
+  ],
+  "_id": {
+    "$oid": "57ebd2ed28447e1e09e72d6a"
+  },
+  "docker_image": "registry.vidazoo.com:5000/httpd",
+  "privileged": false,
+  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+}
+```
+
 # Update all of app params (POST)
 update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead.
 

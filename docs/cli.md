@@ -44,6 +44,7 @@ Commands:
   login    login to nebula
   logout   logout of nebula, useful when you want to...
   ping     check nebula api responds
+  prune    prune unused images on devices running an app
   restart  restart a nebula app
   roll     rolling restart a nebula apps
   start    start a nebula app
