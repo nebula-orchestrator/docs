@@ -26,7 +26,7 @@ create a new app inside the Nebula cluster
  **request**
 
 ```
-POST /api/apps/test HTTP/1.1
+POST /api/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -91,7 +91,7 @@ delete an app from the nebula cluster, be careful as the only way to restore a d
  **request**
 
 ```
-DELETE /api/apps/test HTTP/1.1
+DELETE /api/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -135,7 +135,7 @@ Postman-Token: 9ed33e7a-ade5-8512-2faf-e8697d855af8
 200
  {
   "apps": [
-    "test"
+    "app_name"
   ]
 }
 ```
@@ -146,7 +146,7 @@ get a specific Nebula app config
  **request**
 
 ```
-GET /api/apps/test HTTP/1.1
+GET /api/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -160,7 +160,7 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
 200
 {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -188,7 +188,7 @@ stop a running Nebula app
  **request**
 
 ```
-POST /api/apps/test/stop HTTP/1.1
+POST /api/apps/app_name/stop HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -202,7 +202,7 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
 202
 {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -231,7 +231,7 @@ start a Nebula app
  **request**
 
 ```
-POST /api/apps/test/start HTTP/1.1
+POST /api/apps/app_name/start HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -245,7 +245,7 @@ Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
 202
  {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -274,7 +274,7 @@ note that restarting an app also force pulling the latest version of the docker 
  **request**
 
 ```
-POST /api/apps/test/restart HTTP/1.1
+POST /api/apps/app_name/restart HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -288,7 +288,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 202
 {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -317,7 +317,7 @@ Stops a container and then starts it up again, rolls for each container of the a
  **request**
 
 ```
-POST /api/apps/test/roll HTTP/1.1
+POST /api/apps/app_name/roll HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -331,7 +331,7 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 202
 {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -360,7 +360,7 @@ update a Nebula app config, all the parameters needs to be overwritten at once (
  **request**
 
 ```
-POST /api/apps/test/update HTTP/1.1
+POST /api/apps/app_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -387,7 +387,7 @@ success:
 202
  {
   "containers_per": {"cpu": 5},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
@@ -423,7 +423,7 @@ update a Nebula app config, accepts any combination of the app configuration par
  **request**
 
 ```
-PUT /api/apps/test/update HTTP/1.1
+PUT /api/apps/app_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -443,7 +443,7 @@ success:
 202
  {
   "containers_per": {"server": 2},
-  "app_name": "test",
+  "app_name": "app_name",
   "env_vars": {
     "test": "blabla123",
     "test3t2t32": "tesg4ehgee"
