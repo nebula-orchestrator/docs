@@ -16,7 +16,7 @@ Among other things Nebula allows to:
 4. Force pull updated containers.
 5. Change # of containers running per core/instance.
 6. Change image used.
-7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma separated list you start the worker-manager container with, allowing you to mix and match for different worker clusters while still managing all of them from the same api-manager containers.
+7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma separated list you start the worker container with, allowing you to mix and match for different worker clusters while still managing all of them from the same manager containers.
 8. Mount volumes.
 9. Set containers with privileged permissions.
 10. Mount devices .
@@ -40,17 +40,17 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 # Repo folder structure
 
-* [api-manager](https://github.com/nebula-orchestrator/worker-manager) - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
+* [manager](https://github.com/nebula-orchestrator/worker) - the api endpoint through which Nebula is controlled, includes manager Dockerfile & entire code structure
 * [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
-* [worker-manager](https://github.com/nebula-orchestrator/api-manager) - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
+* [worker](https://github.com/nebula-orchestrator/manager) - the worker manager that manages individual Nebula workers, includes worker Dockerfile & entire code structure
 * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
 * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
 * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io/issues) - the Jekyll based main website
 
 # docker hub repos
 
-* [api-manager](https://hub.docker.com/r/nebulaorchestrator/api/) - prebuilt docker image of the api-manager
-* [worker-manager](https://hub.docker.com/r/nebulaorchestrator/worker/) - prebuilt docker image of the worker-manager
+* [manager](https://hub.docker.com/r/nebulaorchestrator/manager/) - prebuilt docker image of the manager
+* [worker](https://hub.docker.com/r/nebulaorchestrator/worker/) - prebuilt docker image of the worker
 
 # Notices
 

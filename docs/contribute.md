@@ -7,9 +7,9 @@ can help
 
 * Fork the latest branch of the component you want to contribute to:
 
-    * [api-manager](https://github.com/nebula-orchestrator/worker-manager) - the api endpoint through which Nebula is controlled, includes api-manager Dockerfile & entire code structure
+    * [manager](https://github.com/nebula-orchestrator/worker) - the api endpoint through which Nebula is controlled, includes manager Dockerfile & entire code structure
     * [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
-    * [worker-manager](https://github.com/nebula-orchestrator/api-manager) - the worker manager that manages individual Nebula workers, includes worker-manager Dockerfile & entire code structure
+    * [worker](https://github.com/nebula-orchestrator/manager) - the worker manager that manages individual Nebula workers, includes worker Dockerfile & entire code structure
     * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
     * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
     * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io) - the Jekyll based main website

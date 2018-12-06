@@ -1,4 +1,4 @@
-After you have Nebula installed using it is rather straightforward, you make an API request to the api-manager every time you want to change one of the apps (deploying new version, update envvar, etc...), aside from that nebula will keep everything running with the latest version & if you want to scale out you simply add more servers of the component you want to add more.
+After you have Nebula installed using it is rather straightforward, you make an API request to the manager every time you want to change one of the apps (deploying new version, update envvar, etc...), aside from that nebula will keep everything running with the latest version & if you want to scale out you simply add more servers of the component you want to add more.
 
 # Configuring Nebula
 
@@ -12,7 +12,7 @@ Let's say you want to create an app named "site" which hosts your website, to do
 
 ```
 POST /api/apps/site HTTP/1.1
-Host: <your-api-manager>
+Host: <your-manager>
 Authorization: Basic <your-basic-auth>
 Content-Type: application/json
 Cache-Control: no-cache
@@ -36,7 +36,7 @@ The command above will mean that on each worker node with the "site" APP_NAME ta
 
 ```
 POST /api/apps/lb HTTP/1.1
-Host: <your-api-manager>
+Host: <your-manager>
 Authorization: Basic <your-basic-auth>
 Content-Type: application/json
 Cache-Control: no-cache
@@ -64,7 +64,7 @@ Your done, each request will now be directed to one of your "site" containers & 
 
 # Backup & restore
 
-As the only stateful part of the entire design is the MongoDB backing it up using any of the best practice methods available to it is sufficient, that being said it might be a good idea to also have your version of the api-manager & worker-manager containers available in more then one registry in case of issues with your chosen registry supplier (or self hosted one).
+As the only stateful part of the entire design is the MongoDB backing it up using any of the best practice methods available to it is sufficient, that being said it might be a good idea to also have your version of the manager & worker containers available in more then one registry in case of issues with your chosen registry supplier (or self hosted one).
 Restoring in case of a complete disaster is simply a matter of recreating all the components using the installing method described above and populating your MongoDB with the most recent backup of the MongoDB database.
 
 # Health checks

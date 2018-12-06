@@ -70,7 +70,7 @@ write_files:
     content: |
       #!/bin/bash
       wait-for-docker
-      docker run -d --restart=always -e APP_NAME=<comma_separated_app_names_in_nebula> --name nebula-worker-manager -v /var/run/docker.sock:/var/run/docker.sock <your_copy_of_nebula_worker_manager>
+      docker run -d --restart=always -e APP_NAME=<comma_separated_app_names_in_nebula> --name nebula-worker -v /var/run/docker.sock:/var/run/docker.sock <your_copy_of_nebula_worker_manager>
       sudo dd if=/dev/zero of=/swapfile bs=1k count=2000000
       sudo chmod 600 /swapfile
       sudo mkswap /swapfile

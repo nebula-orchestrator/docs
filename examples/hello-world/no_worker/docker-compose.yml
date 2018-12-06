@@ -27,12 +27,12 @@ services:
        RABBITMQ_DEFAULT_PASS: nebula
 
    api:
-     container_name: api-manager
+     container_name: manager
      hostname: api
      depends_on:
        - rabbit
        - mongo
-     image: nebulaorchestrator/api
+     image: nebulaorchestrator/manager
      ports:
        - "80:80"
      restart: unless-stopped
