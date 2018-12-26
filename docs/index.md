@@ -40,9 +40,9 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 # Repo folder structure
 
-* [manager](https://github.com/nebula-orchestrator/worker) - the api endpoint through which Nebula is controlled, includes manager Dockerfile & entire code structure
+* [manager](https://github.com/nebula-orchestrator/manager) - the api endpoint through which Nebula is controlled, includes manager Dockerfile & entire code structure
 * [docs](https://github.com/nebula-orchestrator/docs) - docs (schematics, wishlist\todo's, and API doc)
-* [worker](https://github.com/nebula-orchestrator/manager) - the worker manager that manages individual Nebula workers, includes worker Dockerfile & entire code structure
+* [worker](https://github.com/nebula-orchestrator/worker) - the worker manager that manages individual Nebula workers, includes worker Dockerfile & entire code structure
 * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
 * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
 * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io/issues) - the Jekyll based main website
