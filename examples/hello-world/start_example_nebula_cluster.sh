@@ -3,8 +3,8 @@
 # run the following to start the API, RabbitMQ, MongoDB & an example worker preconfigured to connect to an app named "example" all on one server
 sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d
 
-# wait ~10 seconds for everything to finish the initial boot
-sleep 10
+# wait ~20 seconds for everything to finish the initial boot
+sleep 20
 
 # run the curl below to create the example application
 curl -X POST \
