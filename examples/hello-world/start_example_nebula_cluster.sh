@@ -6,7 +6,7 @@ sudo docker-compose up -d
 
 # wait until the manager is online
 until $(curl --output /dev/null --silent --head --fail http://127.0.0.1/api/status); do
-    print 'waiting on the manager API to become available...'
+    echo 'waiting on the manager API to become available...'
     sleep 5
 done
 
