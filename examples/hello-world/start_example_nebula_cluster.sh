@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
 # run the following to start the API, RabbitMQ, MongoDB & an example worker preconfigured to connect to an app named "example" all on one server
-sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml && sudo docker-compose up -d
+sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml
+sudo docker-compose up -d
 
-# wait ~20 seconds for everything to finish the initial boot
-sleep 20
+# wait until the manager is online
+until $(curl --output /dev/null --silent --head --fail http://127.0.0.1/api/status); do
+    print 'waiting on the manager API to become available...'
+    sleep 5
+done
 
 # run the curl below to create the example application
 curl -X POST \
