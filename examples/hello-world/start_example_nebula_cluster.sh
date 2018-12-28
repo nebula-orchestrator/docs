@@ -5,7 +5,7 @@ sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/
 sudo docker-compose up -d
 
 # wait until the manager is online
-until $(curl --output /dev/null --silent --head --fail http://127.0.0.1/api/status); do
+until $(curl --output /dev/null --silent --head --fail -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' -H 'cache-control: no-cache' http://127.0.0.1/api/status); do
     echo 'waiting on the manager API to become available...'
     sleep 5
 done
