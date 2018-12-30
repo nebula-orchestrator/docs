@@ -7,7 +7,7 @@ sudo docker-compose up -d
 # wait until the manager is online
 until $(curl --output /dev/null --silent --head --fail -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' -H 'cache-control: no-cache' http://127.0.0.1/api/status); do
     echo "Waiting on the manager API to become available..."
-    sleep 5
+    sleep 3
 done
 
 # run the curl below to create the example application
@@ -28,6 +28,12 @@ curl -X POST \
           "privileged": false,
           "devices": []
         }'
+
+# wait until the example nginx is online
+until $(curl --output /dev/null --silent --head --fail -H 'cache-control: no-cache' http://127.0.0.1:81/); do
+    echo "Waiting on the example work container to become available..."
+    sleep 3
+done
 
 # give instructions on how to other other devices & a link to the documentation
 echo ""
