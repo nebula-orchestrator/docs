@@ -31,7 +31,7 @@ Attached below is a table comparision between Nebula and the popular options, in
 | Simple masters scaling up & down | yes - master is fully stateless | no | no | partial - simple as long as quorum remains in the process | unknown |
 | Simple containers scaling up & down | yes - single api call and\or adding\removing worker nodes | yes - single api call | yes - single api call | yes - single api call | unknown |
 | Modular design (or plugin support) | yes - every part does 1 thing only | yes - 2 step orchestrator | yes | yes | unknown |
-| Backend DB's | MongoDB & RabbitMQ | Zookeeper | EtcD | internal in masters | Postgres & Redis & S3|
+| Backend DB's | MongoDB | Zookeeper | EtcD | internal in masters | Postgres & Redis & S3|
 | Multiple apps share worker node | yes | yes | yes | yes | yes |
 | Distributed apps support | yes    |  no   |  no   |  no   | yes |
 | Dynamic allocation of work containers | no | yes | yes | yes | no |
