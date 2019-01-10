@@ -6,28 +6,27 @@ While there are too many possible ways to design Nebula architecture to list the
 
 ![example nebula architecture](../pictures/cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
 
-In the above deployment example Nebula manages a distributed set of identical IoT devices, each devices configured with the same set of containers (identical APP_NAME=app1,app2... in all of them), every time a new devices is turned on it follows this steps:
+In the above deployment example Nebula manages a distributed set of identical IoT devices, each devices configured with to be part of the same "device_group", every time a new devices is turned on it follows this steps:
 
-1. The IoT device connects to RabbitMQ and create a new queue on it, Nebula maintains a per app per device queue in order to ensure correct order and matching status on all devices, the queue is configured to receive messages from a fanout exchange of said app (each Nebula app has a fanout exchange created at the time the app configuration is originally created). 
-2. The IoT device pulls the latest app config from RabbitMQ RPC direct_reply_to queue & makes the required changes so that it matches that status.
-3. From this point on the IoT device listens to any changes in the rabbit queues of it's apps and updates it's current config to match the latest config whenever there is a change.
+1. The IoT device connects to the manager.
+2. The IoT device pulls the latest device_group config.
+3. From this point on the IoT device periodically (configured with the "nebula_manager_check_in_time") checks with the worker for any changes, due to memoization techniques in use the managers have a built in short term cache (configured with the "cache_time") and due to Kafka inspired monotonic ID's for field it's safe to use memoization without worrying about having stale configurations.
 
 Now if an admin wishes to deploy a new version or change any setting (envvar, mount, etc...) on all devices he simply has to follow this steps:
 
 1. Push a new container version with a new tag to the configured Docker registry.
 2. Update the control api (manager) by using the CLI\SDK\API with the latest app config that uses the new version tag as it's docker_image value, from here on Nebula will take care of the rest by doing the following:
     1. Nebula manager will update the MongoDB backend with the new config.
-    2. Nebula manager will also send a message to all currently active IoT devices which include said app in the APP_NAME config via their RabbitMQ queues (which in turns happens via an RabbitMQ fanout exchange)
-    3. All the relevant IoT devices process their queues simultaneously (unless you configured max_restart_wait_in_seconds with a value different from 0) and replace their containers with the new version.
+    2. after the configurable "cache_time" expires (10 seconds by default) all the managers will contact MongoDB and receive the updated config.
+    3. All the relevant IoT devices will receive the updated config and match their device status to the needed config.
 
 It's worth mentioning the follow:
 
-* Both MongoDB & RabbitMQ needs to be accessible from both the Control API, RabbitMQ also needs to be accessible from all of the IoT devices - it will work perfectly even when using the Internet rather then LAN and will tolerate disconnects with no issues, the Nebula workers will simply start processing whatever messages got sent to it's RabbitMQ queue in that time after connectivity is restored until everything is synced with the latest version and\or configuration.
-* Disconnects of longer then 5 minutes will result in the Nebula worker container killing itself in order for it to be restarted via Docker engine `--restart=always` flag, Nebula will then proceed to treat the IoT device as a new device and will follow the steps described above to get it in sync with the rest of the cluster.
-* The MongoDB connection is only used by the manager as the backend DB.
-* The control API is never in direct contact with the IoT devices, all communication goes through RabbitMQ, even if the API layer is down existing IoT devices will continue to work without any issues.
-* Each part of the system can scale out - MongoDB can be sharded and replicated, RabbitMQ can be both be clustered and federated, the api layer is stateless so can be increased as needed and there is no limit for the amount of workers as long as you make sure to scale out the other components to handle it.
-* Nebula ensures consistency among all workers as long as the backend MongoDB & RabbitMQ are consistent, if for some reason you get a split brain in either or any other form or consistency issues Nebula cannot guarantee consistency so make sure to follow best practice in both to avoid those risks from happening.  
+* MongoDB needs to be accessible only from the managers, not the workers - it will work perfectly even when using the Internet rather then LAN and will tolerate disconnects with no issues, due to monotonic ID's in use the workers will simply sync up to the latest needed configuration upon the network reconnects.
+* Nebula is fail hard, Nebula worker container issues will result with it killing itself in order for it to be restarted via Docker engine `--restart=always` flag, Nebula will then proceed to treat the IoT device as a new device and will follow the steps described above to get it in sync with the rest of the cluster.
+* Each part of the system can scale out - MongoDB can be sharded and replicated, the managers are stateless so can be increased as needed and there is no limit for the amount of workers as long as you make sure to scale out the other components to handle it.
+* Nebula ensures consistency among all workers as long as the backend MongoDB is consistent, if for some reason you get a split brain in either or any other form or consistency issues Nebula cannot guarantee consistency so make sure to follow best practice in both to avoid those risks from happening.
+* Nebula is eventually consistent, all workers will sync to the latest config but it might take up to "nebula_manager_check_in_time" + "device_group" seconds (40 seconds by default) for that to happen
 
 ## Large scale webapp deployment
 
