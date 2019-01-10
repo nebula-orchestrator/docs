@@ -578,8 +578,58 @@ success:
 ```
 
 # list a device group
+list a device group config
+
+ **request**
+
+```
+GET /api/v2/device_groups/test HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "test"
+}
+```
 
 # list device groups
+list all device groups
+
+ **request**
+
+```
+GET /api/v2/device_groups HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+{
+    "device_groups": [
+        "test",
+        "test123"
+    ]
+}
+```
 
 # create a device group
 
