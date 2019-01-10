@@ -28,26 +28,20 @@ the --help argument will give you the needed parameters for each command, most c
 ```bash
 nebulactl --help
 
-Usage: nebulactl [OPTIONS] COMMAND [ARGS]...
+Usage: nebulactl.py [OPTIONS] COMMAND [ARGS]...
 
-  manage a nebula cluster
+  Connect to a Nebula orcherstrator management endpoint, Create Nebula apps
+  and Manage them all from a simple CLI.
 
 Options:
   --version  Show the version and exit.
   --help     Show this message and exit.
 
 Commands:
-  create   create a new nebula app
-  delete   delete a nebula app
-  info     list info of a nebula app
-  list     list nebula apps
-  login    login to nebula
-  logout   logout of nebula, useful when you want to...
-  ping     check nebula api responds
-  prune    prune unused images on devices running an app
-  restart  restart a nebula app
-  roll     rolling restart a nebula apps
-  start    start a nebula app
-  stop     stop a nebula app
-  update   update a nebula app
+  apps           Manage nebula apps.
+  device-groups  Manage nebula device_groups.
+  login          login to nebula
+  logout         logout of nebula, useful when you want to make sure to...
+  ping           check nebula api responds
+  prune          Prune images.
 ```
