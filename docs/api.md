@@ -368,15 +368,16 @@ Content-Type: application/json
 Cache-Control: no-cache
  
 {
-    "starting_ports": [80, 443, 5555],
-    "containers_per": {"cpu": 5},
-    "env_vars": {"test": "blabla123", "test3t2t32": "tesg4ehgee"},
-    "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-    "docker_image" : "httpd",
-    "running": true,
-    "networks": ["nebula]
-    "privileged": false,
-    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+  "starting_ports": [80],
+  "containers_per": {"server": 2},
+  "env_vars": {"test": "test123"},
+  "docker_image" : "nginx",
+  "running": true,
+  "volumes": [],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
+  "privileged": false,
+  "rolling_restart": false
 }
 ```
 
@@ -385,27 +386,31 @@ Cache-Control: no-cache
 success:
 ```
 202
- {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "command": "update",
-  "networks": ["nebula]
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+{
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 4,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -430,8 +435,8 @@ Content-Type: application/json
 Cache-Control: no-cache
  
 {
-    "starting_ports": [80, 443, 6666],
-    "containers_per": {"server": 2}
+    "rolling_restart": true,
+    "containers_per": {"server": 1}
 }
 ```
 
@@ -440,28 +445,31 @@ Cache-Control: no-cache
 success:
 ```
 202
- {
-  "containers_per": {"server": 2},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "command": "update",
-  "networks": ["nebula]
-  "starting_ports": [
-    80,
-    443,
-    6666
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+{
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 4,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 1
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": true,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
