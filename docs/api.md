@@ -654,6 +654,7 @@ Cache-Control: no-cache
  **response example**
 
 ```
+200
 {
     "prune_id": 544,
     "_id": {
@@ -669,7 +670,24 @@ Cache-Control: no-cache
 ```
 
 # delete a device group
+delete a device group config
 
+ **request**
+
+```
+DELETE /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+200
+{}
+```
 
 # update a device group
 update a device group
@@ -694,6 +712,7 @@ Cache-Control: no-cache
  **response example**
 
 ```
+202
 {
     "prune_id": 544,
     "_id": {
