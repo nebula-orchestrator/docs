@@ -55,7 +55,7 @@ success
 {
     "app_name": "app_name",
     "env_vars": {
-        "test": "app_name"
+        "test": "test123"
     },
     "app_id": 1,
     "devices": [],
@@ -583,7 +583,7 @@ list a device group config
  **request**
 
 ```
-GET /api/v2/device_groups/test HTTP/1.1
+GET /api/v2/device_groups/device_group_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -603,7 +603,7 @@ Cache-Control: no-cache
         "test123"
     ],
     "device_group_id": 116,
-    "device_group": "test"
+    "device_group": "device_group_name"
 }
 ```
 
@@ -632,9 +632,110 @@ Cache-Control: no-cache
 ```
 
 # create a device group
+create a device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "apps": [
+        "test",
+        "test123"
+    ]
+}
+```
+
+ **response example**
+
+```
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "device_group_name"
+}
+```
 
 # delete a device group
 
+
 # update a device group
+update a device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "apps": [
+        "test",
+        "test123"
+    ]
+}
+```
+
+ **response example**
+
+```
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "device_group_name"
+}
+```
+
 
 # prune images on a device group
+Prune unused images on  devices that are part of a given device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name/prune HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+202
+{
+    "prune_id": 545,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 117,
+    "device_group": "test"
+}
+```
