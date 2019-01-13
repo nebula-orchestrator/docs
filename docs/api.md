@@ -1,5 +1,5 @@
 # Get api status
-a simple webpage that can be used to monitor the API is working
+a simple endpoint that can be used to monitor the API is working
 
  **request**
 
