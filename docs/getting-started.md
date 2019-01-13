@@ -36,7 +36,7 @@ curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examp
 5. Now that we have an app let's create an the "example" device_group with the "example" app part of it by using another curl command:
 
         curl -X POST \
-          http://127.0.0.1:5000/api/v2/device_groups/example \
+          http://127.0.0.1/api/v2/device_groups/example \
           -H 'Authorization: Basic bmVidWxhOm5lYnVsYQ==' \
           -H 'Content-Type: application/json' \
           -H 'cache-control: no-cache' \
