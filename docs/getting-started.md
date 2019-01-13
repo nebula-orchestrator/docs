@@ -16,7 +16,7 @@ curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examp
 4. You now have a running Nebula cluster, lets use Curl to create an nginx app to fill the "example" app that we will run as part of our device_group:
 
         curl -X POST \
-          http://127.0.0.1/api/apps/example \
+          http://127.0.0.1/api/v2/apps/example \
           -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' \
           -H 'cache-control: no-cache' \
           -H 'content-type: application/json' \
