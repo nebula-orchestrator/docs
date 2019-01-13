@@ -16,19 +16,19 @@ Among other things Nebula allows to:
 4. Force pull updated containers.
 5. Change # of containers running per core/instance.
 6. Change image used.
-7. Manage multiple apps over different worker servers, each server "pod" of apps is determined by what APP_NAME envvar value comma separated list you start the worker container with, allowing you to mix and match for different worker clusters while still managing all of them from the same manager containers.
+7. Manage multiple apps over different worker servers, each server "device_group" can have an unlimited amount of apps added\removed from it which will then be picked up by all devices that are part of that "device_group".
 8. Mount volumes.
 9. Set containers with privileged permissions.
 10. Mount devices .
 11. Control containers network affiliation.
-12. Auto intergrate with Dockerfile healthchecks to restart unhealthy containers.
+12. Auto integrate with Dockerfile healthchecks to restart unhealthy containers.
 
 There are 2 custom created services:
 
-1. api manager - a REST API endpoint to control nebula, fully stateless (all data stored in DB only).
-2. worker manager - a container which listens to rabbit and manages the worker server it runs on, one has to run on each worker, fully stateless.
+1. manager - a REST API endpoint to control nebula, fully stateless (all data stored in DB only).
+2. worker - a container which periodically checks in with the manager and manages the worker server it runs on, one has to run on each worker, fully stateless.
 
-As each worker server is in charge only of it's own containers all pulls from rabbit and work happens on the same time on all servers so pushing 50 million containers on a million servers will take roughly the same amount of time as pushing 50 containers on 1 server.
+Due to clever use of TTL based [memoization](https://en.wikipedia.org/wiki/Memoization) it's possible to manage millions of devices with a single Nebula cluster without overloading the backend DB (or having it ridiculously large) & due to Kafka inspired monotonic ID you can rest easy knowing that the managed devices will always match the most recent configuration.
 
 # Example use cases
 
@@ -62,12 +62,9 @@ As each worker server is in charge only of it's own containers all pulls from ra
 
 # Example architecture
 
-Attached are 3 example for you to draw inspiration from when designing yours, a more detailed explanation of it can be found at the [architecture](architecture.md) page:
+Attached are 2 example for you to draw inspiration from when designing yours, a more detailed explanation of it can be found at the [architecture](architecture.md) page:
 
 ![example nebula architecture](pictures/cloudcraft%20-%20nebula%20-%20IoT.png "example nebula architecture")
 
 
 ![example nebula architecture](pictures/cloudcraft%20-%20nebula.png "example nebula architecture")
-
-
-![example nebula architecture](pictures/nebula.png "example nebula architecture")
