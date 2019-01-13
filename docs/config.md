@@ -51,9 +51,9 @@ An example config file is located at "example_conf.json" at the /config/ folder 
 
 The following table shows the path of each config file inside the docker containers:
 
-| container      | config path inside container | example Dockerfile COPY command overwrite |
-|----------------|------------------------------|-------------------------------------------|
-| manager    | /www/config/conf.json               | COPY config/conf.json /www/config/conf.json             |
-| worker | /worker/config/conf.json    | COPY config/conf.json /worker/config/conf.json  |
+| container      | config path inside container | example Dockerfile COPY command overwrite       |
+|----------------|------------------------------|-------------------------------------------------|
+| manager        | /www/config/conf.json        | COPY config/conf.json /www/config/conf.json     |
+| worker         | /worker/config/conf.json     | COPY config/conf.json /worker/config/conf.json  |
 
 As the manager uses gunicorn as the main application web-server inside the container there is a config.py at the container root folder which is pulled from the repo /config/config.py file, consult [gunicron guide](http://docs.gunicorn.org/en/stable/index.html) if you wish to change it's parameters.
