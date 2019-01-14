@@ -27,7 +27,7 @@ curl -X POST \
           "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
           "networks": ["nebula"],
           "privileged": false,
-          "devices": []
+          "devices": [],
           "rolling_restart": false
         }'
 
