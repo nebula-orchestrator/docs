@@ -2,6 +2,7 @@
 
 # run the following to start the API, MongoDB & an example worker preconfigured to connect to an app named "example" all on one server
 sudo curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/docker-compose.yml" -o docker-compose.yml
+sudo docker-compose pull
 sudo docker-compose up -d
 
 # wait until the manager is online
