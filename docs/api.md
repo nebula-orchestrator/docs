@@ -331,7 +331,7 @@ Cache-Control: no-cache
 ```
 
 # Prune unused images on all device
-Prune unused images on all devices running an app that matches the app_name passed to the request path
+Prune unused images on all devices
 
  **request**
 
