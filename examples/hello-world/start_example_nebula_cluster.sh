@@ -13,6 +13,7 @@ done
 
 # run the curl below to create the example app
 echo "Creating an example app (creatively) named example"
+echo ""
 curl -X POST \
           http://127.0.0.1/api/v2/apps/example \
           -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' \
@@ -31,6 +32,8 @@ curl -X POST \
           "rolling_restart": false
         }'
 
+echo ""
+
 # run the curl below to create the example device_group
 echo "Creating an example device_group (creatively) named example"
 curl -X POST \
@@ -41,6 +44,8 @@ curl -X POST \
           -d '{
               "apps": ["example"]
         }'
+
+echo ""
 
 # wait until the example nginx is online
 until $(curl --output /dev/null --silent --head --fail -H 'cache-control: no-cache' http://127.0.0.1:81/); do
