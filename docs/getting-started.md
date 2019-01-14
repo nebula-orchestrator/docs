@@ -12,7 +12,7 @@ curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examp
 
 1. First get the [docker-compose.yml](https://github.com/nebula-orchestrator/docs/blob/master/examples/hello-world/docker-compose.yml) of this tutorial and save it locally on your machine
 2. Nebula is geared towards using a private registry but will also work with docker hub, to use your own user\pass (by default no auth is used) edit the docker-compose.yml by entering your docker hub user & password into "REGISTRY_AUTH_USER" & "REGISTRY_AUTH_PASSWORD" under the "worker" container, if your using a private registry change the "REGISTRY_HOST" variable as well to point to your private registry, if you are planning on only using public images you can keep the settings as is and use no Docker registry auth.
-3. from the directory where you saved docker-compose.yml at (same name is important) run `docker-compose up -d` (you might need to `sudo su` first if you didn't set your user to be part of the docker group), don't worry if you see the worker & manager restarting, it's because the mongo & rabbit containers take a couple of seconds to initialize.
+3. from the directory where you saved docker-compose.yml at (same name is important) run `docker-compose up -d` (you might need to `sudo su` first if you didn't set your user to be part of the docker group), don't worry if you see the worker & manager restarting, it's because the mongo container take a couple of seconds to initialize.
 4. You now have a running Nebula cluster, lets use Curl to create an nginx app to fill the "example" app that we will run as part of our device_group:
 
         curl -X POST \
