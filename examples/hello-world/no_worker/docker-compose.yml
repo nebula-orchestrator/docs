@@ -12,37 +12,16 @@ services:
        MONGO_INITDB_ROOT_USERNAME: nebula
        MONGO_INITDB_ROOT_PASSWORD: nebula
 
-   rabbit:
-     container_name: rabbit
-     hostname: rabbit
-     image: rabbitmq:3.7.7
-     ports:
-       - "5672:5672"
-       - "5671:5671"
-       - "4369:4369"
-       - "25672:25672"
-     restart: unless-stopped
-     environment:
-       RABBITMQ_DEFAULT_USER: nebula
-       RABBITMQ_DEFAULT_PASS: nebula
-
-   api:
+   manager:
      container_name: manager
-     hostname: api
+     hostname: manager
      depends_on:
-       - rabbit
        - mongo
      image: nebulaorchestrator/manager
      ports:
        - "80:80"
      restart: unless-stopped
      environment:
-       RABBIT_HOST: rabbit
-       RABBIT_PORT: 5672
-       RABBIT_USER: nebula
-       RABBIT_PASSWORD: nebula
-       RABBIT_VHOST: /
-       RABBIT_HEARTBEAT: 3600
        MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
        SCHEMA_NAME: nebula
        BASIC_AUTH_PASSWORD: nebula

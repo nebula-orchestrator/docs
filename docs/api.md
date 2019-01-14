@@ -1,15 +1,14 @@
 # Get api status
-a simple webpage that can be used to monitor the API is working
+a simple endpoint that can be used to monitor the API is working
 
  **request**
 
 ```
-GET /api/status HTTP/1.1
+GET /api/v2/status HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: c3c35e8d-e242-b7ac-4b76-d7879be2398a
 ```
 
  **response example**
@@ -17,7 +16,9 @@ Postman-Token: c3c35e8d-e242-b7ac-4b76-d7879be2398a
 success
 ```
 200
-{ "api_available": "True" }
+{
+    "api_available": true
+}
 ```
 
 # Create app
@@ -26,23 +27,23 @@ create a new app inside the Nebula cluster
  **request**
 
 ```
-POST /api/apps/app_name HTTP/1.1
+POST /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 1c4b215b-7bb4-8045-4896-9c4d3ac3c2de
  
 {
-    "starting_ports": [{"81": "80"}, 443],
-    "containers_per": {"cpu": 5},
-    "env_vars": {"test": "test123"},
-    "docker_image" : "registry.vidazoo.com:5000/nginx",
-    "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-    "running": true,
-    "networks": ["nebula"],
-    "privileged": false,
-    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+  "starting_ports": [80],
+  "containers_per": {"server": 2},
+  "env_vars": {"test": "test123"},
+  "docker_image" : "nginx",
+  "running": true,
+  "volumes": [],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
+  "privileged": false,
+  "rolling_restart": false
 }
 ```
 
@@ -50,21 +51,32 @@ Postman-Token: 1c4b215b-7bb4-8045-4896-9c4d3ac3c2de
 
 success
 ```
-202
+200
 {
-  "containers_per": {"cpu": 5},
-  "docker_image": "registry.vidazoo.com:5000/nginx",
-  "env_vars": {
-    "test": "test123"
-  },
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"],
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "nebula": ["nebula"],
-  "starting_ports": [
-    80
-  ]
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "test123"
+    },
+    "app_id": 1,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -80,7 +92,7 @@ app already exists
 ```
 403
  {
-    "app_exists": "True"
+    "app_exists": true
 }
 
 ```
@@ -91,19 +103,18 @@ delete an app from the nebula cluster, be careful as the only way to restore a d
  **request**
 
 ```
-DELETE /api/apps/app_name HTTP/1.1
+DELETE /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 40e88690-33da-de0a-2a1c-1b01459bab8e
 ```
 
  **response example**
 
 success:
 ```
-202
+200
  {}
 ```
 
@@ -111,7 +122,7 @@ when trying to delete a non existing app:
 ```
 403
 {
-    "app_exists": "False"
+    "app_exists": false
 }
 ```
 
@@ -121,12 +132,11 @@ list all apps managed in the current Nebula cluster
  **request**
 
 ```
-GET /api/apps HTTP/1.1
-Host: nebula-api-01.private02.aws.vidazoo.com
+GET /api/v2/apps HTTP/1.1
+Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 9ed33e7a-ade5-8512-2faf-e8697d855af8
 ```
 
  **response example**
@@ -146,12 +156,11 @@ get a specific Nebula app config
  **request**
 
 ```
-GET /api/apps/app_name HTTP/1.1
+GET /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
 ```
 
  **response example**
@@ -159,26 +168,30 @@ Postman-Token: d67e1044-561e-cf39-a59a-93101102231e
 ```
 200
 {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "nebula": ["nebula"],
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 1,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -188,12 +201,11 @@ stop a running Nebula app
  **request**
 
 ```
-POST /api/apps/app_name/stop HTTP/1.1
+POST /api/v2/apps/app_name/stop HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
 ```
 
  **response example**
@@ -201,28 +213,31 @@ Postman-Token: 393100e2-fb29-3b02-fb66-b77388f810b1
 ```
 202
 {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": false,
-  "networks": ["nebula"],
-  "command": "stop",
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
-} 
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 2,
+    "devices": [],
+    "privileged": false,
+    "running": false,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
+}
 ```
 
 # Start app
@@ -231,40 +246,42 @@ start a Nebula app
  **request**
 
 ```
-POST /api/apps/app_name/start HTTP/1.1
+POST /api/v2/apps/app_name/start HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 8be83768-3921-f4cd-a6cb-b4fcda6b7e32
 ```
 
  **response example**
 
 ```
 202
- {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "networks": ["nebula"],
-  "command": "start",
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+{
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 3,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -274,12 +291,11 @@ note that restarting an app also force pulling the latest version of the docker 
  **request**
 
 ```
-POST /api/apps/app_name/restart HTTP/1.1
+POST /api/v2/apps/app_name/restart HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 
  **response example**
@@ -287,42 +303,44 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 202
 {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "command": "restart",
-  "networks": ["nebula"],
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 4,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
-# Rolling restart app
-Stops a container and then starts it up again, rolls for each container of the app running on the server 1 at a time with a 5 seconds between each container roll, note that rolling restarting an app also force pulling the latest version of the docker container so can be used as a form of deployment method assuming that the you overwritten the container tag in your docker registry with a newer version
+# Prune unused images on all device
+Prune unused images on all devices
 
  **request**
 
 ```
-POST /api/apps/app_name/roll HTTP/1.1
+POST /api/v2/prune HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 
  **response example**
@@ -330,70 +348,10 @@ Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
 ```
 202
 {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "networks": ["nebula]
-  "command": "roll",
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
-}
-```
-
-# Prune unused images
-Prune unused images on all devices running an app that matches the app_name passed to the request path
-
- **request**
-
-```
-POST /api/apps/app_name/prune HTTP/1.1
-Host: localhost:5000
-Authorization: Basic <your-token-here>
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: fa2e1e6f-c0c9-0dc5-a323-00ed9503cf4e
-```
-
- **response example**
-
-```
-202
-{
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "networks": ["nebula]
-  "command": "prune",
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+    "prune_ids": {
+        "test": 544,
+        "test123": 222
+    }
 }
 ```
 
@@ -403,23 +361,23 @@ update a Nebula app config, all the parameters needs to be overwritten at once (
  **request**
 
 ```
-POST /api/apps/app_name/update HTTP/1.1
+POST /api/v2/apps/app_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
  
 {
-    "starting_ports": [80, 443, 5555],
-    "containers_per": {"cpu": 5},
-    "env_vars": {"test": "blabla123", "test3t2t32": "tesg4ehgee"},
-    "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-    "docker_image" : "registry.vidazoo.com:5000/httpd",
-    "running": true,
-    "networks": ["nebula]
-    "privileged": false,
-    "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+  "starting_ports": [80],
+  "containers_per": {"server": 2},
+  "env_vars": {"test": "test123"},
+  "docker_image" : "nginx",
+  "running": true,
+  "volumes": [],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
+  "privileged": false,
+  "rolling_restart": false
 }
 ```
 
@@ -428,27 +386,31 @@ Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
 success:
 ```
 202
- {
-  "containers_per": {"cpu": 5},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "command": "update",
-  "networks": ["nebula]
-  "starting_ports": [
-    80,
-    443,
-    5555
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+{
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 4,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 2
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": false,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -466,16 +428,15 @@ update a Nebula app config, accepts any combination of the app configuration par
  **request**
 
 ```
-PUT /api/apps/app_name/update HTTP/1.1
+PUT /api/v2/apps/app_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
 Cache-Control: no-cache
-Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
  
 {
-    "starting_ports": [80, 443, 6666],
-    "containers_per": {"server": 2}
+    "rolling_restart": true,
+    "containers_per": {"server": 1}
 }
 ```
 
@@ -484,28 +445,31 @@ Postman-Token: 9cd8b55e-2512-07fc-9cf1-15fc5c562635
 success:
 ```
 202
- {
-  "containers_per": {"server": 2},
-  "app_name": "app_name",
-  "env_vars": {
-    "test": "blabla123",
-    "test3t2t32": "tesg4ehgee"
-  },
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "command": "update",
-  "networks": ["nebula]
-  "starting_ports": [
-    80,
-    443,
-    6666
-  ],
-  "_id": {
-    "$oid": "57ebd2ed28447e1e09e72d6a"
-  },
-  "docker_image": "registry.vidazoo.com:5000/httpd",
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+{
+    "app_name": "app_name",
+    "env_vars": {
+        "test": "app_name"
+    },
+    "app_id": 4,
+    "devices": [],
+    "privileged": false,
+    "running": true,
+    "containers_per": {
+        "server": 1
+    },
+    "starting_ports": [
+        80
+    ],
+    "volumes": [],
+    "_id": {
+        "$oid": "5c370a85ebdb54000edb8ef2"
+    },
+    "rolling_restart": true,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "docker_image": "nginx"
 }
 ```
 
@@ -514,5 +478,283 @@ missing parameters:
 400
 {
  "missing_parameters": "True"
+}
+```
+
+# list a device group info
+a special endpoint which the devices check every (configurable with the "nebula_manager_check_in_time" param on the workers) X seconds that returns a cached (cache time configurable by the "cache_time" param on the manager) info of all apps of said device_group along with all the the data needed to get the device to match the needed configuration.
+
+ **request**
+
+```
+GET /api/v2/device_groups/device_group_name/info HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+success:
+```
+200
+{
+    "prune_id": 544,
+    "apps_list": [
+        "test",
+        "test123"
+    ],
+    "apps": [
+        {
+            "app_name": "test",
+            "env_vars": {
+                "test": "blabla123",
+                "test3t2t32": "tesg4ehgee"
+            },
+            "app_id": 319,
+            "devices": [],
+            "privileged": false,
+            "running": true,
+            "containers_per": {
+                "server": 1
+            },
+            "starting_ports": [
+                {
+                    "80": "80"
+                },
+                8888
+            ],
+            "volumes": [
+                "/tmp:/tmp/1",
+                "/var/tmp/:/var/tmp/1:ro"
+            ],
+            "_id": {
+                "$oid": "5c2c767959be4c000ed3653f"
+            },
+            "rolling_restart": false,
+            "networks": [
+                "nebula",
+                "bridge"
+            ],
+            "docker_image": "nginx:alpine"
+        },
+        {
+            "app_name": "test123",
+            "env_vars": {
+                "test": "blabla123",
+                "test3t2t32": "tesg4ehgee"
+            },
+            "app_id": 6,
+            "devices": [],
+            "privileged": false,
+            "running": true,
+            "containers_per": {
+                "cpu": 1
+            },
+            "starting_ports": [
+                {
+                    "333": "80"
+                },
+                777
+            ],
+            "volumes": [
+                "/tmp:/tmp/1",
+                "/var/tmp/:/var/tmp/1:ro"
+            ],
+            "_id": {
+                "$oid": "5c2c767659be4c000ed3653e"
+            },
+            "rolling_restart": false,
+            "networks": [
+                "nebula",
+                "bridge"
+            ],
+            "docker_image": "httpd:alpine"
+        }
+    ],
+    "device_group_id": 116
+}
+```
+
+# list a device group
+list a device group config
+
+ **request**
+
+```
+GET /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "device_group_name"
+}
+```
+
+# list device groups
+list all device groups
+
+ **request**
+
+```
+GET /api/v2/device_groups HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+{
+    "device_groups": [
+        "test",
+        "test123"
+    ]
+}
+```
+
+# create a device group
+create a device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "apps": [
+        "test",
+        "test123"
+    ]
+}
+```
+
+ **response example**
+
+```
+200
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "device_group_name"
+}
+```
+
+# delete a device group
+delete a device group config
+
+ **request**
+
+```
+DELETE /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+200
+{}
+```
+
+# update a device group
+update a device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "apps": [
+        "test",
+        "test123"
+    ]
+}
+```
+
+ **response example**
+
+```
+202
+{
+    "prune_id": 544,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 116,
+    "device_group": "device_group_name"
+}
+```
+
+
+# prune images on a device group
+Prune unused images on  devices that are part of a given device group
+
+ **request**
+
+```
+POST /api/v2/device_groups/device_group_name/prune HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+ **response example**
+
+```
+202
+{
+    "prune_id": 545,
+    "_id": {
+        "$oid": "5c2cc6849d723e6c88ba466e"
+    },
+    "apps": [
+        "test",
+        "test123"
+    ],
+    "device_group_id": 117,
+    "device_group": "test"
 }
 ```

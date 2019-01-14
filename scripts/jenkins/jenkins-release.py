@@ -16,7 +16,7 @@ NEBULA_API_HOST = "<your_api_ip_or_fqdn>"
 
 app = sys.argv[1]
 
-url = "http://" + NEBULA_API_HOST + "/api/apps/" + app + "/restart"
+url = "http://" + NEBULA_API_HOST + "/api/v2/apps/" + app + "/restart"
 
 payload = ""
 headers = {
