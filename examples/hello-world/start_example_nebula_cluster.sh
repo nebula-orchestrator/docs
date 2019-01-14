@@ -10,10 +10,10 @@ until $(curl --output /dev/null --silent --head --fail -H 'authorization: Basic 
     sleep 3
 done
 
-# run the curl below to create the example application
+# run the curl below to create the example app
 echo "Creating an example app (creatively) named example"
 curl -X POST \
-          http://127.0.0.1/api/apps/example \
+          http://127.0.0.1/api/v2/apps/example \
           -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' \
           -H 'cache-control: no-cache' \
           -H 'content-type: application/json' \
@@ -27,6 +27,18 @@ curl -X POST \
           "networks": ["nebula"],
           "privileged": false,
           "devices": []
+          "rolling_restart": false
+        }'
+
+# run the curl below to create the example device_group
+echo "Creating an example device_group (creatively) named example"
+curl -X POST \
+          http://127.0.0.1/api/v2/device_groups/example \
+          -H 'authorization: Basic bmVidWxhOm5lYnVsYQ==' \
+          -H 'cache-control: no-cache' \
+          -H 'content-type: application/json' \
+          -d '{
+              "apps": ["example"]
         }'
 
 # wait until the example nginx is online
@@ -40,7 +52,7 @@ echo ""
 echo "Example nebula cluster is now ready for use"
 echo ""
 echo "Want more remote devices to join? just run the following on them:"
-echo "sudo docker run -d --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock --env RABBIT_HOST=<server_exterior_fqdn> --env RABBIT_VHOST=/ --env RABBIT_USER=nebula --env RABBIT_PASSWORD=nebula --env APP_NAME=example --name nebula-worker nebulaorchestrator/worker"
+echo "sudo docker run -d --restart unless-stopped -v /var/run/docker.sock:/var/run/docker.sock --env DEVICE_GROUP=example --env REGISTRY_HOST=https://index.docker.io/v1/ --env MAX_RESTART_WAIT_IN_SECONDS=0 --env NEBULA_MANAGER_AUTH_USER=nebula --env NEBULA_MANAGER_AUTH_PASSWORD=nebula --env NEBULA_MANAGER_AUTH_HOST=<your_manager_server_ip_or_fqdn> --env NEBULA_MANAGER_AUTH_PORT=80 --env nebula_manager_protocol=http --env nebula_manager_check_in_time=5 --name nebula-worker nebulaorchestrator/worker"
 echo ""
 echo "You can now connect to each device on port 81 via your browser to see and example nginx running"
 echo ""

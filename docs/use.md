@@ -11,7 +11,7 @@ Let's say your devices are a bunch of smart speakers (like echo dot or google ho
 1. first thing you will want to do is create an nebula app that will run the container of your smart speaker and all the needed parameters for it (frontpage for initial user configuration, envvars, etc), let's create an app named "smart_speaker" to do that:
 
 ```
-POST /api/apps/smart_speaker HTTP/1.1
+POST /api/v2/apps/smart_speaker HTTP/1.1
 Host: <your-manager>
 Authorization: Basic <your-basic-auth>
 Content-Type: application/json
