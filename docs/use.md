@@ -6,36 +6,12 @@ Configuring can be done either via envvars or via replacing the attached config/
 
 # Creating & configuring apps
 
-Let's say you want to create an app named "site" which hosts your website, to do that on your nebula cluster you will do the following:
+Let's say your devices are a bunch of smart speakers (like echo dot or google home) and you want to manage them using Nebula:
 
-1. create an app named "site" in Nebula using Nebula API that includes your site container & all required settings "envvar"
-
-```
-POST /api/apps/site HTTP/1.1
-Host: <your-manager>
-Authorization: Basic <your-basic-auth>
-Content-Type: application/json
-Cache-Control: no-cache
-
-{
-  "starting_ports": [{"81": "80"}],
-  "containers_per": {"cpu": 3},
-  "env_vars": {"test": "test123"},
-  "docker_image" : "<your-site-container-image>",
-  "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "networks": ["nebula"],
-  "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
-}
-```
-
-The command above will mean that on each worker node with the "site" APP_NAME tag there will be 3 containers per cpu created of said image, the container will run from port 81 up to 81+number of containers, with each of them binding to port 80 inside the container.
-
-2. You will also need a way to load balance between all of the "site containers" & redirect the servers port 80 traffic to them, for that create another nebula app named "lb" for load balancing
+1. first thing you will want to do is create an nebula app that will run the container of your smart speaker and all the needed parameters for it (frontpage for initial user configuration, envvars, etc), let's create an app named "smart_speaker" to do that:
 
 ```
-POST /api/apps/lb HTTP/1.1
+POST /api/apps/smart_speaker HTTP/1.1
 Host: <your-manager>
 Authorization: Basic <your-basic-auth>
 Content-Type: application/json
@@ -43,24 +19,36 @@ Cache-Control: no-cache
 
 {
   "starting_ports": [{"80": "80"}],
-  "containers_per": {"cpu": 3},
-  "env_vars": {"test": "test123"},
-  "docker_image" : "<your-lb-container-image>",
+  "containers_per": {"server": 1},
+  "env_vars": {"SPEAKER_ENV": "prod"},
+  "docker_image" : "registry.awsomespeakersinc.com:5000/speaker:v25",
   "running": true,
-  "volumes": ["/tmp:/tmp/1", "/var/tmp/:/var/tmp/1:ro"],
-  "networks": ["host"],
+  "volumes": ["/etc/speaker/conf:/etc/speaker/conf:rw"],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
   "privileged": false,
-  "devices": ["/dev/usb/hiddev0:/dev/usb/hiddev0:rwm"]
+  "rolling_restart": false
 }
 ```
 
-This will use the host network so all you need is a LB that binds to port 80 and load balances the traffic between ports 81 to 81+number_of_site_containers,an example HAPRoxy config which handle the following can be found at  [example-config](https://github.com/nebula-orchestrator/nebula/blob/master/docs/haproxy.cfg) 
+2. now that we have an app created we will need to attach said app to a device_group, each device_group consists of a list of apps that are designed to run on each device that is part of that device_group, let's create a device_group named "speakers" and attach it the "smart_speaker" app to it:
 
+```
+POST /api/v2/device_groups/speakers HTTP/1.1
+Host: <your-manager>
+Authorization: Basic <your-basic-auth>
+Content-Type: application/json
+cache-control: no-cache
+{
+    "apps": [
+        "smart_speaker"
+    ]
+}
+```
 
-3. Create worker nodes with the APP_NAME="site,lb" envvar tag for said servers to know they need to load both the "lb" & the "site" apps
-4. Create a sever LB layer, in AWS using ELB is great for that but any standard LB will do.
+3. now that we have the nebula app & device_group configured in nebula all that's left is to start the nebula worker container on each of the smart speaker devices and to have the "DEVICE_GROUP" envvar configured to "speakers" (can also be done via the configuration file) - this will tell the device it's part of the "speakers" device_group and will sync in with the managers to match it's running apps configuration to the one needed every (configurable) X seconds.
 
-Your done, each request will now be directed to one of your "site" containers & should your site takeoff you can scale said architecture to handle billions of requests easily by adding more servers with the tag, or if you want to change your site a single API call will update all of your containers to a new version.
+Your done, each change you now make in nebula will be synced to all of your devices.
 
 # Backup & restore
 
