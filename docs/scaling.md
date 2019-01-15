@@ -12,7 +12,7 @@ Nebula was designed so that each component can scale out, below are some things 
 
 # Stress test results
 
-Using siege a single manager has been stress tested against the device_group /info endpoint, due to it being the only endpoint a device checks in with this provide a good estimate to the performance of a single manager under heavy load, here are the results of 500 concurrent connections each repeating the request 100 times with no delay between them:
+Using Siege a single manager has been stress tested against the device_group /info endpoint, due to it being the only endpoint a device checks in with this provide a good estimate to the performance of a single manager under heavy load, here are the results of 500 concurrent connections each repeating the request 100 times with no delay between them:
 
 ```bash
 Transactions:                  50000 hits
