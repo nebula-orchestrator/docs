@@ -38,4 +38,6 @@ This test results shows that a single manager can handle any of the following:
 
 Keep in mind that this is for a single manager, a Nebula cluster can scale the amount of managers out with near liner scalability so if you have a million devices you would still only need 22 manager containers to have them all kept in sync every minute (or you can use just 3 if you don't mind waiting 10 minutes for changes to catch on all devices).
 
-It should also be mentioned that Siege CPU usage was the limiting factor for this test which likely means that each manager can potentially handle a much larger number of requests\second but this provide a good rule of thumb for any number crunching needs.
+
+!!! note
+    It should also be mentioned that Siege CPU usage was the limiting factor for this test which likely means that each manager can potentially handle a much larger number of requests\second but this provide a good rule of thumb for any number crunching needs.
