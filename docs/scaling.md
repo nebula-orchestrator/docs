@@ -9,3 +9,33 @@ Nebula was designed so that each component can scale out, below are some things 
 * MongoDB should be clustered with the data being replicated multiple times for large scales, preferring to read from secondaries(slaves) will greatly increase performance ,sharding is possible but it's a lot less of an issue as each app config is rather small on it's own.
 * Don't forget to consider how your going to scale out your routing layer, a load-balancer can get saturated just like a web app can.
 * the scale needed is determined by both the amount of workers you have and the frequency where they check in with the managers, if you have a device_group where you don't mind updates taking a bit longer it might be easier (not to mention cheaper) to increase the check in frequency rather then adding more managers.
+
+# Stress test results
+
+Using siege a single manager has been stress tested against the device_group /info endpoint, due to it being the only endpoint a device checks in with this provide a good estimate to the performance of a single manager under heavy load, here are the results of 500 concurrent connections each repeating the request 100 times with no delay between them:
+
+```bash
+Transactions:                  50000 hits
+Availability:                 100.00 %
+Elapsed time:                  64.24 secs
+Data transferred:              20.12 MB
+Response time:                  0.36 secs
+Transaction rate:             778.33 trans/sec
+Throughput:                     0.31 MB/sec
+Concurrency:                  281.08
+Successful transactions:       50000
+Failed transactions:               0
+Longest transaction:           12.54
+Shortest transaction:           0.00
+```
+
+This test results shows that a single manager can handle any of the following:
+
+* 46680 device checking in every 60 seconds with a 10 seconds cache
+* 23340 device checking in every 30 seconds with a 10 seconds cache
+* 7780 device checking in every 10 seconds with a 10 seconds cache
+* 778 devices checking in every second with a 10 seconds cache
+
+Keep in mind that this is for a single manager, a Nebula cluster can scale the amount of managers out with near liner scalability so if you have a million devices you would still only need 22 manager containers to have them all kept in sync every minute.
+
+It should also be mentioned that Siege CPU usage was the limiting factor for this test which likely means that each manager can potentially handle a much larger number of requests\second but this provide a good rule of thumb for any number crunching needs.
