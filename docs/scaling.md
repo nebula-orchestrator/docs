@@ -34,7 +34,6 @@ This test results shows that a single manager can handle any of the following:
 * 46680 device checking in every 60 seconds with a 10 seconds cache
 * 23340 device checking in every 30 seconds with a 10 seconds cache
 * 7780 device checking in every 10 seconds with a 10 seconds cache
-* 778 devices checking in every second with a 10 seconds cache
 
 Keep in mind that this is for a single manager, a Nebula cluster can scale the amount of managers out with near liner scalability so if you have a million devices you would still only need 22 manager containers to have them all kept in sync every minute.
 
