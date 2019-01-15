@@ -695,7 +695,7 @@ update a device group
  **request**
 
 ```
-POST /api/v2/device_groups/device_group_name HTTP/1.1
+POST /api/v2/device_groups/device_group_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
