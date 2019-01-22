@@ -22,7 +22,7 @@ success
 ```
 
 # Create app
-create a new app inside the Nebula cluster
+create a new app inside the Nebula cluster, the docker_image is required with the rest of the parameters getting default values if not declared.
 
  **request**
 
@@ -356,7 +356,7 @@ Cache-Control: no-cache
 ```
 
 # Update all of app params (POST)
-update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead.
+update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead, the docker_image is required with the rest of the parameters reverting to default values if not declared.
 
  **request**
 
