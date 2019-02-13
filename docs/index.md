@@ -14,7 +14,7 @@ Among other things Nebula allows to:
 2. Change envvars.
 3. Stop\start\restart\rolling restart containers.
 4. Force pull updated containers.
-5. Change # of containers running per core/instance.
+5. Change # of containers running per core/memory/instance.
 6. Change image used.
 7. Manage multiple apps over different worker servers, each server "device_group" can have an unlimited amount of apps added\removed from it which will then be picked up by all devices that are part of that "device_group".
 8. Mount volumes.
