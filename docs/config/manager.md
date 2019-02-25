@@ -1,6 +1,6 @@
 ## Configuring Nebula
 
-The following table shows the config variables used to set nebula worker & manager at start time:
+The following table shows the config variables used to set nebula manager at start time:
 
 | config/conf.json variable name     | envvar variable name             | default value                | example value                                                                                                        | type   | description                                                                                                                                                                                                                                                                                           | required |
 |------------------------------------|----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -15,9 +15,9 @@ The following table shows the config variables used to set nebula worker & manag
 | mongo_max_pool_size                | MONGO_MAX_POOL_SIZE              | 25                           | 100                                                                                                                  | int    | the size of the connection pool between the manager and the backend MongoDB - a good rule of thumb is to have 3 for each device_group in the cluster but no more then 100 at most                                                                                                                     | yes      |
 
 
-envvars take priority over variables set in the config/conf.json file in case both are set (the registry user & pass values can also be set by using the standard "~/.docker/config.json" file and not setting them as envvars and the Nebula config file ), it's suggested to always wrap envvars values in Quotation marks but it's only required if the envvar uses special characters (for example "mongodb://mongo_user:mongo_pass@mongo_host:27017/?ssl=true&replicaSet=mongo_replica_set&authSource=mongo_auth_schema"), some variables have defaults that will be used if they are not set as envvars and in the conf.json file.
+envvars take priority over variables set in the config/conf.json file in case both are set (the registry user & pass values can also be set by using the standard "~/.docker/config.json" file and not setting them as envvars and the Nebula config file ), it's suggested to always wrap envvars values in quotation marks but it's only required if the envvar uses special characters (for example "mongodb://mongo_user:mongo_pass@mongo_host:27017/?ssl=true&replicaSet=mongo_replica_set&authSource=mongo_auth_schema"), some variables have defaults that will be used if they are not set as envvars and in the conf.json file.
 
-An example config file is located at "example_conf.json" at the /config/ folder of either the worker and the manager github repo (and inside the containers of them by extension).
+An example config file is located at "example_conf.json" at the /config/ folder of the manager github repo (and inside the containers of them by extension).
 
 The following table shows the path of each config file inside the docker containers:
 
