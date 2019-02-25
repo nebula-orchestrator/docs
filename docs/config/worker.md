@@ -1,6 +1,6 @@
-## Configuring Nebula
+## Configuring Nebula workers
 
-The following table shows the config variables used to set nebula worker & manager at start time:
+The following table shows the config variables used to set nebula worker at start time:
 
 | config/conf.json variable name     | envvar variable name             | default value                | example value                                                                                                        | type   | description                                                                                                                                                                                                                                                                                           | required |
 |------------------------------------|----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
@@ -38,6 +38,6 @@ An example config file is located at "example_conf.json" at the /config/ folder 
 
 The following table shows the path of each config file inside the docker containers:
 
-| container      | config path inside container | example Dockerfile COPY command overwrite       |
-|----------------|------------------------------|-------------------------------------------------|
-| worker         | /worker/config/conf.json     | COPY config/conf.json /worker/config/conf.json  |
+| container      | config path inside container | example Dockerfile COPY command overwrite        |
+|----------------|------------------------------|--------------------------------------------------|
+| reporter       | /reporter/config/conf.json   | COPY config/conf.json /reporter/config/conf.json |

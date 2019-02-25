@@ -15,6 +15,7 @@ pages:
         - 'config/device_groups.md'
         - 'config/manager.md'
         - 'config/worker.md'
+        - 'config/reporter.md'
       - Scaling: scaling.md
     - Controling:
       - CLI: cli.md
