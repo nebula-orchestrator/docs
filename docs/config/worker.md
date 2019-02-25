@@ -2,6 +2,9 @@
 
 The following table shows the config variables used to set nebula worker at start time:
 
+!!! tip
+    The tables slides to to side for viewing it's full information (not clear do to the rtfd theme)
+
 | config/conf.json variable name     | envvar variable name             | default value                | example value                                                                                                        | type   | description                                                                                                                                                                                                                                                                                           | required |
 |------------------------------------|----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | registry_auth_user                 | REGISTRY_AUTH_USER               | None                         | user                                                                                                                 | string | the docker registry basic auth user, if not set or set to None (the default value) Nebula will attempt to use the standard registry config file that's located inside the container "~/.docker/config.json" file path & if that's not configured will carry using no registry auth                    | no       |
@@ -40,4 +43,4 @@ The following table shows the path of each config file inside the docker contain
 
 | container      | config path inside container | example Dockerfile COPY command overwrite        |
 |----------------|------------------------------|--------------------------------------------------|
-| reporter       | /reporter/config/conf.json   | COPY config/conf.json /reporter/config/conf.json |
+| worker         | /worker/config/conf.json     | COPY config/conf.json /worker/config/conf.json   |

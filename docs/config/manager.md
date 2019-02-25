@@ -2,6 +2,9 @@
 
 The following table shows the config variables used to set nebula manager at start time:
 
+!!! tip
+    The tables slides to to side for viewing it's full information (not clear do to the rtfd theme)
+
 | config/conf.json variable name     | envvar variable name             | default value                | example value                                                                                                        | type   | description                                                                                                                                                                                                                                                                                           | required |
 |------------------------------------|----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | basic_auth_user                    | BASIC_AUTH_USER                  |                              | admin                                                                                                                | string | the basic auth user used to secure the manager - unless you set basic_auth_enabled=false you must configure it                                                                                                                                                                                        | no       |

@@ -2,6 +2,9 @@
 
 The following table shows the config variables used to set nebula optional reporter at start time:
 
+!!! tip
+    The tables slides to to side for viewing it's full information (not clear do to the rtfd theme)
+
 | config/conf.json variable name     | envvar variable name             | default value                | example value                                                                                                        | type   | description                                                                                                                                                                                                                | required |
 |------------------------------------|----------------------------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | kafka_bootstrap_servers            | KAFKA_BOOTSTRAP_SERVERS          |                              | mykafka.mydomain.com:9092 or empty                                                                                   | string | the FQDN\ip address of the bootstrap kafka nodes, if not set everything regarding the optional reporting system will be unused, setting it to any value is the trigger to turn on the reporting component of the workers   | yes      |
@@ -31,6 +34,6 @@ An example config file is located at "example_conf.json" at the /config/ folder 
 
 The following table shows the path of each config file inside the docker containers:
 
-| container      | config path inside container | example Dockerfile COPY command overwrite       |
-|----------------|------------------------------|-------------------------------------------------|
-| worker         | /worker/config/conf.json     | COPY config/conf.json /worker/config/conf.json  |
+| container      | config path inside container | example Dockerfile COPY command overwrite        |
+|----------------|------------------------------|--------------------------------------------------|
+| reporter       | /reporter/config/conf.json   | COPY config/conf.json /reporter/config/conf.json |
