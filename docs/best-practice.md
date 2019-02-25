@@ -18,6 +18,6 @@ In production environments it's important to keep the following in mind in order
 * Strong passwords (8+ chars made of combination of upper case, lower case, numbers & special characters) should be used in the API layer & MongoDB.
 * The manager support HTTPS stripping on the LB layer in front of it, it's recommended to use that configuration.
 * MongoDB also supports SSL, which is stored on a remote location should be considered to be used.
-* Only the manager (API layer) should be accessible to worker devices, the MongoDB backend should be accessabile only from the manager.
-* Using the latest version of Nebula is always recommended, vunrlabilites in packages are always discovered & patched on a routine manner.
+* Only the manager (API layer) should be accessible to worker devices, the MongoDB backend should be accessible only from the manager.
+* Using the latest version of Nebula is always recommended, vulnerabilities in packages are always discovered & patched on a routine manner.
 * The API logs by default write each request to the API including the IP which originated the request.
