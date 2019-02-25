@@ -68,3 +68,6 @@ Attached are 2 example for you to draw inspiration from when designing yours, a 
 
 
 ![example nebula architecture](pictures/cloudcraft%20-%20nebula.png "example nebula architecture")
+
+
+![example nebula architecture](pictures/nebula%20v2%20-%20iot%20-%20optional%20reporter.png "example nebula architecture")
