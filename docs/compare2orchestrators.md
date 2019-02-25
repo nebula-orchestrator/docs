@@ -11,6 +11,8 @@ The answer for that is that while the popular container orchestrators are great 
  
 Attached below is a table comparision between Nebula and the popular options, info in it is correct to the time of writing.
 
+!!! tip
+    The tables slides to to side for viewing it's full information (not clear do to the rtfd theme)
 
 |  | Nebula | Mesos+Marathon\DC/OS | Kubernetes | Swarm | balena.io |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
