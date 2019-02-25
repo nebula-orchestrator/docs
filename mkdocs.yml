@@ -10,7 +10,11 @@ pages:
       - Installing: install.md
     - Configuring:
       - Using: use.md
-      - Configuration settings: config.md
+      - Configuration settings:
+        - 'config/apps.md'
+        - 'config/device_groups.md'
+        - 'config/manager.md'
+        - 'config/worker.md'
       - Scaling: scaling.md
     - Controling:
       - CLI: cli.md
