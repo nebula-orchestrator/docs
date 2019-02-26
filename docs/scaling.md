@@ -9,6 +9,7 @@ Nebula was designed so that each component can scale out, below are some things 
 * MongoDB should be clustered with the data being replicated multiple times for large scales, preferring to read from secondaries(slaves) will greatly increase performance ,sharding is possible but it's a lot less of an issue as each app config is rather small on it's own.
 * Don't forget to consider how your going to scale out your routing layer, a load-balancer can get saturated just like a web app can.
 * the scale needed is determined by both the amount of workers you have and the frequency where they check in with the managers, if you have a device_group where you don't mind updates taking a bit longer it might be easier (not to mention cheaper) to increase the check in frequency rather then adding more managers.
+* if using the optional reporting system the Kafka cluster should be supported by multiple zookeeper nodes and have it's partitions replicated across multiple servers, it's up to the admin to ensure the Kafka topic is created with enough partitions to support the needed scale (keep in mind that the number of the "reporter" containers will be considerably less affective if they outnumber the number of Kafka partitions). 
 
 # Stress test results
 

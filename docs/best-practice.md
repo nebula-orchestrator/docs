@@ -8,6 +8,7 @@ It's best to monitor the following components:
 * Docker manager - a API endpoint for monitoring the status is available at `/api/status`, consult the [api](https://github.com/nebula-orchestrator/docs/blob/master/docs/api.md) docs for more info.
 * Docker worker container - check that the worker container is running on all worker nodes.
 * (Optional) routing layers - changes depending on your design.
+* (Optional) reporting system - follow Kafka best practice to monitor it & ensure that the reporting containers\services are running.
 * App containers - check that the app containers are running on your worker nodes - adding a HEALTHCHECK configuration to the Dockerfile will make Nebula automatically restart containers marked as "unhealthy" and is therefor highly recommended.
 * End2End network connections - if your app accepts HTTP\TCP\UDP requests best to check e2e connectivity as well.
 
@@ -21,3 +22,4 @@ In production environments it's important to keep the following in mind in order
 * Only the manager (API layer) should be accessible to worker devices, the MongoDB backend should be accessible only from the manager.
 * Using the latest version of Nebula is always recommended, vulnerabilities in packages are always discovered & patched on a routine manner.
 * The API logs by default write each request to the API including the IP which originated the request.
+* (Optional) reporting system - use certificate based connections to Kafka.

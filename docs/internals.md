@@ -60,3 +60,6 @@ Each worker follows the same basic steps:
         3. if the prune_id is larger then run pruning of docker images
     2. if any changes happened in the previous step save the newer configuration to the local config
 
+## the optional reporting system
+
+The optional reporter system is Kafka based, this is really a classic use-case for Kafka, where a lot of devices each send a single report every X seconds with it's current state configuration, the flow for the reporting system goes from the workers to the Kafka, from there a "reporter" component populates the backend DB with the data which the manager instances can in turn query to retrieve to the admin the state of managed devices.

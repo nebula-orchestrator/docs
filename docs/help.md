@@ -14,6 +14,7 @@ GitHub issue ticket system is a great tool for FOSS projects, if your problem ca
 * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk/issues) - a pythonic SDK for using Nebula
 * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd/issues) - a CLI for using Nebula
 * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io/issues) - the Jekyll based main website
+* [reporter](https://github.com/nebula-orchestrator/reporter/issues) - an optional component used to populate status reports to the backend DB to allow the admin to know the status of the managed devices
 
 
 ## Google MailGroup

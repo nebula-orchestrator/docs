@@ -46,11 +46,13 @@ Due to clever use of TTL based [memoization](https://en.wikipedia.org/wiki/Memoi
 * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
 * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
 * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io/issues) - the Jekyll based main website
+* [reporter](https://github.com/nebula-orchestrator/reporter) - an optional component used to populate status reports to the backend DB to allow the admin to know the status of the managed devices
 
 # docker hub repos
 
 * [manager](https://hub.docker.com/r/nebulaorchestrator/manager/) - prebuilt docker image of the manager
 * [worker](https://hub.docker.com/r/nebulaorchestrator/worker/) - prebuilt docker image of the worker
+* [reporter](https://hub.docker.com/r/nebulaorchestrator/reporter/) -  prebuilt docker image of the optional reporter
 
 # Notices
 

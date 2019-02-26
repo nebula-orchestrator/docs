@@ -12,6 +12,7 @@ can help
     * [worker](https://github.com/nebula-orchestrator/manager) - the worker manager that manages individual Nebula workers, includes worker Dockerfile & entire code structure
     * [nebula-python-sdk](https://github.com/nebula-orchestrator/nebula-python-sdk) - a pythonic SDK for using Nebula
     * [nebula-cmd](https://github.com/nebula-orchestrator/nebula-cmd) - a CLI for using Nebula
+    * [reporter](https://github.com/nebula-orchestrator/reporter) - an optional component used to populate status reports to the backend DB to allow the admin to know the status of the managed devices
     * [nebula-orchestrator.github.io](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io) - the Jekyll based main website
 
 
