@@ -758,3 +758,49 @@ Cache-Control: no-cache
     "device_group": "test"
 }
 ```
+
+
+# list a filtered paginated view of the optional reports system
+The optional reporting system reports can be queried from this endpoint in the manager.
+can be filtered via the request parameters:
+ * page_size = the number of reports per page to show
+ * filter_type = the field of the reports to filter by,one of:
+    * device_group
+    * report_creation_time
+    * hostname
+ * filter_value = the value to filter by
+ * filter_expression = one of:
+    * eq 
+    * gt 
+    * lt 
+    * gte 
+    * lte 
+    * ne
+ * last_id = the last_id that is returned by the a current paginated query, passing it will make the load the next paginated page, upon reaching the last page 'null' will be returned.
+
+
+ **request**
+
+```
+GET /api/v2/reports?page_size=25&amp; filter_expression=eq&amp; filter_type=device_group&amp; filter_value=test&amp; last_id=5c75489a209bde00015570d7 HTTP/1.1
+Host: 127.0.0.1:5000
+Authorization: Basic <your-token-here>
+Content-Type: application/json
+cache-control: no-cache
+```
+
+ **response example**
+
+```
+200
+{
+    "data": [
+        {
+            ...very_long_paginated_view_of_25_reports...
+        }
+    ],
+    "last_id": {
+        "$oid": "5c75489a209bde00015570e2"
+    }
+}
+```
