@@ -763,6 +763,7 @@ Cache-Control: no-cache
 # list a filtered paginated view of the optional reports system
 The optional reporting system reports can be queried from this endpoint in the manager.
 can be filtered via the request parameters:
+
  * page_size = the number of reports per page to show
  * filter_type = the field of the reports to filter by,one of:
     * device_group

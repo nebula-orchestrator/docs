@@ -28,6 +28,16 @@ It's worth mentioning the follow:
 * Nebula ensures consistency among all workers as long as the backend MongoDB is consistent, if for some reason you get a split brain in either or any other form or consistency issues Nebula cannot guarantee consistency so make sure to follow best practice in both to avoid those risks from happening.
 * Nebula is eventually consistent, all workers will sync to the latest config but it might take up to "nebula_manager_check_in_time" + "device_group" seconds (40 seconds by default) for that to happen
 
+### IoT deployment with the optional reporting system
+
+![example nebula architecture](../pictures/nebula%20v2%20-%20iot%20-%20optional%20reporter.png "example nebula architecture")
+
+The optional reporting is an additive system (meaning all of the above is also true for it), what changes about it is as following:
+
+1. The workers send their current state to a Kafka cluster after every sync with the manager.
+2. The "reporter" component (it's own microservice) pulls from Kafka and populate the the state data into the backend DB
+3. the manager can query the new state data from the backend DB to let the admin know the state of managed devices.
+
 ## Large scale webapp deployment
 
 ![example nebula architecture](../pictures/cloudcraft%20-%20nebula.png "example nebula architecture")
