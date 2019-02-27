@@ -782,7 +782,7 @@ Can be filtered via the request parameters (none are required):
  **request**
 
 ```
-GET /api/v2/reports?page_size=3&amp; hostname=5c5b7ceae29a&amp; device_group=test&amp; report_creation_time_filter=gt&amp; report_creation_time=123&amp; last_id=5c75489a209bde00015570e5 HTTP/1.1
+GET /api/v2/reports?page_size=3&amp; hostname=5c5b7ceae29a&amp; device_group=test&amp; report_creation_time_filter=gt&amp; report_creation_time=1551252013&amp; last_id=5c75489a209bde00015570e5 HTTP/1.1
 Host: 127.0.0.1:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
