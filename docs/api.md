@@ -762,15 +762,14 @@ Cache-Control: no-cache
 
 # list a filtered paginated view of the optional reports system
 The optional reporting system reports can be queried from this endpoint in the manager.
-can be filtered via the request parameters:
+
+Can be filtered via the request parameters (none are required):
 
  * page_size = the number of reports per page to show
- * filter_type = the field of the reports to filter by,one of:
-    * device_group
-    * report_creation_time
-    * hostname
- * filter_value = the value to filter by
- * filter_expression = one of:
+ * hostname = an exact match to a hostname to filter by
+ * device_group = an exact match to a device_group to filter by
+ * report_creation_time = the value (in seconds since unix epoch) of time to filter by
+ * report_creation_time_filter = the math expression to filter the report_creation_time by, defaults to eq (equal), one of:
     * eq 
     * gt 
     * lt 
@@ -783,7 +782,7 @@ can be filtered via the request parameters:
  **request**
 
 ```
-GET /api/v2/reports?page_size=25&amp; filter_expression=eq&amp; filter_type=device_group&amp; filter_value=test&amp; last_id=5c75489a209bde00015570d7 HTTP/1.1
+ GET /api/v2/reports?page_size=3&amp; hostname=5c5b7ceae29a&amp; device_group=test&amp; report_creation_time_filter=gt&amp; report_creation_time=123&amp; last_id=5c75489a209bde00015570e5 HTTP/1.1
 Host: 127.0.0.1:5000
 Authorization: Basic <your-token-here>
 Content-Type: application/json
@@ -797,11 +796,11 @@ cache-control: no-cache
 {
     "data": [
         {
-            ...very_long_paginated_view_of_25_reports...
+            ...very_long_paginated_view_of_3_reports...
         }
     ],
     "last_id": {
-        "$oid": "5c75489a209bde00015570e2"
+        "$oid": "5c75489a209bde00015570e8"
     }
 }
 ```
