@@ -93,4 +93,7 @@ connection.prune__device_group_images("device_group_name")
 # update device group
 connection.update_device_group("device_group_name", device_group_config)
 
+# list paginated reports
+connection.list_reports()
+
 ```
