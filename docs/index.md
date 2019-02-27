@@ -23,10 +23,12 @@ Among other things Nebula allows to:
 11. Control containers network affiliation.
 12. Auto integrate with Dockerfile healthchecks to restart unhealthy containers.
 
-There are 2 custom created services:
+There are 2 custom created services that are mandatory:
 
 1. manager - a REST API endpoint to control nebula, fully stateless (all data stored in DB only).
 2. worker - a container which periodically checks in with the manager and manages the worker server it runs on, one has to run on each worker, fully stateless.
+
+There is also an optional third component (the reporter) which can be added to allow managed devices be quried about their state (this also requires adding a Kafka cluster to the design).
 
 Due to clever use of TTL based [memoization](https://en.wikipedia.org/wiki/Memoization) it's possible to manage millions of devices with a single Nebula cluster without overloading the backend DB (or having it ridiculously large) & due to Kafka inspired monotonic ID you can rest easy knowing that the managed devices will always match the most recent configuration.
 
