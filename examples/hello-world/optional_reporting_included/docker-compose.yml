@@ -1,54 +1,54 @@
 version: '3'
 
 services:
-   mongo:
-     container_name: mongo
-     hostname: mongo
-     image: mongo:4.0.1
-     ports:
-       - "27017:27017"
-     restart: unless-stopped
-     environment:
-       MONGO_INITDB_ROOT_USERNAME: nebula
-       MONGO_INITDB_ROOT_PASSWORD: nebula
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo:4.0.1
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: nebula
+      MONGO_INITDB_ROOT_PASSWORD: nebula
 
-   manager:
-     container_name: manager
-     hostname: manager
-     depends_on:
-       - mongo
-     image: nebulaorchestrator/manager
-     ports:
-       - "80:80"
-     restart: unless-stopped
-     environment:
-       MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
-       SCHEMA_NAME: nebula
-       BASIC_AUTH_PASSWORD: nebula
-       BASIC_AUTH_USER: nebula
+  manager:
+    container_name: manager
+    hostname: manager
+    depends_on:
+      - mongo
+    image: nebulaorchestrator/manager
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
+      SCHEMA_NAME: nebula
+      BASIC_AUTH_PASSWORD: nebula
+      BASIC_AUTH_USER: nebula
 
-   worker:
-     container_name: worker
-     depends_on:
-       - manager
-       - kafka
-     image: nebulaorchestrator/worker
-     volumes:
-       - /var/run/docker.sock:/var/run/docker.sock
-     restart: unless-stopped
-     hostname: worker
-     environment:
-       REGISTRY_HOST: https://index.docker.io/v1/
-       MAX_RESTART_WAIT_IN_SECONDS: 0
-       NEBULA_MANAGER_AUTH_USER: nebula
-       NEBULA_MANAGER_AUTH_PASSWORD: nebula
-       NEBULA_MANAGER_HOST: manager
-       NEBULA_MANAGER_PORT: 80
-       NEBULA_MANAGER_PROTOCOL: http
-       NEBULA_MANAGER_CHECK_IN_TIME: 5
-       DEVICE_GROUP: example
-       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-       KAFKA_TOPIC: nebula-reports
+  worker:
+    container_name: worker
+    depends_on:
+      - manager
+      - kafka
+    image: nebulaorchestrator/worker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    hostname: worker
+    environment:
+      REGISTRY_HOST: https://index.docker.io/v1/
+      MAX_RESTART_WAIT_IN_SECONDS: 0
+      NEBULA_MANAGER_AUTH_USER: nebula
+      NEBULA_MANAGER_AUTH_PASSWORD: nebula
+      NEBULA_MANAGER_HOST: manager
+      NEBULA_MANAGER_PORT: 80
+      NEBULA_MANAGER_PROTOCOL: http
+      NEBULA_MANAGER_CHECK_IN_TIME: 5
+      DEVICE_GROUP: example
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: nebula-reports
 
   zookeeper:
     container_name: zookeeper
@@ -77,16 +77,16 @@ services:
 
   reporter:
     container_name: reporter
-      hostname: reporter
-      depends_on:
-        - mongo
-        - kafka
-      image: nebulaorchestrator/reporter
-      restart: unless-stopped
-      environment:
-        MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
-        SCHEMA_NAME: nebula
-        BASIC_AUTH_PASSWORD: nebula
-        BASIC_AUTH_USER: nebula
-        KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-        KAFKA_TOPIC: nebula-reports
+    hostname: reporter
+    depends_on:
+      - mongo
+      - kafka
+    image: nebulaorchestrator/reporter
+    restart: unless-stopped
+    environment:
+      MONGO_URL: mongodb://nebula:nebula@mongo:27017/nebula?authSource=admin
+      SCHEMA_NAME: nebula
+      BASIC_AUTH_PASSWORD: nebula
+      BASIC_AUTH_USER: nebula
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: nebula-reports
