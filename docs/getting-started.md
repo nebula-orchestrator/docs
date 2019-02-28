@@ -55,3 +55,9 @@ Running the following command will run the "Hello World" tutorial described abov
 ```bash
 curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/start_example_nebula_cluster.sh" -o start_example_nebula_cluster.sh && sudo sh start_example_nebula_cluster.sh
 ```
+
+If you want to also have the optional reporting system run the following command instead, it's exectly the same like the one above only it also includes Zookeeper, Kafka & the optional reporter microservice configured, this will allow you to query the workers reports via the manager /reports API endpoint.
+
+```bash
+curl -L "https://raw.githubusercontent.com/nebula-orchestrator/docs/master/examples/hello-world/optional_reporting_included/start_example_nebula_cluster.sh" -o start_example_nebula_cluster.sh && sudo sh start_example_nebula_cluster.sh
+```

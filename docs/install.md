@@ -48,3 +48,12 @@ Both the API & the workers have an ARM64v8 version auto deployed to Docker Hub t
  * each numbered version ARM build larger then 1.4.0 has a tag with the version number that is suffixed with "-arm64v8"
  
 Other ARM versions are not currently auto built.
+
+# Optional reporting system
+
+The optional reporting systems requires a working Kafka cluster (and by extension a Zookeeper cluster), once you have that you will also need to add the following:
+
+* Have the workers configured with the "kafka_bootstrap_servers" configuration option, other kafka options are optional but this is the option which when configured tells the workers to start sending their reports
+* Add the optional [reporter micro-service](../config/reporter.md)
+
+It's to the admin to ensure proper configurations of the Kafka topic & the number of partitions in it.
