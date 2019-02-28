@@ -8,5 +8,5 @@ Each component has it's own release notes page in the GitHub Release page
  * nebulactl (CMD) -   [GitHub Release page](https://github.com/nebula-orchestrator/nebula-cmd/releases)
  * Documentation -  [GitHub Release page](https://github.com/nebula-orchestrator/docs/releases)
  * Nebula website -  [GitHub Release page](https://github.com/nebula-orchestrator/nebula-orchestrator.github.io/releases)
- * Reporter - [reporter](https://github.com/nebula-orchestrator/reporter)
+ * Reporter - [GitHub Release page](https://github.com/nebula-orchestrator/reporter/releases)
  
