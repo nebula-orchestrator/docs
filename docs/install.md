@@ -54,6 +54,6 @@ Other ARM versions are not currently auto built.
 The optional reporting systems requires a working Kafka cluster (and by extension a Zookeeper cluster), once you have that you will also need to add the following:
 
 * Have the workers configured with the "kafka_bootstrap_servers" configuration option, other kafka options are optional but this is the option which when configured tells the workers to start sending their reports
-* Add the optional [reporter micro-service](../config/reporter.md)
+* Add the optional [reporter micro-service](https://nebula.readthedocs.io/en/latest/config/reporter/)
 
 It's to the admin to ensure proper configurations of the Kafka topic & the number of partitions in it.
