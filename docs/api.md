@@ -1,3 +1,12 @@
+# Authentication
+
+There are currently 2 possible authentication methods:
+
+ * Basic auth - pass the `Authorization: Basic <your-basic_auth_base64-here>` header to the API call
+ * Bearer tokens - pass the `Authorization: Bearer <your-token-here>` header to the API call
+ 
+ you can use either\both however you please, should you wish to disable both auth you must set the `auth_enabled` parameter on the manager to `false`.
+
 # Get api status
 a simple endpoint that can be used to monitor the API is working
 
@@ -6,7 +15,7 @@ a simple endpoint that can be used to monitor the API is working
 ```
 GET /api/v2/status HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -29,7 +38,7 @@ create a new app inside the Nebula cluster, the docker_image is required with th
 ```
 POST /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
  
@@ -105,7 +114,7 @@ delete an app from the nebula cluster, be careful as the only way to restore a d
 ```
 DELETE /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -134,7 +143,7 @@ list all apps managed in the current Nebula cluster
 ```
 GET /api/v2/apps HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -158,7 +167,7 @@ get a specific Nebula app config
 ```
 GET /api/v2/apps/app_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -203,7 +212,7 @@ stop a running Nebula app
 ```
 POST /api/v2/apps/app_name/stop HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -248,7 +257,7 @@ start a Nebula app
 ```
 POST /api/v2/apps/app_name/start HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -293,7 +302,7 @@ note that restarting an app also force pulling the latest version of the docker 
 ```
 POST /api/v2/apps/app_name/restart HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -338,7 +347,7 @@ Prune unused images on all devices
 ```
 POST /api/v2/prune HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -363,7 +372,7 @@ update a Nebula app config, all the parameters needs to be overwritten at once (
 ```
 POST /api/v2/apps/app_name/update HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
  
@@ -430,7 +439,7 @@ update a Nebula app config, accepts any combination of the app configuration par
 ```
 PUT /api/v2/apps/app_name/update HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
  
@@ -489,7 +498,7 @@ a special endpoint which the devices check every (configurable with the "nebula_
 ```
 GET /api/v2/device_groups/device_group_name/info HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -585,7 +594,7 @@ list a device group config
 ```
 GET /api/v2/device_groups/device_group_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -615,7 +624,7 @@ list all device groups
 ```
 GET /api/v2/device_groups HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -639,7 +648,7 @@ create a device group
 ```
 POST /api/v2/device_groups/device_group_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 
@@ -677,7 +686,7 @@ delete a device group config
 ```
 DELETE /api/v2/device_groups/device_group_name HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -697,7 +706,7 @@ update a device group
 ```
 POST /api/v2/device_groups/device_group_name/update HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 
@@ -736,7 +745,7 @@ Prune unused images on  devices that are part of a given device group
 ```
 POST /api/v2/device_groups/device_group_name/prune HTTP/1.1
 Host: localhost:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 Cache-Control: no-cache
 ```
@@ -784,7 +793,7 @@ Can be filtered via the request parameters (none are required):
 ```
 GET /api/v2/reports?page_size=3&amp; hostname=5c5b7ceae29a&amp; device_group=test&amp; report_creation_time_filter=gt&amp; report_creation_time=1551252013&amp; last_id=5c75489a209bde00015570e5 HTTP/1.1
 Host: 127.0.0.1:5000
-Authorization: Basic <your-token-here>
+Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
 cache-control: no-cache
 ```
