@@ -5,7 +5,7 @@ It's best to monitor the following components:
 * MongoDB - following MongoDB best practices.
 * Docker service - on all hosts.
 * Docker manager container - check that the manager container is running.
-* Docker manager - a API endpoint for monitoring the status is available at `/api/status`, consult the [api](https://github.com/nebula-orchestrator/docs/blob/master/docs/api.md) docs for more info.
+* Docker manager - a API endpoint for monitoring the status is available at `/api/status`, consult the [api](https://nebula.readthedocs.io/en/latest/api/general/#get-api-status) docs for more info.
 * Docker worker container - check that the worker container is running on all worker nodes.
 * (Optional) routing layers - changes depending on your design.
 * (Optional) reporting system - follow Kafka best practice to monitor it & ensure that the reporting containers\services are running.
