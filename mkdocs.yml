@@ -19,7 +19,11 @@ pages:
       - Scaling: scaling.md
     - Controling:
       - CLI: cli.md
-      - API: api.md
+      - API:
+        - General: 'api/general.md'
+        - Apps: 'api/apps.md'
+        - device_groups: 'api/device_groups.md'
+        - users: 'api/users.md'
       - SDK:
         - Python: 'sdk/python.md'
     - Misc:
