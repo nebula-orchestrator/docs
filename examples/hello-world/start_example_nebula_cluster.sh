@@ -62,4 +62,4 @@ echo "sudo docker run -d --restart unless-stopped -v /var/run/docker.sock:/var/r
 echo ""
 echo "You can now connect to each device on port 81 via your browser to see and example nginx running"
 echo ""
-echo "Feel free to play around with Nebula API https://nebula.readthedocs.io/en/latest/api/ on port 80 with the basic auth user & pass being 'nebula' or to read more about it at https://nebula.readthedocs.io/en/latest/"
+echo "Feel free to play around with Nebula https://nebula.readthedocs.io on port 80 with the both the bearer token & basic auth user/pass being 'nebula' or to read more about it"

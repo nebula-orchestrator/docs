@@ -26,6 +26,7 @@ services:
       SCHEMA_NAME: nebula
       BASIC_AUTH_PASSWORD: nebula
       BASIC_AUTH_USER: nebula
+      AUTH_TOKEN: nebula
 
   worker:
     container_name: worker
