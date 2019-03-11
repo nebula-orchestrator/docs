@@ -96,4 +96,24 @@ connection.update_device_group("device_group_name", device_group_config)
 # list paginated reports
 connection.list_reports()
 
+# create a user
+user_config = {"password": "user_password", "token": "user_token"}
+connection.create_user("user_name", user_config)
+
+# list user info
+connection.list_user("user_name")
+
+# list all users
+connection.list_users()
+
+# update a user
+user_config = {"password": "new_password", "token": "new_token"}
+connection.update_user("user_name", user_config)
+
+# refresh a user token
+connection.refresh_user_token("user_name")
+
+# delete a user
+connection.delete_user("user_name")
+
 ```
