@@ -64,7 +64,7 @@ When trying to add a existing user:
 ```
 403
 {
-    "user_name": true
+    "user_exists": true
 }
 ```
 
