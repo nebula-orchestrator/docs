@@ -71,7 +71,8 @@ When trying to add a existing user:
 # Refresh a user token
 Generate a new secure random token for a user and returns it.
 
-!!note
+
+!! note
     This is the only time the token will be returned unhashed, make sure to keep it safe.
 
 
