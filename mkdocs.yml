@@ -24,6 +24,7 @@ pages:
         - Apps: 'api/apps.md'
         - device_groups: 'api/device_groups.md'
         - users: 'api/users.md'
+        - user_groups: 'api/user_groups.md'
       - SDK:
         - Python: 'sdk/python.md'
     - Misc:
