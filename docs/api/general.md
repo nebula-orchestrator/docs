@@ -7,6 +7,8 @@ There are currently 2 possible authentication methods:
  
  you can use either\both however you please, should you wish to disable both auth you must set the `auth_enabled` parameter on the manager to `false`.
 
+The `basic_auth_user`, `basic_auth_password` & `auth_token` parameters of the manager configure the local admin user which is automatically granted permissions for everything, aside from the local admin user there is also internal users which is managed by being attached to user_groups and granting permissions to said user_groups, this allows you to set read only or read\write  permissions on both the app level and the device_group level, allow\disallow pruning permissions & create more admin users.
+
 # Get api status
 a simple endpoint that can be used to monitor the API is working
 

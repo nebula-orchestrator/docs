@@ -1,3 +1,5 @@
+All of the users endpoints require an "admin" to edit\view.
+
 # Update user
 Updates a user password and\or token, note that the response of said fields is hashed.
 
