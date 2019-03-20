@@ -154,7 +154,7 @@ Authorization: Basic <your-basic_auth_base64-here>
 }
 ```
 
-# List user info
+# List user_group info
 list a user_group info
 
  **request**
