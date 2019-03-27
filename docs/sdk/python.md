@@ -116,4 +116,33 @@ connection.refresh_user_token("user_name")
 # delete a user
 connection.delete_user("user_name")
 
+# create a user group
+user_group_config = {
+                        "group_members": [
+                            "user_name"
+                            ], 
+                        "pruning_allowed": True, 
+                        "apps": {
+                            "app_name": "rw"
+                            }, 
+                        "device_groups": {
+                            "device_group_name": "ro"
+                            }, 
+                        "admin": False
+                    }
+connection.create_user_group("user_group_name", user_group_config)
+
+# list user group info
+connection.list_user_group("user_group_name")
+
+# list all users group
+connection.list_user_groups()
+
+# update a user group
+user_group_config = {"admin": False}
+connection.update_user_group("user_group_name", user_group_config)
+
+# delete a user group
+connection.delete_user_group("user_group_name")
+
 ```
