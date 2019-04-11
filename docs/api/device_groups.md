@@ -87,6 +87,8 @@ success:
                 "nebula",
                 "bridge"
             ],
+            "cron_jobs": [],
+            "cron_jobs_list": [],
             "docker_image": "httpd:alpine"
         }
     ],
@@ -118,6 +120,9 @@ Cache-Control: no-cache
     "apps": [
         "test",
         "test123"
+    ],
+    "cron_jobs": [
+        "test"
     ],
     "device_group_id": 116,
     "device_group": "device_group_name"
@@ -164,6 +169,9 @@ Cache-Control: no-cache
     "apps": [
         "test",
         "test123"
+    ],
+    "cron_jobs": [
+        "test"
     ]
 }
 ```
@@ -182,7 +190,10 @@ Cache-Control: no-cache
         "test123"
     ],
     "device_group_id": 116,
-    "device_group": "device_group_name"
+    "device_group": "device_group_name",
+    "cron_jobs": [
+        "test"
+    ]
 }
 ```
 
@@ -222,6 +233,9 @@ Cache-Control: no-cache
     "apps": [
         "test",
         "test123"
+    ],
+    "cron_jobs": [
+        "test"
     ]
 }
 ```
@@ -240,7 +254,10 @@ Cache-Control: no-cache
         "test123"
     ],
     "device_group_id": 116,
-    "device_group": "device_group_name"
+    "device_group": "device_group_name",
+    "cron_jobs": [
+        "test"
+    ]
 }
 ```
 

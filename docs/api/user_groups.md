@@ -16,6 +16,7 @@ Authorization: Basic <your-basic_auth_base64-here>
     "group_members": ["test123"],
     "pruning_allowed": true,
     "apps": {"test": "rw", "test123": "ro"},
+    "cron_jobs": {"test": "rw", "test123": "ro"},
     "device_groups": {"test": "rw", "test123": "ro"},
     "admin": true
 }
@@ -35,6 +36,10 @@ Authorization: Basic <your-basic_auth_base64-here>
     ],
     "pruning_allowed": true,
     "apps": {
+        "test": "rw",
+        "test123": "ro"
+    },
+    "cron_jobs": {
         "test": "rw",
         "test123": "ro"
     },
@@ -62,6 +67,7 @@ Authorization: Basic <your-basic_auth_base64-here>
     "group_members": ["test123"],
     "pruning_allowed": false,
     "apps": {"test": "rw", "test123": "ro"},
+    "cron_jobs": {"test": "rw", "test123": "ro"},
     "device_groups": {"test": "rw", "test123": "ro"},
     "admin": false
 }
@@ -85,6 +91,10 @@ Authorization: Basic <your-basic_auth_base64-here>
         "test123": "ro"
     },
     "device_groups": {
+        "test": "rw",
+        "test123": "ro"
+    },
+    "cron_jobs": {
         "test": "rw",
         "test123": "ro"
     },
@@ -182,6 +192,10 @@ Authorization: Basic <your-basic_auth_base64-here>
         "test123": "ro"
     },
     "device_groups": {
+        "test": "rw",
+        "test123": "ro"
+    },
+    "cron_jobs": {
         "test": "rw",
         "test123": "ro"
     },
