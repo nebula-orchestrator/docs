@@ -17,11 +17,6 @@ success:
 ```
 200
 {
-    "prune_id": 544,
-    "apps_list": [
-        "test",
-        "test123"
-    ],
     "apps": [
         {
             "app_name": "test",
@@ -29,12 +24,10 @@ success:
                 "test": "blabla123",
                 "test3t2t32": "tesg4ehgee"
             },
-            "app_id": 319,
-            "devices": [],
-            "privileged": false,
+            "app_id": 498,
             "running": true,
             "containers_per": {
-                "server": 1
+                "mem": 1024
             },
             "starting_ports": [
                 {
@@ -42,19 +35,20 @@ success:
                 },
                 8888
             ],
-            "volumes": [
-                "/tmp:/tmp/1",
-                "/var/tmp/:/var/tmp/1:ro"
-            ],
-            "_id": {
-                "$oid": "5c2c767959be4c000ed3653f"
-            },
-            "rolling_restart": false,
             "networks": [
                 "nebula",
                 "bridge"
             ],
-            "docker_image": "nginx:alpine"
+            "docker_image": "httpd",
+            "devices": [],
+            "volumes": [
+                "/tmp:/tmp/1",
+                "/var/tmp/:/var/tmp/1:ro"
+            ],
+            "privileged": false,
+            "rolling_restart": false,
+            "app_token": "bb627c20-e5e9-402c-9f44-111889da2c39",
+            "schedule": "0 0 * * *"
         },
         {
             "app_name": "test123",
@@ -62,37 +56,59 @@ success:
                 "test": "blabla123",
                 "test3t2t32": "tesg4ehgee"
             },
-            "app_id": 6,
-            "devices": [],
-            "privileged": false,
+            "app_id": 7,
             "running": true,
             "containers_per": {
                 "cpu": 1
             },
             "starting_ports": [
                 {
-                    "333": "80"
-                },
-                777
+                    "888": "888"
+                }
             ],
-            "volumes": [
-                "/tmp:/tmp/1",
-                "/var/tmp/:/var/tmp/1:ro"
-            ],
-            "_id": {
-                "$oid": "5c2c767659be4c000ed3653e"
-            },
-            "rolling_restart": false,
             "networks": [
                 "nebula",
                 "bridge"
             ],
-            "cron_jobs": [],
-            "cron_jobs_list": [],
-            "docker_image": "httpd:alpine"
+            "docker_image": "httpd:alpine",
+            "devices": [],
+            "volumes": [
+                "/tmp:/tmp/1",
+                "/var/tmp/:/var/tmp/1:ro"
+            ],
+            "privileged": false,
+            "rolling_restart": false,
+            "app_token": "680b735b-fd64-43a7-b0b8-4b3905e65352"
         }
     ],
-    "device_group_id": 116
+    "apps_list": [
+        "test",
+        "test123"
+    ],
+    "prune_id": 125,
+    "cron_jobs": [
+        {
+            "cron_job_id": 1,
+            "cron_job_name": "test",
+            "schedule": "0 * * * *",
+            "env_vars": {
+                "test": "test123"
+            },
+            "docker_image": "nginx",
+            "running": true,
+            "networks": [
+                "nebula",
+                "bridge"
+            ],
+            "volumes": [],
+            "devices": [],
+            "privileged": false
+        }
+    ],
+    "cron_jobs_list": [
+        "test"
+    ],
+    "device_group_id": 31
 }
 ```
 
