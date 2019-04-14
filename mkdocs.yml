@@ -25,6 +25,7 @@ pages:
         - device_groups: 'api/device_groups.md'
         - users: 'api/users.md'
         - user_groups: 'api/user_groups.md'
+        - cron_jobs: 'api/cron_jobs.md'
       - SDK:
         - Python: 'sdk/python.md'
     - Misc:
