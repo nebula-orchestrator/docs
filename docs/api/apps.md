@@ -307,8 +307,12 @@ Cache-Control: no-cache
 }
 ```
 
-# Update all of app params (POST)
-update a Nebula app config, all the parameters needs to be overwritten at once (POST only), for updating only some of the app parameters use PUT instead, the docker_image is required with the rest of the parameters reverting to default values if not declared.
+# Update app
+update a Nebula app config
+
+use POST requests to require updating all of the app fields.
+
+use PUT requests to update only a subset of the app fields while leaving the rest as is.
 
  **request**
 
@@ -371,64 +375,5 @@ missing parameters:
 400
 {
  "missing_parameters": ["running", "volumes"]
-}
-```
-
-# Update some app params (PUT / PATCH)
-update a Nebula app config, accepts any combination of the app configuration params.
-
- **request**
-
-```
-PUT /api/v2/apps/app_name/update HTTP/1.1
-Host: localhost:5000
-Authorization: Basic <your-basic_auth_base64-here>
-Content-Type: application/json
-Cache-Control: no-cache
- 
-{
-    "rolling_restart": true,
-    "containers_per": {"server": 1}
-}
-```
-
- **response example**
-
-success:
-```
-202
-{
-    "app_name": "app_name",
-    "env_vars": {
-        "test": "app_name"
-    },
-    "app_id": 4,
-    "devices": [],
-    "privileged": false,
-    "running": true,
-    "containers_per": {
-        "server": 1
-    },
-    "starting_ports": [
-        80
-    ],
-    "volumes": [],
-    "_id": {
-        "$oid": "5c370a85ebdb54000edb8ef2"
-    },
-    "rolling_restart": true,
-    "networks": [
-        "nebula",
-        "bridge"
-    ],
-    "docker_image": "nginx"
-}
-```
-
-missing parameters:
-```
-400
-{
- "missing_parameters": "True"
 }
 ```

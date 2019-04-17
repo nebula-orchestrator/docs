@@ -16,6 +16,9 @@ pages:
         - 'config/manager.md'
         - 'config/worker.md'
         - 'config/reporter.md'
+        - 'config/cron_jobs.md'
+        - 'config/users.md'
+        - 'config/user_groups.md'
       - Scaling: scaling.md
     - Controling:
       - CLI: cli.md

@@ -236,6 +236,10 @@ Cache-Control: no-cache
 # update a device group
 update a device group
 
+use POST requests to require updating all of the device_group fields.
+
+use PUT requests to update only a subset of the device_group fields while leaving the rest as is.
+
  **request**
 
 ```
