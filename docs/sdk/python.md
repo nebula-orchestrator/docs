@@ -145,4 +145,32 @@ connection.update_user_group("user_group_name", user_group_config)
 # delete a user group
 connection.delete_user_group("user_group_name")
 
+# list all cron jobs
+connection.list_cron_jobs()
+
+# delete a cron job
+connection.delete_cron_job("cron_job_name")
+
+# list a cron job
+connection.list_cron_job_info("cron_job_name")
+
+# create a cron job
+cron_job_config = {
+  "env_vars": {"test": "test123"},
+  "docker_image" : "nginx",
+  "running": True,
+  "volumes": [],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
+  "privileged": False,
+  "schedule": "0 * * * *"
+}
+connection.create_cron_job("cron_job_name", cron_job_config)
+
+# update a cron job
+cron_job_config = {
+  "schedule": "5 * * * *"
+}
+connection.create_cron_job("cron_job_name", cron_job_config)
+
 ```
