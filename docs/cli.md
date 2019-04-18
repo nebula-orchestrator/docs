@@ -39,6 +39,7 @@ Options:
 
 Commands:
   apps           Manage nebula apps.
+  cron-jobs      Manage nebula cron_jobs.
   device-groups  Manage nebula device_groups.
   login          login to nebula
   logout         logout of nebula, useful when you want to make sure to...
