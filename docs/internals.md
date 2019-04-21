@@ -60,6 +60,9 @@ Each worker follows the same basic steps:
         3. if the prune_id is larger then run pruning of docker images
     2. if any changes happened in the previous step save the newer configuration to the local config
 
-## the optional reporting system
+## Cron jobs
+
+Each worker run also controls running cron_jobs containers, this allows for simple periodic jobs (such as disk cleaning) to take place without the needs for a container running non stop and hugging resources, the cron_jobs are scheduled with each worker check_in so there might be a delay of "nebula_manager_check_in_time" at most after the scheduled job time to it's actual time run.
+## The optional reporting system
 
 The optional reporter system is Kafka based, this is really a classic use-case for Kafka, where a lot of devices each send a single report every X seconds with it's current state configuration, the flow for the reporting system goes from the workers to the Kafka, from there a "reporter" component populates the backend DB with the data which the manager instances can in turn query to retrieve to the admin the state of managed devices.
