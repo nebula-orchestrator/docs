@@ -50,6 +50,48 @@ cache-control: no-cache
 
 Your done, each change you now make in nebula will be synced to all of your devices.
 
+# Scheduled cron jobs
+
+Similar to how apps are created cron jobs can also be scheduled to run on all workers:
+
+1. we create a cron_job that manages the cron schedule, container image, envvar, etc - it's important to have that container exit when done, the following example will run every hour (0 * * * *):
+
+```
+POST /api/v2/cron_jobs/smart_speaker_cron HTTP/1.1
+Host: <your-manager>
+Authorization: Basic <your-basic-auth>
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "env_vars": {"RUN_ONCE": "true", "CLEANUP":"true"},
+  "docker_image" : "registry.awsomespeakersinc.com:5000/speaker_clean_up_cron:v7",
+  "running": true,
+  "volumes": ["/var/run/docker.sock:/var/run/docker.sock"],
+  "networks": ["nebula", "bridge"],
+  "devices": [],
+  "privileged": false,
+  "schedule": "0 * * * *"
+}
+```
+
+2. we then add said cron to our device_group, as we already have a device_group for the smart speakers created in the previous step where we configured the main app we will update said device_group config:
+
+```
+PU /api/v2/device_groups/speakers/update HTTP/1.1
+Host: <your-manager>
+Authorization: Basic <your-basic-auth>
+Content-Type: application/json
+cache-control: no-cache
+{
+    "cron_jobs": [
+        "smart_speaker_cron"
+    ]
+}
+```
+
+Now as the workers on all the smart speakers are already configured from the app step to be part of the "speakers" device_group they will all receive the configuration to run the new cron automatically without any additional steps needed.
+
 # Backup & restore
 
 As the only stateful part of the entire design is the MongoDB backing it up using any of the best practice methods available to it is sufficient, that being said it might be a good idea to also have your version of the manager & worker containers available in more then one registry in case of issues with your chosen registry supplier (or self hosted one).
