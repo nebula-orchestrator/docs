@@ -37,7 +37,6 @@ curl -X PUT \
   http://your_nebula_manager_fqdn/api/v2/device_groups/device_group_you_want_to_auto_update_worker/update \
   -H 'Authorization: Bearer your_bearer_token' \
   -H 'Content-Type: application/json' \
-  -H 'Postman-Token: 349cb1f9-c46c-4266-8f8d-e4ae8d694a54' \
   -H 'cache-control: no-cache' \
   -d '{
     "cron_jobs": ["auto_upgrade_workers"]
