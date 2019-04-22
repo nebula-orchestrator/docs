@@ -1,6 +1,6 @@
 site_name: Nebula
 theme: readthedocs
-pages:
+nav:
     - Home: index.md
     - Design:
       - Architecture: architecture.md
@@ -32,6 +32,7 @@ pages:
       - SDK:
         - Python: 'sdk/python.md'
     - Misc:
+      - Automatically update workers: auto-update-workers.md
       - Monitoring & Securing: best-practice.md
       - Nebula vs. Others: compare2orchestrators.md
       - Contributing: contribute.md
