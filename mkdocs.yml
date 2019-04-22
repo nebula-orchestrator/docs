@@ -1,4 +1,4 @@
-site_name: Nebula
+site_name: Nebula Container Orchestrator
 theme: readthedocs
 nav:
     - Home: index.md
