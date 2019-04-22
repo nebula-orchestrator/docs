@@ -3,7 +3,7 @@
 !!! warning
     Automatically updating workers is not recommended for production use.
 
-If you want to have the worker containers Automatically update you can set them to use the "latest" tag of the worker and run the following nebula cron_job which will ensure they are updated whenever a newer version is released.
+If you want to have the worker containers Automatically update you can set them to use the "latest" tag of the worker and run the following nebula cron_job which uses [ouroboros](https://github.com/pyouroboros/ouroboros) to ensure the worker containers are updated whenever a newer version is released.
 
 ```bash
 curl -X POST \
