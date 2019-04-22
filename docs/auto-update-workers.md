@@ -27,7 +27,7 @@ Make sure to change the following to suit your need:
 
 * your_nebula_manager_fqdn - the FQDN where you connect to your nebula manager.
 * MONITOR envvar - will need to be the same as the container name you give your worker ("worker" in this example).
-* "schedule" - will need to be a valid cron of when you want the auto update check to take place at ("0 * * * *" in this example which means every hour on the hour).
+* "schedule" - will need to be a valid cron of when you want the auto update check to take place at.
 * "your_bearer_token" - the token to auth to your nebula manager, basic auth can also be used by switching from Bearer to Basic.
 
 You will then need to add the new cron_job to every device_group you want the workers of to be auto_updated, for example:
