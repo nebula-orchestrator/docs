@@ -74,6 +74,7 @@ Can be filtered via the request parameters (none are required):
     * lte 
     * ne
  * last_id = the last_id that is returned by the a current paginated query, passing it will make the load the next paginated page, upon reaching the last page 'null' will be returned.
+ * updated = setting to "True" will return only reports where there was a change in the device configuration, setting to "False" will return only the reports where there was no changes in the device configuration, if unset all reports will be returned.
 
 
  **request**
