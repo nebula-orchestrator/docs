@@ -28,7 +28,7 @@ Should you want to ssh to the droplets for any reason (not needed for the system
  
 ## Running instructions
 
- 1. clone the repo from https://github.com/nebula-orchestrator/nebula-digitalocean-global-deployment-example
+ 1. [clone the github repo](https://github.com/nebula-orchestrator/nebula-digitalocean-global-deployment-example)
  2. cd into the repo folder
  3. Change the run.tf (in repo root folder) to your variables 
  4. run `terraform apply`.
