@@ -42,3 +42,4 @@ nav:
 repo_url: https://github.com/nebula-orchestrator/docs
 markdown_extensions:
   - admonition
+  - codehilite
