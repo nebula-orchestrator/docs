@@ -184,7 +184,7 @@ update a Nebula cron job config, requires all of the cron job configuration para
  **request**
 
 ```
-PUT /api/v2/cron_jobs/cron_job_name/update HTTP/1.1
+POST /api/v2/cron_jobs/cron_job_name/update HTTP/1.1
 Host: localhost:5000
 Authorization: Basic <your-basic_auth_base64-here>
 Content-Type: application/json
