@@ -177,3 +177,56 @@ missing parameters:
  "missing_parameters": "True"
 }
 ```
+
+# Update all cron job params (POST)
+update a Nebula cron job config, requires all of the cron job configuration params.
+
+ **request**
+
+```
+PUT /api/v2/cron_jobs/cron_job_name/update HTTP/1.1
+Host: localhost:5000
+Authorization: Basic <your-basic_auth_base64-here>
+Content-Type: application/json
+Cache-Control: no-cache
+ 
+{
+	"schedule": "0 0 * * *",
+	"docker_image": "httpd"
+}
+```
+
+ **response example**
+
+success:
+```
+202
+{
+    "_id": {
+        "$oid": "5cb309239d723e5e3d22d0a0"
+    },
+    "cron_job_id": 11,
+    "cron_job_name": "test",
+    "schedule": "0 0 * * *",
+    "env_vars": {
+        "test": "test123"
+    },
+    "docker_image": "httpd",
+    "running": true,
+    "networks": [
+        "nebula",
+        "bridge"
+    ],
+    "volumes": [],
+    "devices": [],
+    "privileged": false
+}
+```
+
+missing parameters:
+```
+400
+{
+ "missing_parameters": "True"
+}
+```
