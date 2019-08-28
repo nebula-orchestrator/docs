@@ -81,6 +81,10 @@ connection.restart_app("app_name")
 # update app
 connection.update_app("app_name", app_conf)
 
+# update app force all params - will reset all params to default values if not declared and raise an error for params 
+# that are required but not given, similar to the POST update of the API
+connection.update_app("app_name", app_conf, force_all=True)
+
 # prune images on all device groups
 connection.prune_images()
 
@@ -171,6 +175,14 @@ connection.create_cron_job("cron_job_name", cron_job_config)
 cron_job_config = {
   "schedule": "5 * * * *"
 }
-connection.create_cron_job("cron_job_name", cron_job_config)
+connection.update_cron_job("cron_job_name", cron_job_config)
+
+# update a cron job force all params - will reset all params to default values if not declared and raise an error for 
+# params that are required but not given, similar to the POST update of the API
+cron_job_config = {
+  "schedule": "5 * * * *",
+  "docker_image" : "nginx"
+}
+connection.update_cron_job("cron_job_name", cron_job_config, force_all=True)
 
 ```
