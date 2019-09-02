@@ -62,7 +62,7 @@ will result in:
 
 | envvar          | description                                                                    | default value |
 |-----------------|--------------------------------------------------------------------------------|---------------|
-| nebula_host     | The nebula server URL (no trailing slash should be used)                       | "127.0.0.1"   |
+| nebula_host     | The nebula server FQDN\IP                                                      | "127.0.0.1"   |
 | nebula_job_file | The nebula configuration file location relative to the root folder of the repo | "nebula.json" |
 | nebula_username | The nebula basic_auth username to use                                          | None          |
 | nebula_password | The nebula basic_auth password to use                                          | None          |
