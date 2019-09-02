@@ -11,7 +11,8 @@ The below pipeline configuration demonstrates simple usage:
 > In addition to the `.drone.yml` file you will need to create a `nebula.json` file that contains the nebula configuration as well as the "app_name" field. Please see [here](test/test_files/nebula.json) for an example. 
 
 ```yaml
-pipeline:
+kind: pipeline
+type: docker
 name: default
 
 steps:
@@ -26,7 +27,8 @@ steps:
 
 Example configuration with values substitution:
 ```yaml
-pipeline:
+kind: pipeline
+type: docker
 name: default
 
 steps:
