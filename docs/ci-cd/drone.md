@@ -26,6 +26,7 @@ steps:
 ### Value substitution
 
 Example configuration with values substitution:
+
 ```yaml
 kind: pipeline
 type: docker
