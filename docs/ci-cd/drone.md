@@ -8,7 +8,7 @@ This plugin can be used to deploy applications to a nebula server, it will creat
 
 The below pipeline configuration demonstrates simple usage:
 
-> In addition to the `.drone.yml` file you will need to create a `nebula.json` file that contains the nebula configuration as well as the "app_name" field. Please see [here](test/test_files/nebula.json) for an example. 
+> In addition to the `.drone.yml` file you will need to create a `nebula.json` file that contains the nebula configuration as well as the "app_name" field. Please see [here](https://github.com/nebula-orchestrator/drone-nebula/blob/master/test/test_files/nebula.json) for an example. 
 
 ```yaml
 kind: pipeline
