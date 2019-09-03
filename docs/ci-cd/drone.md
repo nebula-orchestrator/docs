@@ -9,7 +9,7 @@ This plugin can be used to deploy applications to a nebula server, it will creat
 The below pipeline configuration demonstrates simple usage:
 
 !!! note 
-    In addition to the `.drone.yml` file you will need to create a `nebula.json` file that contains the nebula configuration as well as the "app_name" field. Please see [here](https://github.com/nebula-orchestrator/drone-nebula/blob/master/test/test_files/nebula.json) for an example. 
+    In addition to the `.drone.yml` file you will need to create a `nebula.json` file that contains the nebula configuration as well as the "app_name" (for app) or "cron_job_name" (for cron_job) field. Please see [here](https://github.com/nebula-orchestrator/drone-nebula/blob/master/test/test_files/nebula.json) for an example. 
 
 ```yaml
 kind: pipeline
@@ -64,12 +64,13 @@ will result in:
 
 ## Parameter Reference
 
-| envvar          | description                                                                    | default value |
-|-----------------|--------------------------------------------------------------------------------|---------------|
-| nebula_host     | The nebula server FQDN\IP                                                      | "127.0.0.1"   |
-| nebula_job_file | The nebula configuration file location relative to the root folder of the repo | "nebula.json" |
-| nebula_username | The nebula basic_auth username to use                                          | None          |
-| nebula_password | The nebula basic_auth password to use                                          | None          |
-| nebula_token    | The nebula token_auth token to use                                             | None          |
-| nebula_port     | The nebula server port                                                         | 80            |
-| nebula_protocol | The nebula server protocol                                                     | "http"        |
+| envvar          | description                                                                    | default value | required  |
+|-----------------|--------------------------------------------------------------------------------|---------------|-----------|
+| nebula_host     | The nebula server FQDN\IP                                                      |               | yes       |
+| nebula_job_file | The nebula configuration file location relative to the root folder of the repo | "nebula.json" | no        |
+| nebula_username | The nebula basic_auth username to use                                          | None          | no        |
+| nebula_password | The nebula basic_auth password to use                                          | None          | no        |
+| nebula_token    | The nebula token_auth token to use                                             | None          | no        |
+| nebula_port     | The nebula server port                                                         | 80            | no        |
+| nebula_protocol | The nebula server protocol                                                     | "http"        | no        |
+| nebula_job_type | The type of nebula job, "app" or "cron_job"                                    | "app"         | no        |
