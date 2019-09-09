@@ -9,7 +9,7 @@ The [docker-compose tutorial](getting-started.md) is great for getting a feeling
 ## Requirements: 
 
  - terraform 0.12.0 or higher
- - DIGITALOCEAN_TOKEN 
+ - [DIGITALOCEAN_TOKEN](https://www.terraform.io/docs/providers/do/index.html#token) envvar set to your digital ocean token
  - an ssh pub key pre uploaded to digital ocean
  - curl installed on the machine running terraform
  
@@ -22,7 +22,7 @@ The [docker-compose tutorial](getting-started.md) is great for getting a feeling
  - worker_count - the number of Nebula workers to create - defaults to `9`
  - worker_region_droplet - the regions where the workers will be deployed on - defaults to `["nyc1", "nyc3", "sfo2", "ams3", "sgp1", "lon1", "fra1", "tor1", "blr1"]`
  - worker_size - the size of the servers used in Nebula - note that at least 1GB is needed as it uses a RancherOS for simplicity sake - defaults to `2gb`
- - digital_ocean_token - the token used to connect to your digital ocean account - required
+ - DIGITALOCEAN_TOKEN - the token used to connect to your digital ocean account - needs to be declared as an envvar - required
  
 Should you want to ssh to the droplets for any reason (not needed for the system to work) you can do so with the private key & the `centos` user for the manager and `rancher` user for the workers.
  
