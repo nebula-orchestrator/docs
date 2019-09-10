@@ -6,9 +6,10 @@ nav:
       - Architecture: architecture.md
       - Internals: internals.md
     - Setting up:
-      - Docker-compose localhost tutorial: getting-started.md
-      - Digital Ocean terraformed global deployment tutorial: digital-ocean-global-example.md
-      - Installing: install.md
+      - Docker-compose localhost tutorial: 'installing/getting-started.md'
+      - Digital Ocean terraformed global deployment tutorial: 'installing/digital-ocean-global-example.md'
+      - Packet terraformed global deployment tutorial: 'installing/packet-global-example.md'
+      - Installing: 'installing/install.md'
     - Configuring:
       - Using: use.md
       - Configuration settings:
