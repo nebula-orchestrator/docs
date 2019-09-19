@@ -38,6 +38,7 @@ nav:
       - Automatically update workers: auto-update-workers.md
       - CI/CD:
           - Drone.io: 'ci-cd/drone.md'
+          - Jenkins: 'ci-cd/jenkins.md'
       - Monitoring & Securing: best-practice.md
       - Nebula vs. Others: compare2orchestrators.md
       - Contributing: contribute.md
