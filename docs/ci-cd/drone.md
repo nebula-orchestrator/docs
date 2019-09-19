@@ -1,4 +1,4 @@
-[Drone](https://drone.io/) plugin for deploying to [nebula](http://nebula-orchestrator.github.io/) in a fully automated CI/CD fashion.
+There's a [Drone](https://drone.io/) plugin for deploying to [nebula](http://nebula-orchestrator.github.io/) in a fully automated CI/CD fashion.
 
 Note that this plugin is only in charge of the deploying to Nebula part of the CI/CD, other steps in the drone.io pipeline will likely be needed to build the container from the source code of your repo & deploy it to a Docker registry (as well as testing it) with this plugin likely being the final step of the deployment.
 
