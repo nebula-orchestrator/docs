@@ -2,7 +2,7 @@ backports-abc==0.5
 certifi==2019.11.28
 chardet==3.0.4
 Click==7.0
-idna==2.8
+idna==2.9
 Jinja2==2.11.1
 livereload==2.6.1
 Markdown==3.2.1
