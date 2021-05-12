@@ -1,7 +1,7 @@
 backports-abc==0.5
 certifi==2020.12.5
 chardet==4.0.0
-Click==7.1.2
+Click==8.0.0
 idna==2.10
 Jinja2==2.11.3
 livereload==2.6.3
