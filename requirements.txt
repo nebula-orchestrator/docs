@@ -9,7 +9,7 @@ Markdown==3.3.4
 MarkupSafe==2.0.1
 mkdocs==1.2.1
 PyYAML==5.4.1
-requests==2.25.1
+requests==2.26.0
 singledispatch==3.6.2
 six==1.16.0
 tornado==6.1
