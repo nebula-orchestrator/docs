@@ -8,7 +8,7 @@ livereload==2.6.3
 Markdown==3.3.4
 MarkupSafe==2.0.1
 mkdocs==1.2.2
-PyYAML==5.4.1
+PyYAML==6.0
 requests==2.26.0
 singledispatch==3.7.0
 six==1.16.0
