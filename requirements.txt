@@ -10,7 +10,7 @@ MarkupSafe==2.1.2
 mkdocs==1.4.2
 PyYAML==6.0
 requests==2.28.2
-singledispatch==3.7.0
+singledispatch==4.0.0
 six==1.16.0
 tornado==6.2
 urllib3==1.26.14
