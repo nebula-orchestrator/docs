@@ -7,7 +7,7 @@ Jinja2==3.1.2
 livereload==2.6.3
 Markdown==3.4.3
 MarkupSafe==2.1.2
-mkdocs==1.4.2
+mkdocs==1.4.3
 PyYAML==6.0
 requests==2.29.0
 singledispatch==4.0.0
