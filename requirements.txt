@@ -1,5 +1,5 @@
 backports-abc==0.5
-certifi==2023.7.22
+certifi==2023.11.17
 chardet==5.2.0
 Click==8.1.7
 idna==3.4
