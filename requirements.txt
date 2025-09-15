@@ -12,5 +12,5 @@ PyYAML==6.0.2
 requests==2.32.4
 singledispatch==4.1.2
 six==1.17.0
-tornado==6.5.1
+tornado==6.5.2
 urllib3==2.5.0
