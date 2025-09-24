@@ -5,7 +5,7 @@ Click==8.1.8
 idna==3.10
 Jinja2==3.1.5
 livereload==2.7.1
-Markdown==3.8
+Markdown==3.9
 MarkupSafe==3.0.2
 mkdocs==1.6.1
 PyYAML==6.0.2
